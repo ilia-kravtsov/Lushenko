@@ -1080,3 +1080,5 @@ let hb = 9;
 let hc;
 hc = ha+hb;
 alert(hc);
+__________________________
+let v = 9;
