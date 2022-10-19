@@ -568,7 +568,7 @@
 
 // console.log(L);            var L;
 //         var L;      э      console.log(L);  
-     
+
 // Hoisting - процесс в работе JS при котором, переносится
 // именно объявленная переменная вверх логического блока
 
@@ -881,7 +881,7 @@
 // // if (условие верно) то тогда выполнять действие заключённое в фигурных скобках {
 // //    таких действий может быть несколько, если действие одно можно обойтись без фигурных {}
 // // }
- 
+
 // /*------II if else обязательно реагирует либо одним либо другим
 // Но если наша задача представляет из себя развилку (вилку) где в любом случае должно 
 // что- то сработать пишется оператор else и далее просто пишется действие {действия}
@@ -1109,14 +1109,17 @@
 
 // // отработал, метод фиксирования печатанием считаю не эффективным, нужно делать через повторение
 
-let out = document.getElementById('out');
-let temp = '';
+
+//_____________________________________________Цикл For while_________________________________________________________
+
+// let out = document.getElementById('out');
+// let temp = '';
 
 // цикл с заданным количеством повторений, самый быстрый цикл JS - for
 
 // for (start;/* условие; затем условие работы, работаем пока условие верно*/ if-true; /* шаг изменения*/ step ){
 //     /*Здесь пишем что мы будем повторять */
-    
+
 // }
 // /*до тех пор пока i<15 цикл будет работать, дальше указываем как будет изменяться i, i будет изменяться с шагом 1*/
 // for (let i = 0; i<20; i = i + 1 ) {
@@ -1154,6 +1157,208 @@ let temp = '';
 // }
 
 //__________________________________________# 11 Массивы Javasrcipt_________________________________________________
-let a = [];
-let b = [12, 13, 66, 999];
-console.log(b[3])
+//
+// let a = [];
+// let b = [12, 13, 66, 999];
+// console.log(b.length)
+//
+// let c = [3, 'Hello', true];
+// console.log(c)
+// c[2] = 999;
+// c[5] = 777;
+// delete c[5];
+// console.log(c)
+//
+// let out = document.getElementById('out');
+// let str = '';
+// for (let i = 0; i<c.length; i++) {
+//     if(c[i] !== undefined)
+//     str += i + ' - ' + c[i] + '<br>';
+// }
+// out.innerHTML = str;
+
+//____________________________________________# 12 Методы массивов_____________________________________________________
+//.push() добавляет элементы в конец массива
+// let a = [2,7];
+// a.push('hello')
+// a.push(65)
+// console.log(a)
+//
+// //.pop() позволяет удалить последний элемент массива
+// let b = a.pop();
+// a.shift();
+// a.unshift('world');
+// console.log(a);
+//
+// let f ="Hi, my, name, Ivan";
+// let d = f.split(',');//trim - позволяет избавиться от пробелов
+// let j = d.slice(1,3);
+// console.log(d);
+// console.log(d.join(''));
+// console.log(j);
+
+// let a = [92,7, 8, 33, 'hello'];
+// let [b, c] = a;
+// console.log(b,c)
+
+// let p = document.getElementsByTagName('p');
+// console.log(p);
+// for (let i = 0; i<p.length; i++) {
+//     p[i].style.color= 'red';
+// }
+//
+// let p1 = document.getElementsByClassName('ttt')
+// console.log(p1);
+//
+// let p2 = document.querySelectorAll('.ttt');
+// for (j=0; j<p2.length; j++){
+//     p2[j].onclick = function() {
+//         alert('work')
+//     }
+// }
+// console.log(p2);
+
+// let a = 30
+// let b = 30
+//  a > b ? console.log('a - больше'): b > a ? console.log('b - больше'): console.log('числа равны');
+
+// for (let i = 0; i < 20; i++ ) {
+//     if (i == 5) continue; // прерывает не весь цикл а только его итерацию
+//
+//     console.log(i)
+// }
+//
+// for (i=0; i<20; i++) {
+//     console.log(i)
+//     if (i == 5) break; // прерывает весь цикл
+// }
+// i = 0
+// while (i<8) { //условие если верно пускает в цикл) {}
+//     i++
+//     continue
+//     console.log(i)
+//
+// }
+
+// for (let i = 1; i <= 9; i++) {
+//     let b = i*7;
+//     console.log('7 * ' + i + ' = ' + b);
+// } // таблица умножения 7
+
+// let a = [];
+// let b = [13, 14, 56, 73];
+// console.log(b.length);
+// let c = [3, 'hello', true];
+// console.log(c);
+// c[1] = 896
+// console.log(c)
+// c[5] = 928
+// console.log(c);
+// delete c[5];
+// console.log(c);
+//
+// let t = document.getElementById('out')
+// let str = ''
+// for (let i = 0; i < c.length; i++) {
+//     if (c[i] !== undefined) {
+//         str = str + i + ' - ' + c[i] + '<br>'
+//     }
+// }
+// out.innerHTML = str;
+//
+// let y = [13, 35];
+// y.push('hello')
+// y.push(124);
+// console.log(y)
+// let r = y.pop()
+// console.log(r)
+//
+// y.shift()
+// console.log(y)
+// y.unshift('world')
+//
+// let as = 'My, name, is, ivan';
+// let sa = as.split(',');
+// console.log(sa); // => ['My', ' name', ' is', ' ivan']
+//
+// console.log(sa.join())
+//
+// let sj = sa.slice(1,3);
+// console.log(sj)
+//
+// let rty = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+// let ax = rty.slice(4,8);
+// let [az, bz, zc] = ax
+// console.log(az, bz, zc);
+// let p = document.getElementsByTagName('p')
+// console.log(p);
+// for(i = 0; i<p.length; i++){
+//     p[i].style.color = 'red';
+// }
+//
+// let o = document.getElementsByClassName(('ttt'))
+//
+// for (let joj = 0; joj<o.length; joj++) {
+//     o[joj].onclick = function() {
+//         alert('хватит нажимать')
+//     }
+// }
+//
+//
+// let r = [-4, -3, -2, -1, 0, 1, 2, 3, 4]
+// let zero = 0;
+// for (let k = 0; k < r.length; k++) {
+//     zero = zero + r[k]
+// }
+// console.log(zero / r.length);
+// console.log(Math.max.apply(null, r))
+//______________________________________________________________Зашло_________________________________________________
+// let temp2 = [
+//         [3, 6, 3],
+//         [4, -5, 6],
+//         [7, 8, -9]
+// ];
+// console.log("-----")
+// for (let u = 0; u < temp2.length; u++) {
+//     Sred = 0;
+//     for (let jo = 0; jo < temp2[u].length; jo++) {
+//         Sred = Sred + temp2[u][jo];
+//     }
+//     console.log(Sred / temp2[u].length);
+//     console.log('t min'+Math.min.apply(null, temp2[u]))
+//     console.log('t max'+Math.max.apply(null, temp2[u]))
+// }
+//_____________________________________________Map________________________________________________________________
+// let ter = [10, 20, 30];
+// ter[5] = 40;
+// delete ter[5];
+// let newter = [];
+// for (let i = 0; i<ter.length; i++) {
+//     newter[i] = ter[i]*2;
+// }
+// console.log(ter);
+// console.log(newter);
+// console.log('_______________')
+// let c = ter.map(function(x, y,z){
+//     return x*2
+// })
+// console.log(c)
+// let a = [12, -5, 30, 56, -34, 78, -9]
+// let b = []
+//
+// for (i=0; i<a.length; i++) {
+//     if (a[i]>0) b.push(a[i])
+// }
+// console.log(a)
+// console.log(b)
+let a = [12, -5, 30, 56, -34, 78, -9]
+
+let b = a.filter(function (x,y){
+    return x%2===1;
+})
+console.log(b);
+
+
+
+
+
