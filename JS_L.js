@@ -1351,14 +1351,46 @@
 // }
 // console.log(a)
 // console.log(b)
-let a = [12, -5, 30, 56, -34, 78, -9]
+// let a = [12, -5, 30, 56, -34, 78, -9]
 
-let b = a.filter(function (x,y){
-    return x%2===1;
-})
-console.log(b);
+// let b = a.filter(function (x,y){
+//     return x%2===1;
+// })
+// console.log(b);
 
 
+//     for (let i = 1; i <= 10; i++) {
+//          let b = i*5;
+//          console.log(i + ' * 5' + ' = ' + b);
+//   }
+
+//   1 * 5 = 5
+//  2 * 5 = 10
+//  3 * 5 = 15
+//  4 * 5 = 20
+//  5 * 5 = 25
+//  6 * 5 = 30
+//  7 * 5 = 35
+//  8 * 5 = 40
+//  9 * 5 = 45
+//  10 * 5 = 50
+
+// function multiTable(number) {
+//     return `1 * ${number} = ${1*number}
+//     2 * ${number} = ${2*number}
+//     3 * ${number} = ${3*number}
+//     4 * ${number} = ${4*number}
+//     5 * ${number} = ${5*number}
+//     6 * ${number} = ${6*number}
+//     7 * ${number} = ${7*number}
+//     8 * ${number} = ${8*number}
+//     9 * ${number} = ${9*number}
+//     10 * ${number} = ${10*number}`
+//     }
+// переворот слов
+// function reverseWords(str){
+//     return str.split(' ').reverse().join(' ');
+//   }
 
 
 
