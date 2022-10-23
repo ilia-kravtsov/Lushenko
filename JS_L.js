@@ -1392,5 +1392,119 @@
 //     return str.split(' ').reverse().join(' ');
 //   }
 
+// let a = 'hi my name ilia'
+// console.log(a)           // => hi my name ilia
+// let b = a.split(' ')     
+// console.log(b)           // => 6 ['hi', 'my', 'name', 'ilia']                   
+// let c = b.join(' ')
+// console.log(c)           // => hi my name ilia   
+
+// let v = [5, 4, 3, 2]
+// let f = v.slice(1,3)
+// console.log(f)           // => 4,3
+
+// let a =  [0, 1, 2, 3, 4, 5, 6, 7]
+// let [ b, c, e, t, y, u, i ]= a
+// console.log(b, c, e, t, y, u, i ) // => 0 1 2 3 4 5 6
+
+let p = document.getElementsByTagName('p')
+console.log(p)
+for (let i = 0; i<p.length ; i++) {
+    p[i].style.color='red'
+}
+
+let b = document.getElementsByClassName('ttt')
+console.log(b)
+
+for (let j = 0; j<b.length; j++) {
+    p[j].onclick= () => {
+        alert('work')
+    }
+}
+
+let q =[-4, -3, -2, -1, 0, 1, 2, 3, 4]
+let CA = 0;
+for (let k = 0; k<q.length; k++) {
+    CA += q[k]
+}
+console.log('++++++')
+console.log(CA/q.length)
+console.log(Math.max.apply(null, q))
+console.log(Math.min.apply(null, q))
+
+let w = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+
+for (e = 0; e<w.length; e++) {
+    CA = 0
+    for (let r = 0; r<w[e].length; r++) {
+        CA += w[e][r]
+    }
+    
+    console.log('-----------')
+    console.log('t middle = '+CA/ w[e].length)
+    console.log('t max = '+Math.max.apply(null, w[e]))
+    console.log('t min = '+Math.min.apply(null, w[e]))
+}
+
+/* => -----------
+JS_L.js:1447 t middle = 2
+JS_L.js:1448 t max = 3
+JS_L.js:1449 t min = 1
+JS_L.js:1446 -----------
+JS_L.js:1447 t middle = 5
+JS_L.js:1448 t max = 6
+JS_L.js:1449 t min = 4
+JS_L.js:1446 -----------
+JS_L.js:1447 t middle = 8
+JS_L.js:1448 t max = 9
+JS_L.js:1449 t min = 7
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
