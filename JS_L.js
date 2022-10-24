@@ -1507,18 +1507,89 @@ JS_L.js:1449 t min = 7
 
 // => таблица умножения на 7 от 1 до 9
 
-for (let i = 1; i<=9; i++) console.log(`${i} * 7 = ${i*7}`)
+// for (let i = 1; i<=9; i++) console.log(`${i} * 7 = ${i*7}`)
 
+// -> 
+// 1 * 7 = 7
+// 2 * 7 = 14
+// 3 * 7 = 21
+// 4 * 7 = 28
+// 5 * 7 = 35
+// 6 * 7 = 42
+// 7 * 7 = 49
+// 8 * 7 = 56
+// 9 * 7 = 63
 
+// let a = [];
+// a = [10, 11, 12, 13, 14, 15];
+// a[7] = 17;
+// console.log(a);
+/* ->
+(8) [10, 11, 12, 13, 14, 15, empty, 17]
+0: 10
+1: 11
+2: 12
+3: 13
+4: 14
+5: 15
+7: 17
+length: 8
+[[Prototype]]: Array(0)
+ */
+// let c = [3, 'ilia', true];
+// c[5]=17;
+// console.log(c)
+// delete c[5];
+// console.log(c);
+// let c = [3, 'ilia', true]
+// c[5] = 17;
+// delete c[5];
+// let out = document.getElementById('out');
+// let str = ''; 
+// for (let i = 0; i < c.length; i++) {
+//     if(c[i] !== undefined) str += i + ' - ' + c[i] + '<br>'; // -> мы просто отображаем все элементы массива с пробелами с обоих сторон
+// }
+// out.innerHTML = str; 
+// // -> на странице - 3 ilia true undefined undefined undefined
 
+// let a = [2, 7];
+// a.push('hello');
+// a.push(65);
+// console.log(a);
+// a.pop();
+// a.pop();
+// a.pop();
+// a.pop();
+// a.pop();
+// console.log(a);
 
+// let a = [2, 7, 4];
+// a.shift();
+// a.unshift(2);
+// console.log(a);
+// // -> [2, 7, 4];
 
+// let a = 'Однажды в студёную зимнюю пору я из лесу вышел';
+// let b = a.split(',');
+// console.log(b)
 
+// const array1 = ['a', 'b', 'c'];
 
+// array1.forEach(element => console.log(element));
+// a b c
 
+const elements = ['Fire', 'Air', 'Water'];
 
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
 
+console.log(elements.join(''));
+// expected output: "FireAirWater"
 
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+
+console.log(elements.join(' '))
 
 
 
