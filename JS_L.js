@@ -1578,36 +1578,83 @@ length: 8
 // array1.forEach(element => console.log(element));
 // a b c
 
-const elements = ['Fire', 'Air', 'Water'];
+// const elements = ['Fire', 'Air', 'Water'];
 
-console.log(elements.join());
-// expected output: "Fire,Air,Water"
+// console.log(elements.join());
+// // expected output: "Fire,Air,Water"
 
-console.log(elements.join(''));
-// expected output: "FireAirWater"
+// console.log(elements.join(''));
+// // expected output: "FireAirWater"
 
-console.log(elements.join('-'));
-// expected output: "Fire-Air-Water"
+// console.log(elements.join('-'));
+// // expected output: "Fire-Air-Water"
 
-console.log(elements.join(' '))
+// console.log(elements.join(' '))
+
+// let p = document.getElementsByTagName('p');
+// console.log(p);
+// for (let i = 0; i<p.length; i++) {
+//     p[i].onclick = () => alert('work');
+// }
+
+// let temp = [-4,-3,-2,-1,0,1,2,3,4]
+// let middle = 0;
+// for(let i = 0; i<temp.length; i++) {
+//     middle += temp[i]
+// }
+// console.log(middle/temp.length);
+// // -> 0 
+// console.log(Math.max.apply(null, temp))
+// console.log(Math.min.apply(null, temp))
+
+// let temp = [
+//     [-4, 0, 3, 13],
+//     [-5, -1, 8, 12],
+//     [0, 3, 6, 11],
+//     [0, 3, 6, 11],
+// ]
+
+// for (let i = 0; i<temp.length; i++) {
+//     let middle = 0;
+//     for (let k = 0; k<temp[i].length; k++) {
+//         middle += temp[i][k]
+//     }
+//     console.log('t middle = ' + middle/temp[i].length);
+//     console.log('t min = ' + Math.min.apply(null, temp[i]))
+//     console.log('t max = ' + Math.max.apply(null, temp[i]))
+// }
+
+// let str = '12345';
+// let reversed = Array.prototype.map.call(str,(x)=>x).reverse().join('');
+// console.log(reversed);
 
 
+// function sum(x, y, z) {
+//     return x + y + z;
+//   }
+  
+//   const numbers = [1, 2, 3];
+  
+//   console.log(sum(...numbers));
+// let a = [3,4,5]
+// let c = a.map((x)=>x*2)
+// console.log(c);
+let a = [3, -12, 0, 4, 5, -8];
+// let b = [];
+// for (let i = 0; i<a.length; i++) {
+//     if (a[i]>=0) b.push(a[i])
+// }
+// console.log(a);
+// console.log(b);
+// let c = a.filter((x)=>x>0)
+// console.log(c);
+// console.log(a);
 
+// let c = a.filter((x, i)=>i%2===0)
+// console.log(c);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let c = a.filter((x)=> x%2===0)
+console.log(c)
 
 
 
