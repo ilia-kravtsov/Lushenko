@@ -1662,16 +1662,28 @@ length: 8
 //     let c = 9;
 // }
 // console.log(c)
-function summ (a=0, b=5) {
-    return(a+b)   
+// function summ (a=0, b=5) {
+//      console.log(a+b)
+// }
+
+// summ()
+// function er () {
+//     return summ()
+// }
+// er()
+
+function show (t) {
+    if (t>0) return '>0'
+    else if (t<0) return '<0'
+    else return '=0'
 }
 
-console.log(summ(4,5))
+function sum (a,b) {
+    let t = 0
+    console.log(a+b)
+    console.log(show(t))
+}
 
-
-
-
-
-
-
-
+console.log('----')
+console.log(show(1))
+console.log(sum(2,2))
