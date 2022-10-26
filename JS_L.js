@@ -1639,25 +1639,34 @@ length: 8
 // let a = [3,4,5]
 // let c = a.map((x)=>x*2)
 // console.log(c);
-let a = [3, -12, 0, 4, 5, -8];
-// let b = [];
-// for (let i = 0; i<a.length; i++) {
-//     if (a[i]>=0) b.push(a[i])
+// let a = [3, -12, 0, 4, 5, -8];
+// // let b = [];
+// // for (let i = 0; i<a.length; i++) {
+// //     if (a[i]>=0) b.push(a[i])
+// // }
+// // console.log(a);
+// // console.log(b);
+// // let c = a.filter((x)=>x>0)
+// // console.log(c);
+// // console.log(a);
+
+// // let c = a.filter((x, i)=>i%2===0)
+// // console.log(c);
+
+// let c = a.filter((x)=> x%2===0)
+// console.log(c)
+// let a = 0;
+// b()
+// function b () {
+//     console.log(a)
+//     let c = 9;
 // }
-// console.log(a);
-// console.log(b);
-// let c = a.filter((x)=>x>0)
-// console.log(c);
-// console.log(a);
+// console.log(c)
+function summ (a=0, b=5) {
+    return(a+b)   
+}
 
-// let c = a.filter((x, i)=>i%2===0)
-// console.log(c);
-
-let c = a.filter((x)=> x%2===0)
-console.log(c)
-
-
-
+console.log(summ(4,5))
 
 
 
