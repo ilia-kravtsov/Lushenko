@@ -1761,3 +1761,9 @@ f3();
 
 // ------------------------------
 
+function f4(z){
+    let d = document.querySelector('#'+z)
+    d.innerHTML+=' it\'s work '
+}
+f4('seven')
+f4('eight')
