@@ -1707,12 +1707,30 @@ length: 8
 // b.nowway = 'oh yeap'
 // console.log(b.yet);
 // console.log(b); // -> {hi: 'ilia', nowway: 'oh yeap'}
+
+// let a = {
+//     one: 'Hello',
+//     name: 23
+// }
+
+// let b = a;
+// b.five = 5;
+// console.log(a); // -> {one: 'Hello', name: 23, five: 5}
+// console.log(b); // -> {one: 'Hello', name: 23, five: 5}
+
 let a = {
     one: 'Hello',
-    name: 23
+    two: 'world'
 }
 
-let b = a;
-b.five = 5;
-console.log(a); // -> {one: 'Hello', name: 23, five: 5}
-console.log(b); // -> {one: 'Hello', name: 23, five: 5}
+let b={};
+
+for (let key in a) {
+    b[key] = a[key];
+}
+console.log(a);
+console.log(b);
+b.three = 'ok'
+a.three = 'allright'
+console.log(a);
+console.log(b);
