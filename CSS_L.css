@@ -1,8 +1,10 @@
 body {
-    background-color: black;
+    text-align: center;
 }
 
-h1 {
-    color: lightgreen;
+div {
+    font-size: 50px;
+    border: 1px solid lightgray;
+    padding: 30px;
+    margin: 30px;
 }
-
