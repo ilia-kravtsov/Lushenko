@@ -1672,18 +1672,24 @@ length: 8
 // }
 // er()
 
-function show (t) {
-    if (t>0) return '>0'
-    else if (t<0) return '<0'
-    else return '=0'
-}
+// function show (t) {
+//     if (t>0) return '>0'
+//     else if (t<0) return '<0'
+//     else return '=0'
+// }
 
-function sum (a,b) {
-    let t = 0
-    console.log(a+b)
-    console.log(show(t))
-}
+// function sum (a,b) {
+//     let t = 0
+//     console.log(a+b)
+//     console.log(show(t))
+// }
 
-console.log('----')
-console.log(show(1))
-console.log(sum(2,2))
+// console.log('----')
+// console.log(show(1))
+// console.log(sum(2,2))
+
+let a = {};
+a.hi = 'test';
+console.log(a);
+console.log(a.hi);
+console.log(a['hi']);
