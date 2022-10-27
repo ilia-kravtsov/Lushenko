@@ -1693,3 +1693,10 @@ a.hi = 'test';
 console.log(a);
 console.log(a.hi);
 console.log(a['hi']);
+
+let b = {
+    hi: 'ilia'
+}
+
+let y = 'hi' in b;
+console.log(y); // -> true поиск ключа в массиве через переменную.
