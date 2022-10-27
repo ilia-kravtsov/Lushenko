@@ -1718,19 +1718,46 @@ length: 8
 // console.log(a); // -> {one: 'Hello', name: 23, five: 5}
 // console.log(b); // -> {one: 'Hello', name: 23, five: 5}
 
-let a = {
-    one: 'Hello',
-    two: 'world'
+// let a = {
+//     one: 'Hello',
+//     two: 'world'
+// }
+
+// let b={};
+
+// for (let key in a) {
+//     b[key] = a[key];
+// }
+// console.log(a);
+// console.log(b);
+// b.three = 'ok'
+// a.three = 'allright'
+// console.log(a); // -> {one: 'Hello', two: 'world', three: 'ok'}
+// console.log(b); // -> {one: 'Hello', two: 'world', three: 'allright'}
+
+function f1() {
+    let div = document.querySelector('#yeap');
+    div.innerHTML += ' Hello'
 }
 
-let b={};
+f1();
 
-for (let key in a) {
-    b[key] = a[key];
+function f2() {
+    let div = document.querySelector('#yes');
+    div.innerHTML += ' Hello'
 }
-console.log(a);
-console.log(b);
-b.three = 'ok'
-a.three = 'allright'
-console.log(a);
-console.log(b);
+
+f2();
+
+
+function f3() {
+    c.innerHTML += ' Hello'
+}
+
+let c = document.querySelector('#seven');
+f3();
+c = document.querySelector('#eight');
+f3();
+
+// ------------------------------
+
