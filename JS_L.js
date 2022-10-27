@@ -1695,8 +1695,15 @@ console.log(a.hi);
 console.log(a['hi']);
 
 let b = {
-    hi: 'ilia'
+    hi: 'ilia',
+    yet: 'of course'
 }
 
 let y = 'hi' in b;
 console.log(y); // -> true поиск ключа в массиве через переменную.
+console.log(b);
+delete b.yet;
+console.log(b);
+b.nowway = 'oh yeap'
+console.log(b.yet);
+console.log(b); // -> {hi: 'ilia', nowway: 'oh yeap'}
