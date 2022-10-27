@@ -1735,35 +1735,59 @@ length: 8
 // console.log(a); // -> {one: 'Hello', two: 'world', three: 'ok'}
 // console.log(b); // -> {one: 'Hello', two: 'world', three: 'allright'}
 
-function f1() {
-    let div = document.querySelector('#yeap');
-    div.innerHTML += ' Hello'
+// function f1() {
+//     let div = document.querySelector('#yeap');
+//     div.innerHTML += ' Hello'
+// }
+
+// f1();
+
+// function f2() {
+//     let div = document.querySelector('#yes');
+//     div.innerHTML += ' Hello'
+// }
+
+// f2();
+
+
+// function f3() {
+//     c.innerHTML += ' Hello'
+// }
+
+// let c = document.querySelector('#seven');
+// f3();
+// c = document.querySelector('#eight');
+// f3();
+
+// // ------------------------------
+
+// function f4(z){
+//     let d = document.querySelector('#'+z)
+//     d.innerHTML+=' it\'s work '
+// }
+// f4('seven')
+// f4('eight')
+
+// let one = document.querySelector('#one');
+
+// console.log(one);
+
+// function myClick(event) {
+//     console.log('click');
+//     console.log(event.target);
+// }
+
+// one.onclick = myClick;
+
+const c = {
+    t: 0
 }
+c.a = 8;
+console.log(c.a);
+console.log(c);
+c.t = 2;
+console.log(c); 
+/*Log 6 8
+JS_L.js:1787 {t: 0, a: 8}
+JS_L.js:1789 {t: 2, a: 8}*/
 
-f1();
-
-function f2() {
-    let div = document.querySelector('#yes');
-    div.innerHTML += ' Hello'
-}
-
-f2();
-
-
-function f3() {
-    c.innerHTML += ' Hello'
-}
-
-let c = document.querySelector('#seven');
-f3();
-c = document.querySelector('#eight');
-f3();
-
-// ------------------------------
-
-function f4(z){
-    let d = document.querySelector('#'+z)
-    d.innerHTML+=' it\'s work '
-}
-f4('seven')
-f4('eight')
