@@ -9,13 +9,9 @@
 
 <body>
 
-    <h1 class="header">Practice</h1>
+    <h1 class="header">Practice JavaScript</h1>
 
-    <p id="lorem">Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Nesciunt porro sunt
-        deserunt eos nam placeat sequi non iusto,
-        aut recusandae harum natus provident est praesentium ea hic!
-        Sint, obcaecati adipisci?</p>
+    <p id="lorem"></p>
 
     <div id="one">One</div>
     <div id="two">Two</div>
@@ -54,13 +50,42 @@
 
     <!-- ________________ Работаем с формами __________________ -->
 
-    <input type="password" id="ones">
-    <button class="pushButton">Push</button>
-
-    <!--Заменим пароль на колор-->
+    <!-- Type input 'password' -->
     <div>
-        <input type="color" id="oneColor">
-        <button class="pushColorButton">Push</button>
+        <input type="password" id="inpPasswordId">
+        <button class="buttPasswordClass">Push</button>
+    </div>
+
+    <!-- Type input 'color' -->
+    <div id="colorDiv">
+        <input type="color" id="inpColorId">
+        <button class="buttColorClass">Push</button>
+    </div>
+
+    <!-- Type input 'date'-->
+    <div>
+        <input type="date" id="inpDateId">
+        <button class="buttDateClass">Push</button>
+    </div>
+
+    <!-- Type input 'range'
+
+    Если у Range нет min и max то считается что минимум 0 а максимум 100
+    для регулировки min max добавляются атрибуты min max -->
+
+    <div>
+        <input type="range" id="inpRangeId" min="00" max="100" value="50">
+        <button class="buttRangeClass">Push</button>
+        <div id="divOutValueInput">50</div>
+    </div>
+
+    <!-- Checkbox -->
+
+    <div>
+        <label for="checkbox_1">Click </label>
+        <input type="checkbox" id="checkbox_1">
+        <label for="checkbox_1">me </label>
+        
     </div>
 
     <script src="./JS/JS_L.js">JS</script>
