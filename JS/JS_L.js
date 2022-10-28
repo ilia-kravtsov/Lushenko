@@ -1819,6 +1819,19 @@ length: 8
 
 
 //___________________________________JavaScript 2.0_________________________
+
+//___________Task 1
+
+console.log('ilia');
+
+//___________Task 2
+
+console.log('09');
+
+//___________Task 3
+
+console.log(`Добро пожаловать на курс`);
+
 //_______________________Основа ввода данных работа с input____________________
 let inputIn = document.querySelector('.input_in');
 let buttGo = document.querySelector('.butGo');
@@ -1889,6 +1902,24 @@ ageUser >= 16 && ageUser < 100 - диапазон
 || - ИЛИ - срабатывает и выдает true если одно из условий верно
 */
 
+//_____________Task 1
+
+let a = 7;
+let b = 9;
+console.log(a * b);
+
+//_____________Task 2
+
+let c = 7;
+let d = 9;
+console.log(c / d);
+
+//_____________Task 3
+
+let e = 3;
+let f = 5;
+console.log(e + f);
+
 //____________________________Тест возраста if else_______________________________
 
 const ageUserTry = document.querySelector('.age');
@@ -1896,7 +1927,9 @@ let buttonUserTry = document.querySelector('.ageTry');
 let divUOP = document.querySelector('.ageOnPage');
 
 buttonUserTry.onclick = () => {
+
     let ageUser = +ageUserTry.value;
+
     if (ageUser >= 16 && ageUser < 100) {
         divUOP.innerHTML = 'Welcome';
     }
@@ -1917,6 +1950,7 @@ buttonUserTry.onclick = () => {
         default:
             console.log('ok');
     }
+
 }
 // если выполняется первый if дальше выполнение - не идёт
 
@@ -1940,3 +1974,61 @@ button1.onclick = () => {
 }
 
 // _______________Task 2
+
+let button2 = document.querySelector('.secondBut');
+let input2 = document.querySelector('.secondInp');
+let input22 = document.querySelector('.secondInp2');
+let output2 = document.querySelector('.secondDiv')
+
+button2.onclick = () => {
+
+    let a21 = +input2.value
+    let a22 = +input22.value
+
+    if (a21 > a22) {
+        output2.innerHTML = a21
+    }
+    else if (a22 > a21) {
+        output2.innerHTML = a22
+    }
+    else {
+        output2.innerHTML = `${a21} = ${a22}`
+    }
+
+}
+
+//________________Task 3
+
+let button3 = document.querySelector('.thirdBut');
+let inp3 = document.querySelector('.thirdInp');
+let inp33 = document.querySelector('.thirdInp2');
+let output3 = document.querySelector('.thirdDiv');
+
+button3.onclick = () => {
+
+    let a31 = +inp3.value
+    let a32 = +inp33.value
+
+    if (a31 > a32) {
+        output3.innerHTML = a31
+    }
+    else if (a32 > a31) {
+        output3.innerHTML = a32
+    }
+    else {
+        output3.innerHTML = `${a31} = ${a32}`
+    }
+
+}
+
+//____________________Работаем с формами___________________________
+
+document.querySelector('.pushButton').onclick = () => {
+    console.log(document.querySelector('#ones').value)
+}
+
+// Заменим пароль на колор
+
+document.querySelector('.pushColorButton').onclick = () => {
+    console.log(document.querySelector('#oneColor').value)
+}
