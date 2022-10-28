@@ -2023,12 +2023,41 @@ button3.onclick = () => {
 
 //____________________Работаем с формами___________________________
 
-document.querySelector('.pushButton').onclick = () => {
-    console.log(document.querySelector('#ones').value)
+
+// Type input 'password'
+
+document.querySelector('.buttPasswordClass').onclick = () => {
+    console.log(document.querySelector('#inpPasswordId').value);
 }
 
-// Заменим пароль на колор
+// Type input 'color'
+// присваиваем значение для переменных сокращая код
 
-document.querySelector('.pushColorButton').onclick = () => {
-    console.log(document.querySelector('#oneColor').value)
+let buttonColor = document.querySelector('.buttColorClass');
+let inputColor = document.querySelector('#inpColorId');
+
+buttonColor.onclick = () => {
+    console.log(inputColor.value);
+    // Задаём стили для кнопки и присваеваем фону кнопки выбранный в палитре цвет
+    buttonColor.style.backgroundColor = inputColor.value
 }
+
+// Type input 'date'
+
+document.querySelector('.buttDateClass').onclick = () => {
+    console.log(document.querySelector('#inpDateId').value); // -> 2022-10-28
+}
+
+// Type input 'range'
+// хотим двигать ползунок и смотреть как меняются события для этого есть событие oninput
+// oninput срабатывает каждый раз когда меняется состояние элемента
+
+document.querySelector('#inpRangeId').oninput = () => {
+    // console.log(document.querySelector('#inpRangeId').value); // для вывода в консоль
+    document.querySelector('#divOutValueInput').innerHTML = document.querySelector('#inpRangeId').value;
+}
+
+document.querySelector('.buttRangeClass').onclick = () => {
+    console.log(document.querySelector('#inpRangeId').value)
+}
+ 
