@@ -1801,7 +1801,19 @@ console.log('Hello' + 'world');
 console.log('Hello' + ' ' + 'world');
 console.info('hello')
 console.table('hello')
+
 document.getElementById('one').innerHTML = 'Alone'
 document.getElementById('one').innerHTML = 1
 document.getElementById('one').innerHTML = '<b>1</b>' // js интерпретирует и сделает 1 жирным
+
+document.getElementsByClassName('header').innerHTML = 'some' // странно
+
+document.querySelector('.header').innerHTML = 'Plactice'
+document.querySelector('.header').innerHTML = 'Practice'
+
+let a = document.querySelector('.header');
+a.innerHTML = 'Plactice'
+console.log('09');
+console.log('Добро ' + 'пожаловать ' + 'на курс');
+a.innerHTML = 'Pratcice'
 
