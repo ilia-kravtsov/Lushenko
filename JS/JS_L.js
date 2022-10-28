@@ -1920,4 +1920,23 @@ buttonUserTry.onclick = () => {
 }
 // если выполняется первый if дальше выполнение - не идёт
 
-//___________________________switch case_____________________________________
+// ________________Task 1
+
+let button1 = document.querySelector('.firstBut');
+let input1 = document.querySelector('.firstInp');
+let output1 = document.querySelector('.firstDiv')
+
+button1.onclick = () => {
+    let num1 = +input1.value;
+
+    if (num1 == 4) {
+        console.log(true);
+        output1.innerHTML = 'true'
+    }
+    else {
+        console.log(false);
+        output1.innerHTML = 'false'
+    }
+}
+
+// _______________Task 2
