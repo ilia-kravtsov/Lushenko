@@ -1795,25 +1795,129 @@ length: 8
 // b.push = 'oleg';
 // console.log(b); // -> ['ilia', 'ivan', push: 'oleg']
 
-console.log('hello');
-console.log('world');
-console.log('Hello' + 'world');
-console.log('Hello' + ' ' + 'world');
-console.info('hello')
-console.table('hello')
+// console.log('hello');
+// console.log('world');
+// console.log('Hello' + 'world');
+// console.log('Hello' + ' ' + 'world');
+// console.info('hello')
+// console.table('hello')
 
-document.getElementById('one').innerHTML = 'Alone'
-document.getElementById('one').innerHTML = 1
-document.getElementById('one').innerHTML = '<b>1</b>' // js интерпретирует и сделает 1 жирным
+// document.getElementById('one').innerHTML = 'Alone'
+// document.getElementById('one').innerHTML = 1
+// document.getElementById('one').innerHTML = '<b>1</b>' // js интерпретирует и сделает 1 жирным
 
-document.getElementsByClassName('header').innerHTML = 'some' // странно
+// document.getElementsByClassName('header').innerHTML = 'some' // странно
 
-document.querySelector('.header').innerHTML = 'Plactice'
-document.querySelector('.header').innerHTML = 'Practice'
+// document.querySelector('.header').innerHTML = 'Plactice'
+// document.querySelector('.header').innerHTML = 'Practice'
 
-let a = document.querySelector('.header');
-a.innerHTML = 'Plactice'
-console.log('09');
-console.log('Добро ' + 'пожаловать ' + 'на курс');
-a.innerHTML = 'Pratcice'
+// let a = document.querySelector('.header');
+// a.innerHTML = 'Plactice'
+// console.log('09');
+// console.log('Добро ' + 'пожаловать ' + 'на курс');
+// a.innerHTML = 'Pratcice'
 
+
+//___________________________________JavaScript 2.0_________________________
+//_______________________Основа ввода данных работа с input____________________
+let inputIn = document.querySelector('.input_in');
+let buttGo = document.querySelector('.butGo');
+let divOnPage = document.querySelector('.onPage');
+
+buttGo.onclick = function () {
+    console.log('button work'); // -> button work
+    // console.log(inputIn.value); // value то что введено в input
+    let braiton = +inputIn.value
+    console.log(b + 7); // -> 37 если ввели в input 3
+    divOnPage.innerHTML = braiton
+    inputIn.value = '';
+} // -> т.о. мы можем читать значение из input
+// математические манипуляции между числом и строкой возможны только при сложении
+// деление на 0 - Infinity
+// сложение и конкатенация пишутся одинаково, поэтому при вводе в input 3
+// и прибавлении 7 в логе получится не 10 а 37
+// из input JS получает любые введенные данные в виде строки
+/* console.log(b + 7) -> '3' + 7 = '37' произошла конкатенация
++inputIn.value - преобразует тип данных в number
+console.log(b + 7) -> 3 + 7 = 10
+
+Если в html у input поставить в type не text а number то в input можно
+будет вводить только числа, но из input все равно будет приходить тип данных строка
+и это не спасет ситуацию, зато +inputIn.value - да
++ перед элементом, переводит элемент в тип данных - число
+
+чтобы очистить поле input надо input.value = '' присвоить пустую строку*/
+
+
+//_____Ветвление_____________Условные операторы If else switch case__________
+
+/* 
+Всё что внутри {} выполнится если условие выдаст true 
+{} - блок действий
+Если Действие одно {} не нужны
+
+Одиночный if либо работает если условие выдаёт true, либо ничего не происходит
+*/
+// let a = 6;
+// if (a > 9) {
+//     // true
+//     console.log('Yes'); // -> Yes
+// }
+/*
+Если требуется выполнить жёстко либо то, либо это, и никаких других вариантов, то
+добавляется else (без условий)
+в любом случае одно из двух действий сработает
+
+Если мы пишем if (){} а затем else{} то в любом случае должно сработать одно из двух
+
+!= - не равно
+*/
+// else {
+//     console.log('else');
+// }
+
+/*
+Пользователю необходимо ввести возраст и если он больше 16 - welcome
+если меньше - доступ запрещен
+
+Если нужно добавить еще условие добавляем else if () {}
+их может быть сколько угодно
+
+ageUser >= 16 && ageUser < 100 - диапазон
+
+&& - И - срабатывает и выдает true только если оба условия верны
+|| - ИЛИ - срабатывает и выдает true если одно из условий верно
+*/
+
+//____________________________Тест возраста if else_______________________________
+
+const ageUserTry = document.querySelector('.age');
+let buttonUserTry = document.querySelector('.ageTry');
+let divUOP = document.querySelector('.ageOnPage');
+
+buttonUserTry.onclick = () => {
+    let ageUser = +ageUserTry.value;
+    if (ageUser >= 16 && ageUser < 100) {
+        divUOP.innerHTML = 'Welcome';
+    }
+    else if (ageUser >= 100) {
+        divUOP.innerHTML = 'Do you really need to go in?'
+    }
+    else {
+        divUOP.innerHTML = 'Access Denied';
+    }
+
+    switch (ageUser) {
+        case 15:
+            console.log('Eщё годик потерпи!');
+            break;
+        case 16:
+            console.log('Топи!');
+            break;
+        default:
+            console.log('ok');
+    }
+}
+// если выполняется первый if дальше выполнение - не идёт
+
+//___________________________switch case_____________________________________
