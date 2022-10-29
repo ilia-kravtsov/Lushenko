@@ -2061,3 +2061,92 @@ document.querySelector('.buttRangeClass').onclick = () => {
     console.log(document.querySelector('#inpRangeId').value)
 }
  
+// Type input checkbox
+
+let checkboxValue = document.querySelector('#checkbox_1');
+document.querySelector('.buttCheckClass').onclick = () => {
+    if (checkboxValue.checked) {
+        document.querySelector('#divOutCheck').innerHTML = true
+    }
+    else {
+        document.querySelector('#divOutCheck').innerHTML = false
+    }
+}
+
+// _____ Textarea
+
+document.querySelector('#buttTextAreaId_1').onclick = () => {
+    document.querySelector('#divOutTextarea_1').innerHTML = document.querySelector('#textareaId_1').value;
+    document.querySelector('#textareaId_1').value = '';
+}
+
+// _____ Form
+
+document.querySelector('#buttTextAreaId_2').onclick = (event) => {
+    event.preventDefault();
+
+    let arrayForm = [
+    [document.querySelector('#textareaId_2').value],
+    [document.querySelector('#inpForm_2').value]
+    ]
+
+    document.querySelector('#divOutTextarea_2').innerHTML = arrayForm;
+
+    let form = document.querySelector('form')
+    console.log(form);
+    console.log(form[0].value);
+    console.log(form[1].value);
+    document.querySelector('#textareaId_2').value = '';
+    document.querySelector('#inpForm_2').value = '';
+}
+
+// итого form можно пользоваться как массивом.
+
+// Task 1 
+
+    document.querySelector('#buttTask_1').onclick = () => {
+        document.querySelector('#divOutTask_1').innerHTML = 1;
+    }
+
+// Task 2
+
+    document.querySelector('#inpTask_2').onclick = () => {
+        document.querySelector('#divOutTask_2').innerHTML = 2;
+    }
+
+// Task 3
+
+    document.querySelector('#pTask_3').onclick = () => {
+        document.querySelector('#divOutTask_3').innerHTML = 3;
+    }
+
+// Task with round braces 
+// Если количество ( совпадает с ) выдать true если нет false 
+
+let taskBraces = '()(()()())';
+
+let countBraces = 0;
+
+for (let i = 0; i<taskBraces.length; i++) {
+
+    if (taskBraces[i] === '(') {
+        countBraces++;
+    }
+    if (taskBraces[i] === ')') {
+        countBraces--;
+    }
+    if (countBraces < 0) {
+        break;
+    }
+   
+}
+
+console.log('--------');
+if (countBraces !== 0) {
+    console.log(false);
+}
+else {
+    console.log(true)
+}
+
+// ________________________Циклы в JS_______________________________________
