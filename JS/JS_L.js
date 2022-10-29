@@ -2150,3 +2150,92 @@ else {
 }
 
 // ________________________Циклы в JS_______________________________________
+
+// for
+
+/* for (условия на основании которых цикл либо выполняется либо не выполняется) {
+    блок команд которые будут повторяться,
+    все что я здесь напишу будет многократно повторяться при работе цикла если 
+    условия в скобках ранее - верны    
+ }
+
+for (1-е start; 2-е работаем пока верно, по сути финиш, верхняя граница; 3-е как изменяется счётчик) {
+    блок команд которые будут повторяться,
+    все что я здесь напишу будет многократно повторяться при работе цикла если 
+    условия в скобках ранее - верны   
+}
+
+если условие изначально не верно цикл не выполнится ни разу
+*/
+
+// простой цикл
+
+// for (let i = 0; i<5; i++) {
+//     console.log(i);
+// }
+
+/* 
+   бесконечный цикл
+
+   цикл работает пока верно условие, а в данное случае условие будет верно всегда
+
+for (let i = 0; i>0; i++) {
+    console.log(i)
+}
+
+
+из цикла можно выйти заранее if i == 4 break;
+break - прерывание цикла
+*/
+console.log('-------')
+
+for (let i = 0; i<5; i++) {
+    if (i == 4) {
+        break;
+    }
+    console.log(i);
+}
+
+let divCircles = document.querySelectorAll('.circles'); // получает 1 элемент подходящий под параметры и прекращает свою работу
+// querySelectorAll - создаст коллекцию (массив) nodelist из элементов подходящих под условия
+// divCircles.style.background = 'red'
+
+for (let i = 0; i<divCircles.length; i++) {
+    console.log(divCircles[i]);
+    divCircles[i].style.background = 'red'
+    divCircles[i].onclick = strangeFunc
+}
+
+function strangeFunc() {
+    console.log('work');
+}
+
+let getEls = document.getElementsByClassName('circles'); // создает коллекцию элементов
+console.log(getEls);
+
+for (let i = 0; i<getEls.length; i++) {
+    getEls[i].style.border = '2px solid lightgray'
+}
+
+// Radio buttons
+
+document.querySelector('#buttRadioId_1').onclick = () => {
+    let radioAttempt = document.querySelectorAll('input[type="radio"]')
+    console.log(radioAttempt);
+    for (let i = 0; i<radioAttempt.length; i++) {
+        if (radioAttempt[i].checked) {
+            console.log(radioAttempt[i].value);
+        }
+    }
+}
+
+// let i = 0 - видна в пределах области видимости своего блока
+
+// continue - прерываение одной итерации цикла
+
+let someVar = ''
+for(let i = 0; i<10; i++) {
+    if (i === 6) continue;
+    someVar = someVar + i + ' '
+}
+document.querySelector('#continueId').innerHTML = someVar
