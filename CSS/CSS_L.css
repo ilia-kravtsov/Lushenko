@@ -16,3 +16,7 @@ div {
 button {
     border-radius: 25px;
 }
+
+#divCirclesId_1, #divCirclesId_2, #divCirclesId_3 {
+    font-size: 17px;
+}
