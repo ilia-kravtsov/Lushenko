@@ -79,14 +79,58 @@
         <div id="divOutValueInput">50</div>
     </div>
 
-    <!-- Checkbox -->
+    <!-- Type input Checkbox -->
 
     <div>
         <label for="checkbox_1">Click </label>
         <input type="checkbox" id="checkbox_1">
         <label for="checkbox_1">me </label>
+        <button class="buttCheckClass">Push</button>
+        <div id="divOutCheck"></div>
         
     </div>
+
+    <!-- Textarea -->
+    <textarea id="textareaId_1" cols="30" rows="5"></textarea>
+    <button id="buttTextAreaId_1">Push</button>
+    <div id="divOutTextarea_1"></div>
+
+    <!-- Form
+
+    form - это соглашение о том, что данная область - является областью ввода данных.
+        
+    атрибут action - адрес URL куда будет отправлен браузер после нажатия кнопки, 
+    либо кнопки submit внутри формы 
+
+    form - ломается перезагрузкой, поэтому нужно научиться внутри формы останавливать ее поведение.
+    Для этого используем 
+    event - объект событие
+    event.preventDefault() - останавливает перезагрузку формы
+
+    -->
+    <form action="" id="form_1">
+        <textarea id="textareaId_2" cols="30" rows="5" name="textForm_1"></textarea>
+        <input type="text" id="inpForm_2">
+        <button id="buttTextAreaId_2">Push</button>
+        <div id="divOutTextarea_2"></div>
+    </form>    
+
+    <!-- Task 1 -->
+
+    <button id="buttTask_1">Push</button>
+    <div id="divOutTask_1"></div>
+
+    <!-- Task 2 -->
+
+    <input id="inpTask_2">
+    <div id="divOutTask_2"></div>
+
+    <!-- Task 3 -->
+
+    <p id="pTask_3">P_Task_3</p>
+    <div id="divOutTask_3"></div>
+
+    <!-- Циклы в JS -->
 
     <script src="./JS/JS_L.js">JS</script>
 </body>
