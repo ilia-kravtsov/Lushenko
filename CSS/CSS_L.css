@@ -12,3 +12,7 @@ div {
     padding: 30px;
     margin: 30px;
 }
+
+button {
+    border-radius: 25px;
+}
