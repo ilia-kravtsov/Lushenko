@@ -2211,6 +2211,7 @@ function strangeFunc() {
 }
 
 let getEls = document.getElementsByClassName('circles'); // создает коллекцию элементов
+
 console.log(getEls);
 
 for (let i = 0; i<getEls.length; i++) {
@@ -2220,8 +2221,11 @@ for (let i = 0; i<getEls.length; i++) {
 // Radio buttons
 
 document.querySelector('#buttRadioId_1').onclick = () => {
+
     let radioAttempt = document.querySelectorAll('input[type="radio"]')
+
     console.log(radioAttempt);
+    
     for (let i = 0; i<radioAttempt.length; i++) {
         if (radioAttempt[i].checked) {
             console.log(radioAttempt[i].value);
@@ -2234,8 +2238,56 @@ document.querySelector('#buttRadioId_1').onclick = () => {
 // continue - прерываение одной итерации цикла
 
 let someVar = ''
+
 for(let i = 0; i<10; i++) {
     if (i === 6) continue;
     someVar = someVar + i + ' '
 }
 document.querySelector('#continueId').innerHTML = someVar
+
+// Task 1
+
+document.querySelector('#buttCirclesId_1').onclick = () => {
+
+    let varTask1 = ''
+
+    for (let i = 0; i<17; i++) {
+        varTask1 = varTask1 + i + '_'
+    }
+    document.querySelector('#divCirclesId_1').innerHTML = varTask1
+}
+
+// Task 2
+
+document.querySelector('#buttCirclesId_2').onclick = () => {
+
+    let varTask2 = ''
+
+    for (let i = 12; i<39; i = i + 2) {
+        varTask2 = varTask2 + i + '_'
+    }
+    document.querySelector('#divCirclesId_2').innerHTML = varTask2
+}
+
+// Task 3
+
+document.querySelector('#buttCirclesId_3').onclick = () => {
+
+    let varTask3 = ''
+
+    for (let i = 25; i>6; i--) {
+        varTask3 = varTask3 + i + '_'
+    }
+    document.querySelector('#divCirclesId_3').innerHTML = varTask3
+}
+
+//___ The most mistakes 
+
+/*
+Err_File_Not_Found - не правильно прописан путь к файлу, либо не правильное имя файла, уровень вложения.
+favicon - туда же
+
+ошибка не отображается - ошибка в названии атрибута файла script
+
+
+*/
