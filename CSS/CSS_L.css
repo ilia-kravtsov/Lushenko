@@ -1,5 +1,8 @@
 body {
     text-align: center;
+    color:rgb(21, 36, 104);
+    background-color:bisque;
+    font-weight: bolder;
 }
 
 h1 {
@@ -13,10 +16,16 @@ div {
     margin: 30px;
 }
 
-button {
+button, input, div, label {
     border-radius: 25px;
+    border: 1px solid lightgray;
 }
 
-#divCirclesId_1, #divCirclesId_2, #divCirclesId_3 {
+#divCirclesId_1, #divCirclesId_2, #divCirclesId_3, #divOutForTask_1, #divOutForTask_2, #divOutForTask_3, #divOutForTask_4 {
     font-size: 17px;
 }
+
+#divOutEnteredCircles, #divOuMultiplyTable {
+    font-size: 17px;
+}
+
