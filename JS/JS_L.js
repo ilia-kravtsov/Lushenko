@@ -2625,3 +2625,299 @@ document.querySelector('#divOutLorem_1').innerText = primer.innerText // -> те
 document.querySelector('#divOutLorem_1').innerHTML = primer.textContent // теги проигнорированы
 
 document.querySelector('#divOutLorem_1').textContent = primer.textContent // теги проигнорированы
+
+// textContent выше скорость обработки чем у innerHTML
+
+
+// Вывод если нам нужны HTML теги используем innerHTML если нам нужен просто вывод используем textContent
+
+
+//____________________________________Циклы Do and Do While___________________________________________________
+
+for (let i = 0; i < 6; i++) {
+    console.log(i); // -> от 0 до 5
+}
+
+/* while - это ключевое слово которое запускает тело цикла, тело цикла работает до тех пор пока в скобочках будет true
+
+пока k будет меньше 5 то что в скобочках будет выполняться*/
+
+let k = 0;
+// while (k < 5) {
+//     k++ // -> k: от 1 до 5
+//     console.log('k:' + k);
+// }
+// -> k: от 1 до 5
+
+// while (k<5) {
+//     console.log('k:' + k);
+//     k++ // -> k: от 0 до 4
+// }
+// -> k: от 0 до 4
+
+while (k<5) {
+    k++
+    console.log('k:' + k);
+    if (k == 3) continue; // - continue никак не повлияло на вывод
+    // k++ если поставить k здесь - будет бесконечный цикл
+}
+
+// с помощью цикла while найдем сумму чисел от 0 до 10
+
+let sum = 0;
+let p = 0;
+// while (p<=10) {
+//     p++
+//     sum = sum + p
+   
+//     console.log(sum); // 0 = 0 + 1; 1 наверх в условие, возвращается через 1++; 1 = 1 + 2; 3 = 3 + 3; 6 = 6 + 4; 10 = 10 + 5; 15 = 15 + 6; 21 = 21 + 7; 28 = 28 + 8; 36 = 36 + 9; 45 = 45 + 10; 55 
+// }
+// console.log('sum = '+ sum);
+
+while (p <= 10) {
+    sum = sum + p
+    p++
+    console.log(sum); // 0 = 0 + 0; sum = 0 p = 1; 0 = 0 + 1; sum = 1 p = 2; 1 = 1 + 2; sum = 3 p = 3; 3 = 3 + 3: sum = 6 p = 4; 6 = 6 + 4; sum = 10 p = 5; 10 = 10 + 5; sum = 15 p = 6; 15 = 15 + 6; 21 7; 21 = 21 + 7; 28 8; 28 = 28 + 8; 36 9 = 36 + 9 = 45; 45 10; 45 = 45 + 10 = 55 
+}
+console.log('sum =' + sum);
+
+// произведение чисел решается так же
+
+// рисуем квадрат *
+let square = document.querySelector('#divOutLorem_1')
+let squareStar = ''
+
+p = 0;
+let flag = 3;
+
+while (p < 4) {
+    let p1 = 0
+    while (p1 < 4) {
+        if (p1 < flag) {
+            squareStar = squareStar + '&nbsp' // - неразрывный пробел для понимания можно заменить 0 - ком
+        }
+        else {
+            squareStar = squareStar + '*' // '' = '' + '*'; '*' = '*' + '*'; '**' = '**' + '*'; '***' = '***' + '*'; '****' 
+        }
+     
+    p1++
+    }
+    flag--
+    squareStar = squareStar + '<br>'
+    p++
+}
+square.innerHTML = squareStar // -> ****
+
+/* while (p(4) < 4) {
+    let p1 = 0
+    while (p1(4) < 4) {
+        if (p1(4) < flag(0)) {
+            squareStar'' = squareStar'' + '&nbsp' 
+        }
+        else {
+            squareStar'' = squareStar'' + '*'       squareStar''''*<br> squareStar'''**<br> squareStar''***<br> squareStar****<br>
+                                                    
+    p1++(4)
+    }
+    flag--(-1)
+    squareStar = squareStar + '<br>'
+    p++(4)
+}
+square.innerHTML = squareStar */
+
+// самостоятельная усложнённая версия while
+
+let whileTrain = document.querySelector('#WhileTrain');
+let whileVoidString = '';
+let i = 0;
+let iflag = 4;
+
+while (i < 5) {
+    let ii = 0;
+    while (ii < 5) {
+        if (ii < iflag) {
+            whileVoidString += '&nbsp'
+        }
+        else {
+            whileVoidString += '&'
+        }
+    ii++    
+    }
+    iflag--
+    whileVoidString += '<br>'
+    i++
+}
+whileTrain.innerHTML = whileVoidString
+
+/* Как работает цикл
+
+let whileTrain = document.querySelector('#WhileTrain');
+let whileVoidString = '';
+let i = 0;
+let iflag = 4;
+
+while (i(5) < 5) {
+    let ii = 0;
+    while (ii(5) < 5) {
+        if (ii(4) < iflag(0)) {
+            whileVoidString += '&nbsp'
+        }
+        else {
+            whileVoidString += '&'
+        }
+    ii++(5)    
+    }
+    iflag--(-1)
+    whileVoidString += '<br>'
+    i++(5)
+}
+
+whileVoidString = '''''&<br>
+whileVoidString = ''''&&<br>
+whileVoidString = '''&&&<br>
+whileVoidString = ''&&&&<br>
+whileVoidString = &&&&&<br>
+
+whileTrain.innerHTML = whileVoidString
+*/
+
+// ______________________________Работа с DOM, создание элементов, работа с CSS________________________________
+
+const p1 = document.querySelector('.p_1');
+
+// присваиваем элементу стиль, в отличие от CSS здесь вместо дефиса у свойства пишется camelCase
+// и все что мы присваиваем является строками
+
+p1.style.width = '150px'; // если закоментирую это свойство ширина будет 100% всей страницы - по родитльскому элементу
+p1.style.paddingBottom = '40px'
+p1.style.textAlign = 'center'
+
+// console.log(p1.style);
+
+// присваиваем новый класс из CSS методом add с именем класса
+
+p1.classList.add('p_2') // добавление через JS любых CSS классов 
+
+/* в Elements после этого добавилось свойство p_2:
+<p class="p_1 p_2" style="width: 150px; padding-bottom: 40px; text-align: center;">Text</p>
+*/
+
+// так мы можем добавлять в том числе и несуществующие классы а потом дописать их в CSS
+
+p1.classList.add('p_3')
+
+// удаление CSS класса с помощью JS
+// p1.classList.remove('p_3')
+
+// теперь мы можем из JS изменять состояния html элементов
+
+const toggle = document.querySelector('.toggle');
+
+// this это элемент на котором происходит событие
+
+toggle.onclick = function() {
+    this.classList.toggle('p_3') // по щелчку к кнопке toogle применяется свойство из CSS
+}
+
+// для того чтобы хранить данные либо состояния или свойства в html объектах не предусмотренные программистами
+// которые создавали html и CSS был специально разработан такой инструмент как атрибуты
+
+// Атрибуты
+
+// мы можем манипулировать атрибутами так как хотим
+// Для того чтобы в html 5 мы создавали корректные атрибуты перед ними должна быть приставка data в виде атрибута
+// <p data='privet'></p>
+// как получить атрибут data
+console.log(p1.getAttribute('data')) // дальше есть 2 возможности первая создавать атрибуты вторая 
+// читать атрибуты (getAttribute('')) и указать имя атрибута
+
+// мы можем создать и перезаписать любой атрибут
+// сначала пишем имя атрибута, в html 5 рекомендуют писать имя атрибута с приставки data 
+// вторым может идти значение: строка или число
+
+p1.setAttribute('data-num', 6) 
+/* <p class="p_1 p_2 p_3" data="privet" data-num="6" style="width: 150px; padding-bottom: 40px; text-align: center;">Text</p>*/
+
+//___Task 1
+/* При нажатии любой из кнопок запускаем функцию
+в начале получим сами кнопки */
+
+let gas = document.querySelectorAll('.gas') // это массив, а раз это массив то мы должны его перебрать
+// вешаем событие
+for (let i = 0; i < gas.length; i++) {
+    gas[i].onclick = function() {
+        let gallons = document.querySelector('.gallons').value
+        let amount = this.getAttribute('data') // this это кнопка по которой нажали 
+        console.log(gallons*amount)
+    }
+}
+
+// -> при введении 10 получаем 12 16 19
+// мы научились с помощью атрибутов сохранять данные в html
+/* в интернет магазине как узнать какой товар выбрал пользователь самое простое просто на кнопку повесить id товара
+когда пользователь кликает по кнопке считать этот дата атрибут и мы будем знать по какому товару он кликнул
+
+Если у нас есть массив кнопок мы сможем легко понять какой товар выбран а если не сможем отправим на серевер и там 
+разберемся*/
+
+/* Нам не нужен html чтобы создавать элементы
+Создание элемента */
+let firstCreateElementJS = document.createElement('div')
+
+console.log(firstCreateElementJS);
+
+/* Когда я получаю элемент со страницы я получаю элемент с помощью querySelector
+я получаю элемент который уже был создан кем-то
+а с помощью createElement я заново создаю элемент
+
+Добавляем текст в firstCreateElementJS*/
+firstCreateElementJS.innerHTML = 'ilia'
+
+// добавляем класс
+firstCreateElementJS.classList.add('d_1')
+
+// Разница с элементом полученным со страницы html в том, что мой элемент,
+// ещё не существует на странице, я могу его туда вставить,
+// для начала нам понадобится id или class элемента, в который мы будем его добавлять
+document.querySelector('#addCreateElementJS').appendChild(firstCreateElementJS); // -> элемент создан
+
+// можем добавить событие на вновь созданные элемент или удалять элемент из DOM при клике
+firstCreateElementJS.onclick = function() {
+    console.log('ilia first')
+}
+
+// ____________________________________Методы push pop splice_______________________________________________
+
+const array_1 = [1,2,3,4,5,6,7,8,9]
+const array_2 = ['a', 'b', 'c', 'd', 'e', 'f']
+
+// Push - добавляет элементы в конец массива
+// возвращает новое свойство длины объекта length, новый массив не создает, работает со старым.
+console.log(array_1.length); // -> 9 length считается с 1 index считается с 0
+
+array_1.push(10)
+
+console.log(array_1) // -> (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// добавим несколько чисел
+
+array_1.push(11, 12, 13, 14, 15)
+
+console.log(array_1); // -> (15) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+// повторяем операцию с массивом строк
+
+array_2.push('j', 'h', 'i')
+
+console.log(array_2); // -> (9) ['a', 'b', 'c', 'd', 'e', 'f', 'j', 'h', 'i']
+
+
+
+
+
+
+
+
+
+
+
