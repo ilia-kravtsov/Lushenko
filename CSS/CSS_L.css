@@ -16,7 +16,7 @@ div {
     margin: 30px;
 }
 
-button, input, div, label {
+button, input, div, label, p {
     border-radius: 25px;
     border: 1px solid lightgray;
 }
@@ -35,5 +35,17 @@ button, input, div, label {
 
 .loremDivContainer, .primer, #divOutLorem_1 {
     font-size: 17px;
+}
+
+.p_1 {
+    background-color: blueviolet;
+}
+
+.p_2 {
+    background-color: orange;
+}
+
+.p_3 {
+    border: 3px solid lightgray;
 }
 
