@@ -29,3 +29,11 @@ button, input, div, label {
     font-size: 17px;
 }
 
+.loremSpanBlock {
+    display: block;
+}
+
+.loremDivContainer, .primer, #divOutLorem_1 {
+    font-size: 17px;
+}
+
