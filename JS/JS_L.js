@@ -2605,3 +2605,23 @@ document.querySelector('#buttonForFunctionTask_3').onclick = () => {
 document.querySelector('#divOutForFunctionTask_3').innerHTML = alarm3(2,3)
 }
 
+// _____________________Text content || innerHTML___________________________
+
+let primer = document.querySelector('.primer');
+console.log(primer);
+console.log(primer.innerHTML); // -> текст вывелся в лог со всеми html тегами в нем
+console.log(primer.textContent); // -> текст вывелся в лог сработал br и span не сработал <b> <i>
+// работа textContent схожа с innerText
+
+// добавляем второй текст сразу на страницу без лога
+// document.querySelector('#divOutLorem_1').innerHTML = primer.innerHTML 
+console.log(primer.innerText); // -> текст вывелся в лог без некоторых html тегов отработал br span
+// проигнорированы <b> <i>
+
+document.querySelector('#divOutLorem_1').innerText = primer.innerText // -> текст вывелся на страницу без влияния на него тегов html
+
+// textContent пробуем вывести внутрь блока
+
+document.querySelector('#divOutLorem_1').innerHTML = primer.textContent // теги проигнорированы
+
+document.querySelector('#divOutLorem_1').textContent = primer.textContent // теги проигнорированы
