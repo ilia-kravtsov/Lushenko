@@ -3284,6 +3284,127 @@ document.querySelector('#oneMoveButton').onclick = () => {
 }
 */
 
+// ___ Строим трапецию из *
+
+let starTrapezoid = ''
+
+for (let i = 0; i < 8; i++) {
+    for (let k = 0; k < 8; k++) {
+        starTrapezoid += '* '
+    }
+   starTrapezoid += '<br>'
+}
+
+document.querySelector('#starTrapezoidDiv').innerHTML = starTrapezoid //-> рисует прямоугольник из звезд 8 на 8
+// 8 - количество итераций для циклов с i и k
+
+/* Принцип замены * на любые другие символы
+это выполняется за счёт переменной находящейся за пределами циклов
+
+1 выводим переменные счётчики за пределы цикла при выводе внутреннего цикла сравниваем переменную счётчик
+с счётчиком цикла и в зависимости от соотношения либо выводим символ '_' либо не выводим его '*' 
+
+2 за пределами внутреннего цикла изменяем данную переменную w++ h--*/
+
+// Строим разные фигуры из модели трапеции
+
+// let starTrapezoidDiv = ''
+// let w = 4 // - переменная счетчик
+// let h = 7 // - переменная счетчик ************
+
+// for (let i = 0; i < 4; i++) {
+//     for (let k = 0; k < 12; k++) { 
+//         if (k < w || k > h) {
+//             starTrapezoidDiv += '_ '
+//             // starTrapezoidDiv += '&nbsp;&nbsp;'
+//         }
+//         else {
+//             starTrapezoidDiv += '* '
+//         }
+//     }
+//     w--
+//     h++
+//     starTrapezoidDiv += '<br>'
+// }
+
+// document.querySelector('#starTrapezoidDiv_2').innerHTML = starTrapezoidDiv
+
+let starTrapezoidDiv = ''
+let w = 0 // - переменная счетчик
+let h = 0 // - переменная счетчик ************
+
+for (let i = 0; i < 3; i++) {
+    for (let k = 0; k < 3; k++) { 
+        if (k < w || k > h) {
+            starTrapezoidDiv += '_ '
+            // starTrapezoidDiv += '&nbsp;&nbsp;'
+        }
+        else {
+            starTrapezoidDiv += '* '
+        }
+    }
+    w--
+    h++
+    starTrapezoidDiv += '<br>'
+}
+
+document.querySelector('#starTrapezoidDiv_2').innerHTML = starTrapezoidDiv
+
+/* 
+let starTrapezoidDiv = ''
+let w = 0
+let h = 0
+
+for (let i = 1; i < 2; i++) {
+    for (let k = 0; k < 2; k++) { 
+        if (k(1) < w(-1) || k(1) > h(1)) {
+            starTrapezoidDiv += '_ '
+        }
+        else {
+            starTrapezoidDiv += '* '
+        }
+    }
+    w--(-1)
+    h++(1)
+    starTrapezoidDiv += '<br>'
+}
+
+document.querySelector('#starTrapezoidDiv_2').innerHTML = starTrapezoidDiv 
+
+1 итерация *_
+2 итерация **
+
+--------------------------
+
+
+let starTrapezoidDiv = ''
+let w = 0
+let h = 0
+
+for (let i = 0; i(2) < 3; i++) {
+    for (let k = 0; k(0) < 3; k++) { 
+        if (k(0) < w(-2) || k(0) > h(2)) {
+            starTrapezoidDiv += '_ '
+        }
+        else {
+            starTrapezoidDiv += '* '
+        }
+    }
+    w--(-2)
+    h++(2)
+    starTrapezoidDiv += '<br>'
+}
+
+document.querySelector('#starTrapezoidDiv_2').innerHTML = starTrapezoidDiv 
+
+1 итерация *_ _ 
+2 итерация ** _
+3 итерация ***
+*/
+
+// __________________________________ Ассоциативные массивы____________________________________________
+
+
 
 
 
