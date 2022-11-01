@@ -33,7 +33,7 @@ button, input, div, label, p {
     display: block;
 }
 
-.loremDivContainer, .primer, #divOutLorem_1, #starTrapezoidDiv, #starTrapezoidDiv_2 {
+.loremDivContainer, .primer, #divOutLorem_1, #starTrapezoidDiv, #starTrapezoidDiv_2, .accArrayDivId {
     font-size: 17px;
 }
 
