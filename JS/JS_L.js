@@ -3085,8 +3085,98 @@ arr равен[[-3], -2, -1, 0, 1, 2]
 
 Добавление элементов в начало массива тоже переводи к пересчету всех индексов*/
 
+// __________________________________ Двумерные массивы__________________________________________________
 
+let array_3 = [1,2,3]; // -> стандартный массив
 
+// двумерный массив 
+
+let array_4 = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9], // эта запятая - не лишняя
+];
+
+console.log(array_4[2][1]) // -> 8
+
+console.log(array_4); /* ->
+
+(3) [Array(3), Array(3), Array(3)]
+0: (3) [1, 2, 3]
+1: (3) [4, 5, 6]
+2: (3) [7, 8, 9]
+length: 3
+
+переберем циклом for массив с массивами */
+
+for (let i = 0; i < array_4.length; i++) {
+    console.log(array_4[i]); // так я обращаюсь с начала к массиву в массиве под индексом сначала 0 потом 1 потом 2 
+} /* -> 
+(3) [1, 2, 3]
+(3) [4, 5, 6]
+(3) [7, 8, 9]
+*/
+
+for (let i = 0; i < array_4.length; i++) {
+    console.log(array_4[i]); 
+    let array_4Index = array_4[i] // array_4Index - теперь простой массив [1,2,3] потом [4,5,6] потом [7,8,9] поэтому дальне работаем с ним как с обычным массивом
+    for (let k = 0; k < array_4Index.length; k++) {
+        console.log(array_4Index[k])
+    }
+}
+/* ->
+1
+2
+3
+(3) [4, 5, 6]
+4
+5
+6
+(3) [7, 8, 9]
+7
+8
+9 
+*/
+console.log('------')
+
+// Вывод двумерного массива через вложенные циклы
+
+for (let i = 0; i < array_4.length; i++) {
+    console.log(array_4[i])
+    for(let k = 0; k < array_4[i].length; k++) {
+        console.log(array_4[i][k])
+    }
+} 
+/* ->
+(3) [1, 2, 3] console.log(array_4[i])
+1   console.log(array_4[i][k])
+2   console.log(array_4[i][k])
+3   console.log(array_4[i][k])
+(3) [4, 5, 6] console.log(array_4[i])
+4   console.log(array_4[i][k])
+5   console.log(array_4[i][k])
+6   console.log(array_4[i][k])
+(3) [7, 8, 9] console.log(array_4[i])
+7   console.log(array_4[i][k])
+8   console.log(array_4[i][k])
+9   console.log(array_4[i][k])
+*/
+
+/* 
+
+let array_4 = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9], 
+];
+
+*/
+
+for (let i = 0; i < array_4.length; i++) {
+    for(let k = 0; k < array_4[i].length; k++) {
+        console.log(array_4[i][k])
+    }
+} /* -> 1 2 3 4 5 6 7 8 9 */
 
 
 
