@@ -3178,8 +3178,111 @@ for (let i = 0; i < array_4.length; i++) {
     }
 } /* -> 1 2 3 4 5 6 7 8 9 */
 
+//__ Вывод двумерного массива в обратом порядке
+// let k = array_4.length -1 - потому что идет обращение по индексу, а он меньше length на 1
+console.log('<-<-<-<-');
+for (let i = 0; i < array_4.length; i++) {
+    for(let k = array_4.length -1; k >= 0; k--) {
+        console.log(array_4[i][k])
+    }
+} /* -> то есть я перебираю тот же самый массив просто с конца сначала 3 потом 2 потом 1
+3
+2
+1
+6
+5
+4
+9
+8
+7 
+
+let array_4 = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9], 
+];
+
+array_4[i][k] - это всего лишь двойной индекс в массиве
+
+console.log(array_4[2][1]) // -> 8
+
+*/
+
+let divOutTwenthArray = '';
 
 
+for (let i = 0; i < array_4.length; i++) {
+    for(let k = 0; k < array_4[i].length; k++) {
+        console.log(array_4[i][k])
+        divOutTwenthArray += array_4[i][k] + ' '
+    }
+    divOutTwenthArray += '<br>'
+} 
+
+document.querySelector('.divOutTwenthArray').innerHTML = divOutTwenthArray // -> 123456789
+
+// хочу после каждого внутреннего массива поставить пробел, за такой перебор отвечает внутренний массив k
+// поэтому перес строки нужно добавить за ним divOutTwenthArray += '<br>' т.о. после каждой итерации 
+// в итоговый вывод будет добавляться пробел
+/* Итог ->
+
+123
+456
+789
+
+Если хочу в итоговый вывод добавить пробел, то добавляю его divOutTwenthArray += array_4[i][k] + ' '
+Итог ->
+
+1 2 3
+4 5 6
+7 8 9
+
+Выведем только те числа массива которые больше 4
+*/
+divOutTwenthArray = ''
+for (let i = 0; i < array_4.length; i++) {
+    for(let k = 0; k < array_4[i].length; k++) {
+        if (array_4[i][k] > 4) {
+        divOutTwenthArray += array_4[i][k] + ' '
+        }
+    }
+    divOutTwenthArray += '<br>'
+} 
+
+console.log('+++++')
+console.log(divOutTwenthArray) // -> if (array_4[i][k] > 4 {<br>5 6 <br>7 8 9 <br>}
+
+// Для уменьшения роли циклов создаем специализированную переменную
+
+// Задача нажимая кнопку передвигать еденицу 
+
+let array_5 = [1,0,0,0,0] 
+// отрисовываем массив
+document.querySelector('.divOutArray_2').innerHTML = array_5
+// получаем кнопку и вешаем на нее функцию клик
+
+let y = 0;
+document.querySelector('#oneMoveButton').onclick = () => {
+    if (y + 1 < 5) {
+    array_5[y] = 0;
+    array_5[y+1] = 1;
+    y = y + 1
+    }
+    document.querySelector('.divOutArray_2').innerHTML = array_5
+}
+
+/* 
+let y = 0;
+document.querySelector('#oneMoveButton').onclick = () => {
+    if (0 + 1 < 5) {   
+    array_5[0] = 1;
+    array_5[0+1] = 1;
+    0 = 0 + 1
+    }
+    document.querySelector('.divOutArray_2').innerHTML = array_5
+    // -> 
+}
+*/
 
 
 
