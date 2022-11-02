@@ -3612,9 +3612,122 @@ console.log(array_9) // -> (8) [1, 2, 3, 4, 5, 'hello', 123, 43]
 // теперь мы можем взаимодействовать с set набором как с массивом
 console.log(array_9[2]) // -> 3
 
+//_______________________________________Цикл for of и сравнение с for, for in__________________________________
 
+let array_10 = [4,7,9];
 
+// for выводит значения
 
+for (let i = 0; i < array_10.length; i++) {
+    console.log(array_10[i]) // -> 4 7 9
+}
+
+// for in выводит ключи
+
+for (let key in array_10) {
+    console.log(key) // - > 0 1 2
+}
+
+// for of - выводит значения
+/* for (переменная of объект)
+На каждом шаге итерации переменной присваивается значение нового свойства объекта*/
+
+for (let key of array_10) {
+    console.log(key) // - > 4 7 9
+}
+
+let divS = document.getElementsByClassName('divid_1')
+
+console.log(array_10) // -> (3) [4, 7, 9]
+console.log(divS)     // -> HTMLCollection(3) [div.divid_1, div.divid_1, div.divid_1]
+// HTMLCollection можно узнать длину HTMLCollection.length можно обратиться по индексу HTMLCollection[0]
+
+// переберем коллекцию с помощью цикла for
+
+for (let i = 0; i < divS.length;  i++) {
+    console.log(divS[i]) // -> <div class="divid_1">1</div><div class="divid_1">2</div><div class="divid_1">3</div>
+}
+
+// переберем коллекцию с помощью цикла for in
+
+for (let key in divS) {
+    console.log(key) 
+}
+/* ->
+
+0
+1
+2
+length
+item
+namedItem 
+
+то есть for in начал перебирать свойства объекта а не только сами вложенные элементы поэтому for in с коллекциями не работает
+*/
+
+for (let key of divS) {
+    console.log(key) // - > как у for i
+}
+
+/* 
+<div class="divid_1">1</div>
+<div class="divid_1">2</div>
+<div class="divid_1">3</div>
+
+получаю Nodelist через querySelector
+*/
+let divZ = document.querySelectorAll('.divid_1')
+
+console.log(divZ) /* 
+NodeList(3) [div.divid_1, div.divid_1, div.divid_1]
+0: div.divid_1
+1: div.divid_1
+2: div.divid_1
+length: 3
+[[Prototype]]: NodeList
+
+проверяем первый цикл for i для NodeList
+*/
+
+for (let i = 0; i < divZ.length;  i++) {
+    console.log(divZ[i]) // -> 
+}
+/* ->
+<div class="divid_1">1</div>
+<div class="divid_1">2</div>
+<div class="divid_1">3</div>
+*/
+
+// for in для NodeList
+
+for (let key in divZ) {
+    console.log(divZ[key]) 
+}
+
+/* Начался перебор свойств объекта
+
+ƒ entries() { [native code] }
+ƒ keys() { [native code] }
+ƒ values() { [native code] }
+ƒ forEach() { [native code] }
+3
+ƒ item() { [native code] }
+
+*/
+
+// for of для Nodelist
+
+for (let key of divZ) {
+    console.log(key) 
+}
+
+/* 
+<div class="divid_1">1</div>
+<div class="divid_1">2</div>
+<div class="divid_1">3</div>
+*/
+
+//____________________________________Map Filter_______________________________________________
 
 
 
