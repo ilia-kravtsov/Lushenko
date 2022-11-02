@@ -3729,12 +3729,184 @@ for (let key of divZ) {
 
 //____________________________________Map Filter_______________________________________________
 
+/* Метод map() создаёт новый массив с результатом вызова указанной функции для каждого элемента массива.
 
+callback
+Функция, вызываемая для каждого элемента массива arr. Каждый раз, когда callback выполняется, 
+возвращаемое значение добавляется в new_array.
 
+currentValue
+Текущий обрабатываемый элемент массива.
 
+indexНеобязательный
+Индекс текущего обрабатываемого элемента в массиве.
 
+arrayНеобязательный
+Массив, по которому осуществляется проход.
 
+Возвращаемое значение
+Новый массив, где каждый элемент является результатом callback функции.
 
+Метод map вызывает переданную функцию callback один раз для каждого элемента,
+в порядке их появления и конструирует новый массив из результатов её вызова.
+Функция callback вызывается только для индексов массива, имеющих присвоенные значения, включая undefined
+
+Метод map не изменяет массив, для которого он был вызван (хотя функция callback может это делать).
+
+const numbers = [1, 4, 9];
+const roots = numbers.map(Math.sqrt);
+теперь roots равен [1, 2, 3], а numbers всё ещё равен [1, 4, 9]
+
+const map = Array.prototype.map;
+const charCodes = map.call('Hello World', (x) => x.charCodeAt(0));
+теперь charCodes равен [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+
+const elems = document.querySelectorAll('select option:checked');
+const values = Array.prototype.map.call(elems, ({ value }) => value);*/
+
+let array_11 = [4, 5, 12, 200, 1, 0, -2];
+
+// map будет применяться к каждому элементу данного массива 
+// и результат применения будет помещен в массив array_12
+
+let array_12 = array_11.map(function(currentValue, huindex, ){ 
+
+    console.log(currentValue)
+
+    return currentValue*5
+})
+console.log(array_12) /* ->
+4
+5
+12
+200
+1
+0
+-2 -> вывод всех элементов массива array_11
+Array(7)0: undefined1: undefined2: undefined3: undefined4: undefined5: undefined6: undefinedlength: 7[[Prototype]]: Array(0)
+
+Так как функция ничего не возвращает но была вызвана много много раз, то она возвращает undefined и 
+результат undefined помещается в массив array_12
+
+если мы добавим return currentValue то функция будет возвращать все элементы и новый массив будет 
+полной копией массива array_11 - > (7) [4, 5, 12, 200, 1, 0, -2]
+
+то есть то что возвратит функция в методе map попадет в новый массив
+если функция ничего не возвратит, то будет массив из undefined
+
+вместо currentValue можно возвращать и индекс и пользоваться методом map по индексу -> (7) [0, 1, 2, 3, 4, 5, 6]
+
+Задача: умножить каждый элемент массива на 5
+
+для этого у return пишем - return currentValue*5 -> (7) [20, 25, 60, 1000, 5, 0, -10]
+
+функция применяется столько раз сколько элементов есть в исходном массиве,
+столько же элементов будет в новом массиве
+
+функция map хороша когда нужно перебрать каждый элемент в массиве совершить над ним какие-либо действия и потом
+возвратить новый массив
+
+упрощаем конструкцию к виду стрелочной функции
+
+let array_12 = array_11.map((currentValue, huindex, ) => { 
+    return currentValue*5
+})
+
+упрощаем еще сильнее 
+
+let array_12 = array_11.map(currentValue => currentValue*5 
+*/
+
+let array_13 = array_11.map(huyarentValue => huyarentValue*5) // -> (7) [20, 25, 60, 1000, 5, 0, -10]
+
+// _______ FILTER _______
+
+/* Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
+
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+expected output: Array ["exuberant", "destruction", "present"]
+
+// Стрелочная функция
+filter((element) => { ... } )
+filter((element, index) => { ... } )
+filter((element, index, array) => { ... } )
+
+// Колбэк-функция
+filter(callbackFn)
+filter(callbackFn, thisArg)
+
+// Встроенная колбэк-функция
+filter(function callbackFn(element) { ... })
+filter(function callbackFn(element, index) { ... })
+filter(function callbackFn(element, index, array){ ... })
+filter(function callbackFn(element, index, array) { ... }, thisArg)
+
+callbackFn
+Функция-предикат, которая будет вызвана для проверки каждого элемента массива. Если функция возвращает true, то элемент остаётся в массиве, если false, то удаляется.
+
+Принимает три аргумента
+
+element
+Текущий обрабатываемый элемент в массиве.
+
+indexНеобязательный
+Индекс текущего обрабатываемого элемента в массиве.
+
+arrayНеобязательный
+Обрабатываемый массив, на котором был вызван метод filter().
+
+thisArgНеобязательный
+Значение, используемое в качестве this при вызове колбэк-функции callbackFn.
+
+Возвращаемое значение
+Вернётся новый массив с элементами, которые прошли проверку. 
+Если ни один элемент не прошёл проверку, то будет возвращён пустой массив.
+
+Метод filter() вызывает переданную функцию callback один раз для каждого элемента, 
+присутствующего в массиве, и создаёт новый массив со всеми значениями, 
+для которых функция callback вернула значение, которое может быть приведено к true
+
+Функция callback вызывается с тремя аргументами:
+
+значение элемента;
+индекс элемента;
+массив, по которому осуществляется проход.
+
+Метод filter() не изменяет массив, для которого он был вызван.
+
+callback здесь называют функцию которая передается внутрь как условие
+
+c filter я могу сам решать что попадет в новый массив
+*/
+let array_14 = array_11.filter(function(item, index) {
+    return true
+})
+
+console.log(array_14) // -> return true - > копия массива array_11 return false -> []
+
+// отбираем из array_11 только четные элементы
+
+let array_15 = array_11.filter(function(item, index) {
+    if (item%2===0) {
+        return true
+    }
+})
+console.log(array_15) // -> (5) [4, 12, 200, 0, -2]
+
+// только элементы >0
+
+let array_16 = array_11.filter(function(item, index) {
+    if (item>0) {
+        return true
+    }
+})
+console.log(array_16) // -> (5) [4, 5, 12, 200, 1]
+
+// map и filter работают immutable
 
 
 
