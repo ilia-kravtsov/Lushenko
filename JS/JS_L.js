@@ -3532,17 +3532,91 @@ function (resp) получит результат ответа fetch и прео
 id=703448 kiev
 */ 
 
-fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a91fbf77cf7066eeaf1931b137468b10')
-    .then(function (resp) {return resp.json()}) // convert data to json
-    .then(function (data) {
-        console.log(data);
-        document.querySelector('.city-name').textContent = data.name
-        document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + '&deg;'
-        document.querySelector('.weather').textContent = data.weather[0].description
-    })
-    .catch(function () {
-        // catch any errors
-    })
+// fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a91fbf77cf7066eeaf1931b137468b10')
+//     .then(function (resp) {return resp.json()}) // convert data to json
+//     .then(function (data) {
+//         console.log(data);
+//         document.querySelector('.city-name').textContent = data.name
+//         document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + '&deg;'
+//         document.querySelector('.weather').textContent = data.weather[0].description
+//         // https://media.istockphoto.com/vectors/snow-icon-vector-illustration-flat-design-vector-id1077590334?s=612x612
+//         document.querySelector('.features li').innerHTML = `<img width="50px" height="50px" src="https://media.istockphoto.com/vectors/${data.weather[0]['icon']}snow-icon-vector-illustration-flat-design-vector-id1077590334?s=612x612">`
+//     })
+//     .catch(function () {
+//         // catch any errors
+//     })
+
+//____________________________________ Set в Javascript _______________________________________
+
+// Создаём набор set с помощью нового объекта
+let newSet = new Set()
+newSet.add(1)    // -> Set(1) {1}
+newSet.add(2)
+newSet.add('ilia')
+/*При добавлении в set одинаковых данных проходит строгая! === проверка в том числе и по типу данных  и в случае если в set уже есть такие данные 
+то добавление - не происходит */
+console.log(newSet); /* -> 
+
+Set(3) {1, 2, 'ilia'}[[Entries]]
+0: 1
+1: 2
+2: "ilia"
+size: 3
+[[Prototype]]: Set */
+
+// console.log(newSet[0]); -> нет результата потому что работаем с Set
+
+console.log(newSet.size); // -> 3 количество элементов положенных в set
+
+/*При добавлении в set одинаковых данных проходит строгая! === проверка в том числе и по типу данных и в случае если в set уже есть такие данные 
+то добавление - не происходит 
+
+Поэтому если мы добавляем массив внутрь set(набора) то мы получаем коллекцию уникальных элементов
+но при этом если мы изменим тип данных с числа на строку, то элемент добавится в набор*/
+
+// newSet.clear();
+// console.log(newSet) // -> Set(0)
+
+// delete - позволяет создать элементы для данного набора
+// newSet.delete(2)
+// console.log(newSet) // -> Set(2) {1, 'ilia'} // -> удаляет элемент
+
+// has - проверяем наличие есть в наборе или нет
+console.log(newSet.has(2)) // -> true
+console.log(newSet.has('2')) // -> false
+
+// для перебора данного объекта set используется цикл for of
+for (let item of newSet) {
+    console.log(item)
+}
+/* ->
+1
+2
+ilia
+*/
+
+// Использование наборов на практике 
+// допустим у нас есть вот такой большой массив с разными данными наша задача найти в нём уникальные элементы
+let array_7 = [1,2,3,4,5,'hello', 123, 43,]
+/* раньше мы заводили новый массив перебирали элементы и добавляли подходящие, теперь*/
+
+let array_8 = new Set(array_7) 
+console.log(array_8) // -> Set(8) {1, 2, 3, 4, 5, …}
+console.log(array_8.size) // -> 8
+
+// преобразуем set в массив
+
+let array_9 = Array.from(array_8)
+console.log(array_9) // -> (8) [1, 2, 3, 4, 5, 'hello', 123, 43]
+
+// теперь мы можем взаимодействовать с set набором как с массивом
+console.log(array_9[2]) // -> 3
+
+
+
+
+
+
 
 
 
