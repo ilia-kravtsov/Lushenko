@@ -3498,10 +3498,53 @@ appid={API key}
 
 3-й get параметр - appid={API key}
 
-06:00
+get параметры используются для того чтобы генерировать запрос
+
+адресная строка это обычный get запрос, все что мы делаем через адресную строку 
+либо эмулируем через адресную строку это get запрос 
+
+нам нужно с помощью js посылать get запросы на другие сайты
+
+Интерфейс JS для работы с запросами - fetch
+
+Fetch API предоставляет интерфейс JavaScript для работы с запросами и ответами HTTP
+
+fetch() заключается в вызове этой функции с одним аргументом — строкой,
+содержащей путь к ресурсу, который вы хотите получить — которая возвращает promise, 
+содержащее ответ (объект Response).
+
+fetch делает запрос, запрос всегда асинхронен, то есть мы сделали запрос и нам нужно дождаться ответа
+
+.then - обертка над promise
+
+когда произойдет fetch запрос JS пошлет запрос на указанный в скобках адрес
+
+чтобы послать данный запрос добавляем api key в адресную строку - a91fbf77cf7066eeaf1931b137468b10
+
+.then будет выполнено тогда когда fetch отработает
+
+function (resp) получит результат ответа fetch и преобразует его в {return resp.json()}) в json формат
+
+то есть получит строку и преобразует в accмассив (объект)
+
+следующий then выполнится после этой функции function (data) и он получит уже обработанные данные 
+
+id=703448 kiev
 */ 
 
-https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={API key} 
+fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a91fbf77cf7066eeaf1931b137468b10')
+    .then(function (resp) {return resp.json()}) // convert data to json
+    .then(function (data) {
+        console.log(data);
+        document.querySelector('.city-name').textContent = data.name
+        document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + '&deg;'
+        document.querySelector('.weather').textContent = data.weather[0].description
+    })
+    .catch(function () {
+        // catch any errors
+    })
+
+
 
 
 
