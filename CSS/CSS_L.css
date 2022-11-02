@@ -3,6 +3,7 @@ body {
     color:rgb(21, 36, 104);
     background-color:bisque;
     font-weight: bolder;
+    font-size: 17px;
 }
 
 h1 {
@@ -19,6 +20,7 @@ div {
 button, input, div, label, p {
     border-radius: 25px;
     border: 1px solid lightgray;
+    font-size: 17px;
 }
 
 #divCirclesId_1, #divCirclesId_2, #divCirclesId_3, #divOutForTask_1, #divOutForTask_2, #divOutForTask_3, #divOutForTask_4 {
@@ -33,7 +35,7 @@ button, input, div, label, p {
     display: block;
 }
 
-.loremDivContainer, .primer, #divOutLorem_1, #starTrapezoidDiv, #starTrapezoidDiv_2, .accArrayDivId {
+.loremDivContainer, .primer, #divOutLorem_1, #starTrapezoidDiv, #starTrapezoidDiv_2, .accArrayDivId, .pricing-table-row {
     font-size: 17px;
 }
 
