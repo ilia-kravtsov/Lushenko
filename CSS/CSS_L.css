@@ -51,3 +51,6 @@ button, input, div, label, p {
     border: 3px solid lightgray;
 }
 
+div.divclassforMouse_6 {
+    width: 50px;
+}
