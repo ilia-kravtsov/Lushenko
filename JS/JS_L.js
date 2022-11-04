@@ -4353,4 +4353,38 @@ document.querySelector('.block_5').onmouseleave = function() {
 }
 
 // mouse enter и mouse leave работают по разному
-// на телефоне при добавлении события click дублировать его с помощью события touchё
+// на телефоне при добавлении события click дублировать его с помощью события touch
+
+//____________________________________ Local Storage _______________________________________________
+
+localStorage.setItem('data', 5); // -> добавление данных в Local Storage
+
+console.log(localStorage.getItem('data')) // -> возврат данных -> 5
+
+// создадим массив и запишем его в local storage
+
+const array_15 = [1,2,3]
+
+// задаем имя ключа key и его значение value
+
+localStorage.setItem('array_15', JSON.stringify(array_15)) // -> array_15	[1,2,3] Трансформирую массив в строку
+
+// получаем заданое значение в переменную array_16
+
+let array_16 = localStorage.getItem('array_15')
+
+array_16 = localStorage.getItem('array_15') // после извлечения я его преобразовываю из строки обратно
+
+array_16 = JSON.parse(array_16)
+
+console.log(array_16) // -> (3) [1, 2, 3]
+console.log(array_16[0]) // -> 1
+console.log(array_16[1]) // -> 2              то есть тип получаемых данных - string а не number
+
+// узнаем тип данных полученных значений
+
+console.log(typeof array_16) // -> object
+
+/* когда мы сохраняем массив в local storage он преобразовывается в строку вместе с , 
+если мы хотим корректно сохранять массив вы должны получая его обратно применить преобразование в json строку
+и обратно*/
