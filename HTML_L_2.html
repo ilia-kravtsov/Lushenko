@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./CSS/CSS_L.css">
+    <title>Document</title>
+</head>
+<body>   
+    <h1 class="header">Practice JavaScript 2</h1>
+
+    <p id="lorem"></p>
+
+    <div id="one">One</div>
+    <div id="two">Two</div>
+    <div id="three">Three</div>
+
+    <!-- ________________ Основы ввода данных __________________________ -->
+    <input type="text" class="input_in">
+    <button class="butGo">Go</button>
+    <div class="onPage"></div>
+
+    <!-- ________________ Ветвление if else switch ____________________ -->
+    <label for="ageTest">Enter your age:</label>
+    <input type="text" class="age" value="" id="ageTest">
+    <button class="ageTry">Try</button>
+    <div class="ageOnPage"></div>
+
+    <!-- Task 1 -->
+
+    <button class="firstBut">1 Task</button>
+    <input type="text" class="firstInp" value="">
+    <div class="firstDiv"></div>
+
+    <!-- Task 2 -->
+
+    <button class="secondBut">2 Task</button>
+    <input type="text" class="secondInp" value="">
+    <input type="text" class="secondInp2" value="">
+    <div class="secondDiv"></div>
+
+    <!-- Task 3 -->
+
+    <button class="thirdBut">3 Task</button>
+    <input type="number" class="thirdInp" value="">
+    <input type="number" class="thirdInp2" value="">
+    <div class="thirdDiv"></div>
+
+    <!-- ________________ Работаем с формами __________________ -->
+
+    <!-- Type input 'password' -->
+    <div>
+        <input type="password" id="inpPasswordId">
+        <button class="buttPasswordClass">Push</button>
+    </div>
+
+    <!-- Type input 'color' -->
+    <div id="colorDiv">
+        <input type="color" id="inpColorId">
+        <button class="buttColorClass">Push</button>
+    </div>
+
+    <!-- Type input 'date'-->
+    <div>
+        <input type="date" id="inpDateId">
+        <button class="buttDateClass">Push</button>
+    </div>
+
+    <!-- Type input 'range'
+
+    Если у Range нет min и max то считается что минимум 0 а максимум 100
+    для регулировки min max добавляются атрибуты min max -->
+
+    <div>
+        <input type="range" id="inpRangeId" min="00" max="100" value="50">
+        <button class="buttRangeClass">Push</button>
+        <div id="divOutValueInput">50</div>
+    </div>
+
+    <!-- Type input Checkbox -->
+
+    <div>
+        <label for="checkbox_1">Click </label>
+        <input type="checkbox" id="checkbox_1">
+        <label for="checkbox_1">me </label>
+        <button class="buttCheckClass">Push</button>
+        <div id="divOutCheck"></div>
+        
+    </div>
+
+    <!-- Textarea -->
+    <textarea id="textareaId_1" cols="30" rows="5"></textarea>
+    <button id="buttTextAreaId_1">Push</button>
+    <div id="divOutTextarea_1"></div>
+
+    <!-- Form
+
+    form - это соглашение о том, что данная область - является областью ввода данных.
+        
+    атрибут action - адрес URL куда будет отправлен браузер после нажатия кнопки, 
+    либо кнопки submit внутри формы 
+
+    form - ломается перезагрузкой, поэтому нужно научиться внутри формы останавливать ее поведение.
+    Для этого используем 
+    event - объект событие
+    event.preventDefault() - останавливает перезагрузку формы
+
+    -->
+    <form action="" id="form_1">
+        <textarea id="textareaId_2" cols="30" rows="5" name="textForm_1"></textarea>
+        <input type="text" id="inpForm_2">
+        <button id="buttTextAreaId_2">Push</button>
+        <div id="divOutTextarea_2"></div>
+    </form>    
+
+    <!-- Task 1 -->
+
+    <button id="buttTask_1">Push</button>
+    <div id="divOutTask_1"></div>
+
+    <!-- Task 2 -->
+
+    <input id="inpTask_2">
+    <div id="divOutTask_2"></div>
+
+    <!-- Task 3 -->
+
+    <p id="pTask_3">P_Task_3</p>
+    <div id="divOutTask_3"></div>
+
+    <!-- Циклы в JS -->
+
+    <div class="circles">1</div>
+    <div class="circles">2</div>
+    <div class="circles">3</div>
+
+    <!-- Radio buttons 
+    для группы радио кнопок обязателен атрибут name который повзоляет выбрать только одну-->
+
+    <div>Radio_1 <input type="radio" name="samename" value="1" checked></div>
+    <div>Radio_2 <input type="radio" name="samename" value="2"></div>
+    <div>Radio_3 <input type="radio" name="samename" value="3"></div>
+    <button id="buttRadioId_1">Push</button>
+
+    <!-- Continue -->
+    <div id="continueId"></div>
+
+    <!-- Task 1 -->
+
+    <button id="buttCirclesId_1">Push</button>
+    <div id="divCirclesId_1"></div>
+
+    <!-- Task 2 -->
+    
+    <button id="buttCirclesId_2">Push</button>
+    <div id="divCirclesId_2"></div>
+
+    <!-- Task 3 -->
+    <button id="buttCirclesId_3">Push</button>
+    <div id="divCirclesId_3"></div>    
+
+    <!-- Вложенные циклы + таблица умножения-->
+
+    <div id="divOutEnteredCircles"></div>
+    <div id="divOuMultiplyTable"></div>
+
+    <!-- Task 1 -->
+
+    <div id="divOutForTask_1"></div>
+
+    <!-- Task 2 -->
+
+    <div id="divOutForTask_2"></div>
+
+    <!-- Task 3 -->
+
+    <div id="divOutForTask_3"></div>  
+    
+    <!-- Task 4 -->
+
+    <div id="divOutForTask_4"></div>    
+
+    <!-- Функции 
+    onclick в качестве атрибута тега button - устаревшая практика -->
+
+    <button id="buttForFirstFunction">ButtonForFirstFunction</button>
+
+    <!-- Анонимная функция -->
+
+    <button id="anonimusFunction_1">AnonimusFunction_1</button>
+    <button id="anonimusFunction_2">AnonimusFunction_2</button>
+
+    <!-- Task 1 -->
+
+    <button id="buttonForFunctionTask_1">buttonForFunctionTask_1</button>          
+    <div id="divOutForFunctionTask_1"></div>  
+
+    <!-- Task 2 -->
+    
+    <button id="buttonForFunctionTask_2">buttonForFunctionTask_2</button>          
+    <div id="divOutForFunctionTask_2"></div>  
+    
+    <!-- Task 3 -->
+
+    <button id="buttonForFunctionTask_3">buttonForFunctionTask_3</button>          
+    <div id="divOutForFunctionTask_3"></div>  
+
+    <!-- Textcontent || innerHTML -->
+
+    <div class="loremDivContainer">
+        <h2 class="text-center">Lorem Text Content</h2>
+        <div class="primer">
+            Lorem<br> ipsum dolor sit, amet <b>consectetur</b> adipisicing elit. 
+            <i>Voluptatibus</i> voluptatum modi expedita quos accusantium <span class="loremSpanBlock">dignissimos</span> ipsum voluptatem, 
+            quas eligendi nisi eaque rem explicabo at distinctio, 
+            maxime pariatur, odit iusto alias.
+        </div>
+
+        <div id="divOutLorem_1"></div>
+    </div>
+
+    <!-- Циклы Do and Do While -->
+
+    <div id="WhileTrain"></div>
+
+    <!-- Работа с DOM, создание элементов, работа с CSS, атрибут Data -->
+
+    <p class="p_1" data="privet">Text</p>
+    <button class="toggle">Toggle</button>
+    
+    <p>Выберите тип бензина:</p>
+    <input type="text" class="gallons">
+        <div>
+            <button class="gas" data="1.2">A 92</button>
+            <button class="gas" data="1.6">A 95</button>
+            <button class="gas" data="1.9">A 98</button>
+        </div>
+    
+    <div id="addCreateElementJS"></div>    
+
+    <!-- Методы push pop splice -->
+
+    <!-- Двумерные массивы -->
+
+    <div class="divOutTwenthArray"></div>
+
+    <!-- Специализированная переменная, задача нажимая кнопку передвигать еденицу -->
+    <div>
+        <button id="oneMoveButton">Push</button>
+        <div class="divOutArray_2"></div>
+    </div>
+
+    <!-- Строим трапецию из * -->
+
+    <div id="starTrapezoidDiv"></div>
+
+    <!-- Строим разные фигуры из модели трапеции -->
+
+    <div id="starTrapezoidDiv_2"></div>
+
+    <!-- Ассоциативные массивы -->
+
+    <div class="accArrayDivId"></div>
+
+    <!-- Получаем прогноз погоды по API -->
+
+    <div class="pricing-table-row">
+        <div class="package featured">
+            <p class="city-name">London</p>
+            <hr>
+            <p class="temperature">10&deg;</p>
+            <p class="weather">Clouds</p>
+            <hr>
+            <ul class="features">
+                <li>Feature 1</li>
+            </ul>
+            <button class="button-primary">Go</button>
+        </div>     
+    </div>
+
+    <!-- Set в Javascript -->
+
+    <!-- Цикл for of и сравнение с for, for in -->
+
+    <div class="divid_1">1</div>
+    <div class="divid_1">2</div>
+    <div class="divid_1">3</div>
+
+    <!-- map filter -->
+
+    <!-- split join forEach-->
+
+    <!-- События мыши -->
+
+    <div class="divclassforMouse_1">1</div>
+    <div class="divclassforMouse_2">2</div>
+    <div class="divclassforMouse_3">3</div>
+    <div class="divclassforMouse_4">4</div>
+    <div class="divclassforMouse_5">5</div>
+    <div class="divclassforMouse_6">6</div>
+    <progress class='progress' value="10" max="100"></progress>
+    <button class="buttonProgressClass">Progress</button>
+
+    <!-- События клавиатуры -->
+
+    <div>
+        <input type="text" class="classInput_1">
+    </div>
+    <div>
+        <input type="text" class="classInput_2">
+    </div>
+    <div>
+        <input type="text" class="classInput_3">
+    </div>
+    <div>
+        <input type="text" class="classInput_4">
+    </div>
+
+    <div>
+        <label><input type="checkbox" class="classInput_5">Caps Lock</label>
+    </div>
+
+    <div>
+        <label><input type="text" class="classInput_6">last example</label>
+    </div>
+
+    <!-- События JavaScript на iPhone и Android телефонах. JavaScript v.2.0 -->
+
+    <div class="forAlldiv">
+        <div class="block_1">BlockIn_1</div>        
+        <div class="out_1"></div>      
+        <hr>  
+        <div class="block_2">BlockIn_2</div>        
+        <div class="out_2"></div>      
+        <hr>
+        <div class="block_3">BlockIn_3</div>        
+        <div class="out_3"></div>      
+        <hr>
+        <div class="block_4">BlockIn_4</div>        
+        <div class="out_4"></div>      
+        <hr>
+        <div class="block_5">BlockIn_5</div>        
+        <div class="out_5"></div>   
+        <hr>   
+    </div>
+
+    <!-- Local Storage -->
+
+    <button class="button-primary ls">Go</button>
+
+    <script src="./JS/JS_L_2.js"></script>
+</body>
+</html>
