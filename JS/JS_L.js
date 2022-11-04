@@ -4373,9 +4373,9 @@ localStorage.setItem('array_15', JSON.stringify(array_15)) // -> array_15	[1,2,3
 
 let array_16 = localStorage.getItem('array_15')
 
-array_16 = localStorage.getItem('array_15') // после извлечения я его преобразовываю из строки обратно
+array_16 = localStorage.getItem('array_15') 
 
-array_16 = JSON.parse(array_16)
+array_16 = JSON.parse(array_16) // после извлечения из localStorage я его преобразовываю из строки обратно
 
 console.log(array_16) // -> (3) [1, 2, 3]
 console.log(array_16[0]) // -> 1
@@ -4387,4 +4387,45 @@ console.log(typeof array_16) // -> object
 
 /* когда мы сохраняем массив в local storage он преобразовывается в строку вместе с , 
 если мы хотим корректно сохранять массив вы должны получая его обратно применить преобразование в json строку
-и обратно*/
+и обратно
+
+localStorage.setItem('array_15', JSON.stringify(array_15))
+
+array_16 = JSON.parse(array_16)
+
+
+Та же работа с асс массивом объектом */
+const array_17 = {
+    ilia: 11,
+    k: 2,
+    4: 'danila'
+}
+localStorage.setItem('array_17', JSON.stringify(array_17))
+let array_18 = localStorage.getItem('array_17')
+
+array_18 = localStorage.getItem('array_17') 
+
+array_18 = JSON.parse(array_18)
+
+console.log(array_18) // -> (3) [1, 2, 3]
+console.log(typeof array_18) 
+
+/*
+{4: 'danila', ilia: 11, k: 2}4: "danila"ilia: 11k: 2[[Prototype]]: Object
+*/
+
+// мы можем отслеживать события add even listener
+
+// по идее когда изменяется local storage мы можем констатировать факт изменения данного события
+// это отслеживатеся если Localstorage был введен на других страницах в данном контексте
+
+window.addEventListener('storage', (e) => {
+    console.log('change') // -> 
+    document.querySelector('.out1html').textContent = localStorage.getItem('b1')
+});
+
+/* Таким образом я получаю возможность манипулировать через local storage разными страницами
+пользователь пользователь на одной странцие добавил в корзину - на другой корхина обновилась
+удалил на одной странице корзину, очистил на второй она тоже очистилась
+
+мы можем очищать locwq*/
