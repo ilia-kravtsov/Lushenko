@@ -4875,13 +4875,7 @@ fetch('https://getpost.itgid.info/index2.php')
 .then(data => {
     console.log(data)
 })
-*/
-console.log('-----------------------Fetch----------------------------')
-fetch('https://getpost.itgid.info/index2.php')
-    .then(data => {
-        console.log(data)
-    })
-/*
+
 в консоли увидим
 Response {type: 'cors', url: 'https://getpost.itgid.info/index2.php', redirected: false, status: 200, ok: true, …}
 body: (...)
@@ -4896,5 +4890,281 @@ url: "https://getpost.itgid.info/index2.php"
 [[Prototype]]: Response 
 
 Для того чтобы получить информацию к текстовым данным которые приходят в Response выше
-его тоже нужно обработать как его обработать
+его тоже нужно обработать как его обработать методов text()
+console.log(data.text())
+
+text() - позволяет получить простую текстовую информацию
+*/
+console.log('-----------------------Fetch----------------------------')
+// fetch('https://getpost.itgid.info/index2.php')
+//     .then(data => {
+//         console.log(data)
+//         // data.text().then(data2 => {
+//         //     console.log(data2)
+//         // })
+//         return data.text()
+//     })
+//     .then(data => {
+//         console.log(data)
+//     })
+/*
+
+Response {type: 'cors', url: 'https://getpost.itgid.info/index2.php', redirected: false, status: 200, ok: true, …}
+body: (...)
+bodyUsed: true
+headers: Headers {}
+ok: true
+redirected: false
+status: 200
+statusText: ""
+type: "cors"
+url: "https://getpost.itgid.info/index2.php"
+[[Prototype]]: Response
+
+
+POST
+Не ввели ключ авторизации. Ключ доступен в чате курса.
+Promise {<pending>} промис находится в состоянии ожидания
+[[Prototype]]: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]:
+"Не ввели ключ авторизации. Ключ доступен в чате курса."
+
+text() - вернул promise
+
+можем сделать так
+
+data.text().then(data2 => {
+    console.log(data2)
+})
+
+чтобы избежать вложенности добавим
+
+.then (data => {
+
+})
+
+return data.text()
+
+fetch('https://getpost.itgid.info/index2.php') - после того как fetch отработает
+будет запущен первый then
+    .then(data => {
+        console.log(data.text())
+        // data.text().then(data2 => {
+        //     console.log(data2)
+        // })
+        return data.text()
+    })
+первый then сработает обработает data и если там стоит команда return
+то данные из первого then попадут во второй then далее можно передать и в третий
+    .then(data => {
+        console.log(data)
+    })
+
+->
+
+POST
+Не ввели ключ авторизации. Ключ доступен в чате курса.
+Не ввели ключ авторизации. Ключ доступен в чате курса.
+Response {type: 'cors', url: 'https://getpost.itgid.info/index2.php', redirected: false, status: 200, ok: true, …}
+Не ввели ключ авторизации. Ключ доступен в чате курса.
+
+Можно упростить ещё
+
+fetch('https://getpost.itgid.info/index2.php')
+    .then(data => data.text())
+    .then(data => {
+        console.log(data)
+    })
+
+Параметры передаются через адресную строку
+
+https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1
+
+Response {type: 'cors', url: 'https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1', redirected: false, status: 200, ok: true, …}
+body: (...)
+bodyUsed: true
+headers: Headers {}
+ok: true
+redirected: false
+status: 200
+statusText: ""
+type: "cors"
+url: "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1"
+[[Prototype]]: Response
+
+Когда мы получаем такой response мы можем сделать проверку в несколько уровней
+
+проверить if перед return data.status
+*/
+// fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+//     .then(data => {
+//         console.log(data)
+//         // data.text().then(data2 => {
+//         //     console.log(data2)
+//         // })
+//         return data.text()
+//     })
+//     .then(data => {
+//         console.log(data)
+//     })
+
+// //___________Делаем POST запрос методом fetch
+
+// fetch('https://getpost.itgid.info/index2.php', {
+
+//     // позволяет настроить fetch более тонко
+//     method: 'POST', // GET, POST, PUT, DELETE, etc. указываем метод
+//     moded: 'cors', // no-cors, cors, same-origin указываем защиту особенности ее в данном случае будем согласовывать ее с бэкендом
+//     cache: 'no-cache', // default, no-cache, reload, force-cache, only-if-cached кэширование если необходимо
+//     credentials: 'same-origin', // include, same-origin, omit полномочия если вам необходимо передавать разные данные cookie и так далее
+//     headers: { /* заголовки  есть возвожность отправить json */
+//         'Content-Type': 'application/json',
+//         // 'Content-Type' : 'application/x-www-form-urlencoded',
+//     },
+//     redirect: 'follow', // manual, follow, error
+//     referrer: 'no-referrer', // no-referrer, client
+//     // body: JSON.stringify(data), // вот здесь я должен передать данные на сервер// тип данных в body должен соответствовать значению заголовка "Content-Type"
+//     body: auth = 'zhrgB3DxC8LoG7Gcilzg & action=2&name=alex'
+// })
+//     .then(response => response.text())
+//     .then(response => {
+//         console.log(response)
+//     })
+
+fetch('https://getpost.itgid.info/index2.php', {
+
+    // позволяет настроить fetch более тонко
+    method: 'POST', // GET, POST, PUT, DELETE, etc. указываем метод
+    headers: { /* заголовки  есть возвожность отправить json */
+        'Content-Type': 'application/x-www-form-urlencoded',
+        // 'Content-Type' : 'application/x-www-form-urlencoded',
+    },
+    body: 'auth=zhrgB3DxC8LoG7Gcilzg&action=2&name=alex'
+})
+    .then(response => response.text())
+    .then(response => {
+        console.log(response)
+    })
+
+// ______________________ Promise PromiseAll _______________________________
+
+/* fetch это обертка над promise 
+
+мы посылаем запрос https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1
+
+и когда он выполнится мы посылаем callback функцию первую 
+
+ .then(data => {
+        console.log(data)
+        // data.text().then(data2 => {
+        //     console.log(data2)
+        // })
+        return data.text()
+    })
+
+и callback функцию вторую
+
+ .then(data => {
+        console.log(data)
+    })
+
+Promise позволяет работать с асинхронными данными
+
+когда мы посылаем 2 или 3 запроса у нас получаются
+ответы от серверов в разном порядке
+иногда получаем первым третий запрос иногда второй и все смешано
+
+
+что такое promise
+
+promise - это объект который принимает функцию с двумя параметрами
+параметр 1 называют resolve 
+параметр 2 называют reject
+мы можем называть их как угодно
+
+resolve - это параметр который получается когда promise возвращает результат как вы задумали
+reject - когда у него не получается это сделать
+
+у нас есть функция fetch которая посылает запрос он асинхронный мы должны дождать разрешения
+события когда сервер нам ответит и когда fetch получит ответ
+
+return data.text() - здесь мы получаем сырые данные которые преобразовываем в текстовую информацию
+нам сервер отдает текстовую информацию
+мы должны дождать этого события и только потом двигаться дальше
+
+в promise мы должны обозначить явно что будет успешным срабатыванием
+вместо return data.text() пишем resolve(data.text())
+
+let aPromise = new Promise((resolve, reject) => {
+    fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+        .then(data => {
+            resolve(data.text())
+        })
+        .then(data => {
+            console.log(data)
+        })
+})
+
+когда срабатывает событие я могу написать
+
+let aPromise = new Promise((resolve, reject) => {
+    fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+        .then(data => {
+            resolve(data.text())
+        })
+    aPromise.then(data => {
+        console.log(data)
+    })
+})
+
+aPromise.then(data => {
+    console.log(data)
+}) - callback функция которую мы вызываем
+
+*/
+let aPromise = new Promise((resolve, reject) => {
+    fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+        .then(data => {
+            resolve(data.text())
+        })
+
+})
+
+aPromise.then(data => {
+    console.log(data)
+})
+
+/*
+
+Преимущества Promise перед then
+
+let aPromise = new Promise((resolve, reject) => {
+    fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+        .then(data => {
+            resolve(data.text())
+        })
+
+}) - здесь мы получили ответ и хотим этот ответ дальше использовать
+для этого нужно будет писать код здесь 
+
+aPromise.then(data => {
+    console.log(data)
+})
+
+у нас будут какие-то действия с кодом
+например мы хотим послать еще один запрос
+
+aPromise.then(data => {
+    console.log(data)
+    fetch()
+    .then()
+    .then(data какой-то параметр => {
+        если мы захотим послать третий параметр то указывать его придется здесь и таким образом мы создадим вложенность
+    }) - для преобразования
+
+})
+
+promise позволяют избавиться от вложенности then
+
+Предположим что нам необходимо послать два запроса и потом как-то поработать с синтаксисом
+двух запросов то есть
 */
