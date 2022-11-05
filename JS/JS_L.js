@@ -4795,23 +4795,23 @@ auth=zhrgB3DxC8LoG7Gcilzg&action=1
 конфигурировался метод так как буд-то мы посылаем данные формы
 */
 
-let xhttp2 = new XMLHttpRequest()
+// let xhttp2 = new XMLHttpRequest()
 
-xhttp2.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        myFunction2(this.responseText)
-    }
-}
+// xhttp2.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//         myFunction2(this.responseText)
+//     }
+// }
 
-xhttp2.open("POST", "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1", true)
-xhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-xhttp2.send('auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+// xhttp2.open("POST", "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1", true)
+// xhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+// xhttp2.send('auth=zhrgB3DxC8LoG7Gcilzg&action=1')
 
-function myFunction2(data) {
-    console.log('POST')
-    a = data
-    console.log(data)
-}
+// function myFunction2(data) {
+//     console.log('POST')
+//     a = data
+//     console.log(data)
+// }
 
 // _________________________________  Fetch на практике __________________________
 
@@ -5030,20 +5030,20 @@ url: "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1"
 //         console.log(response)
 //     })
 
-fetch('https://getpost.itgid.info/index2.php', {
+// fetch('https://getpost.itgid.info/index2.php', {
 
-    // позволяет настроить fetch более тонко
-    method: 'POST', // GET, POST, PUT, DELETE, etc. указываем метод
-    headers: { /* заголовки  есть возвожность отправить json */
-        'Content-Type': 'application/x-www-form-urlencoded',
-        // 'Content-Type' : 'application/x-www-form-urlencoded',
-    },
-    body: 'auth=zhrgB3DxC8LoG7Gcilzg&action=2&name=alex'
-})
-    .then(response => response.text())
-    .then(response => {
-        console.log(response)
-    })
+//     // позволяет настроить fetch более тонко
+//     method: 'POST', // GET, POST, PUT, DELETE, etc. указываем метод
+//     headers: { /* заголовки  есть возвожность отправить json */
+//         'Content-Type': 'application/x-www-form-urlencoded',
+//         // 'Content-Type' : 'application/x-www-form-urlencoded',
+//     },
+//     body: 'auth=zhrgB3DxC8LoG7Gcilzg&action=2&name=alex'
+// })
+//     .then(response => response.text())
+//     .then(response => {
+//         console.log(response)
+//     })
 
 // ______________________ Promise PromiseAll _______________________________
 
@@ -5121,17 +5121,17 @@ aPromise.then(data => {
 }) - callback функция которую мы вызываем
 
 */
-let aPromise = new Promise((resolve, reject) => {
-    fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1')
-        .then(data => {
-            resolve(data.text())
-        })
+// let aPromise = new Promise((resolve, reject) => {
+//     fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+//         .then(data => {
+//             resolve(data.text())
+//         })
 
-})
+// })
 
-aPromise.then(data => {
-    console.log(data)
-})
+// aPromise.then(data => {
+//     console.log(data)
+// })
 
 /*
 
@@ -5167,4 +5167,242 @@ promise позволяют избавиться от вложенности then
 
 Предположим что нам необходимо послать два запроса и потом как-то поработать с синтаксисом
 двух запросов то есть
+
+давайте мы пошлем еще один запрос
 */
+
+// console.log('---------------bPromise------------------')
+// let bPromise = new Promise((resolve, reject) => {
+//     fetch('https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=2&name=alex')
+//         .then(data => {
+//             resolve(data.text())
+//         })
+
+// })
+
+// aPromise.then(data => {
+//     console.log(data)
+// })
+
+// bPromise.then(data => {
+//     console.log(data)
+// })
+
+/* 
+эти события наступают независимо друг от друга сервер ответит как повезет
+
+мы не можем предположить какая отработает первой всегда будет вылетать рандомный ответ
+сначала от aPromise затем наоборот
+
+ы можно было сделать так чтобы с ними обоими можно было работать
+
+Поэтому у нас есть такая сущность как promiseall
+
+PromiseAll синтаксис который позволяет нам обработать вот эти две переменные вместе
+
+Promise.all  дальше мы указываем те  промисы с которыми будем работать
+
+Promiseall дождется наступления двух промисов и только тогда запустит свою обработку
+
+и я получу доступ к переменной value
+
+(2) ['Не ввели ключ авторизации. Ключ доступен в чате курса.', 'Не ввели ключ авторизации. Ключ доступен в чате курса.']
+
+результаты промисов записались в массив
+
+так как промисол выдает массив то мы можем обратиться к каждому элементу массива
+
+    console.log(value[0])
+    console.log(value[1])
+
+и таким образом они всегда будут приходить в том порядке в котором я указал
+
+таким образом мы уменьшаем количество кода
+
+*/
+// Promise.all([aPromise,bPromise]).then(value => {
+//     console.log(value)
+//     console.log(value[0])
+//     console.log(value[1])
+// }) // -> (2) ['Не ввели ключ авторизации. Ключ доступен в чате курса.', 'Не ввели ключ авторизации. Ключ доступен в чате курса.']
+
+//____________________________________Функции return_______________________________________________________
+
+/*
+
+Функция это возможность объединить кусочки кода
+
+сделаем функцию которая просто выводит число на страницу
+
+пусть у меня будет переменная равная 9
+
+let variable_1 = 9;
+
+я напишу функцию f1 которая будет этот текст выводить
+
+function f1 () {
+    document.querySelector('.functionDiv_1').textContent = variable_1
+}
+
+как будет работать эта функция при вызове
+
+document.querySelector('.functionButton_1').onclick = f1 функция вызывается без скобочек 
+если со скобочками результат будет просто сам отображаться без нажатся потому что
+ функция со скобочками уже производит операцию вызова
+
+по клику будет выводиться функция f1 которая отрисует в дивке значение переменной variable_1
+
+
+function f1 () {
+    document.querySelector('.functionDiv_1').textContent = variable_1
+} - назвать эту конструкцию функцией тяжело
+в других языках программирования называется >---процедурой---< то есть хранимой последовательностью действий
+которую я могу повторять много раз в нужных мне местах
+является ли эта функция гибкой - нет потому что она привязана к блоку и она привязана к переменной
+если переменная где-то изменится, то изменится и сама функция
+
+*/
+
+// let variable_1 = 9;
+
+// function f1 () {
+//     document.querySelector('.functionDiv_1').textContent = variable_1
+// }
+
+// document.querySelector('.functionButton_1').onclick = f1
+
+/* Задача, я хочу постоянно менять переменную и чтобы функция выводила задача я хочу сейчас несколько раз запустить 
+функцию чтобы она вывела разные переменные
+
+Чтобы функция постоянно не выходила за пределы своей области видимости и не искала переменную variable_1
+обозначим параметр или аргумент функии чтобы она ждала какое-то значение на входе
+
+
+let variable_1 = 9;
+
+function f1 (variable_2) {
+    document.querySelector('.functionDiv_1').textContent = variable_2
+}
+
+document.querySelector('.functionButton_1').onclick = f1 // -> [object PointerEvent]
+
+выводит не то что ожидалось
+
+функция при вызове должна принимать параметр поэтому я могу написать вот так
+
+f1(90) и таким образом при вызове вместо variable_2 подставится 90
+
+и функция внутри себя будет искать переменную variable_2 
+
+если функия внутри себя не найдет let variable_2
+
+то она функия будет искать значение внутри параметра
+
+причем если мы обозначаем какое-то значение в параметре то никак объявлять его как переменную не нужно
+
+в параметры можно передать переменную
+
+let variable_1 = 9;
+
+function f1 (variable_2) {
+    document.querySelector('.functionDiv_1').textContent = variable_2
+}
+
+document.querySelector('.functionButton_1').onclick = f1 // -> [object PointerEvent]
+
+f1(90) - в этом случае функция сработает при старте 
+то есть в дивке уже будет нарисовано 90 а при клике по кнопке мы увидим [object PointerEvent]
+
+возникает вопрос как сделать так чтобы вся эта херня работала по клику
+
+если в функции нужно передать параметр мы используем именованую функцию обертку function()
+
+
+function f1 (variable_2) {
+    document.querySelector('.functionDiv_1').textContent = variable_2
+}
+
+document.querySelector('.functionButton_1').onclick = function() {
+    f1(12)
+} вот так будет работать по клику 
+
+если у вас несколько кнопок вы можете получить несколько действий вызвав функцию несколько раз с разными параметрами
+то есть вызывать функцию нужное количество раз меняя параметр и она будет срабатывать в нужной нам последовательностиы
+
+если отрисовывать результат вызова функии в одной и той же дивке то результат вызова будет перезатираться
+
+function f1 (variable_2) {
+    document.querySelector('.functionDiv_1').textContent = variable_2
+}
+
+document.querySelector('.functionButton_1').onclick = function() {
+    f1(12)
+}
+
+как сделать функцию еще более гибкой, допустим наша функция как то обрабатывает результат - например умножает на 50 или на 100
+напишем вместо document.querySelector('.functionDiv_1').textContent = variable_2 - return 100 * variable_2
+
+function f1 (variable_2) {
+    return variable_2 * 100
+}
+
+document.querySelector('.functionButton_1').onclick = function() {
+    f1(12)
+}
+
+в функцию можно передать любые действия в качестве параметра, но теперь
+
+при нажатии на кнопку ничего не произойдет результат вывода ложится на меня
+
+console.log(f1(12)) // -> 1200
+
+второй вывод я хочу вывести на страницу поэтому
+
+document.querySelector('.functionDiv_1').innerHTML = f1(23) // -> 2300
+
+теперь у нас есть полноценная функция так как есть return функция создает произведение чисел и возвращает результат
+который мы можем использовать в первый раз при вызове функции я подставил значение при вызове на место аргумента
+и это значение прошло через функцию и вернулось в результате ее выполнения, я взял этот результат и вывел его в консоль
+а другой значение вывел на страницу не меняя при этом саму функцию а только лишь значение которое я подставил в нее при вызове
+таким образом я сократил количество кода >--- в этом и есть суть такой сущности как функция ---<
+
+так же я могу вызов функции с определенным значением обозначить как переменную let variable_3 = f1(100)
+
+и потом манипулировать этой переменной подставив ее в конец выражения
+
+ document.querySelector('.functionDiv_1').innerHTML = variable_3
+
+более того я могу встроить эту функцию в выражение
+
+ document.querySelector('.functionDiv_1').innerHTML = f1(100)/2
+
+вместо f1 будет подставлен результат который прописан в return
+
+и потом выполняться остальные действия то есть я могу использовать в выражениях мою функцию
+*/
+
+
+function f1 (variable_2) {
+    return variable_2 * 100
+}
+
+document.querySelector('.functionButton_1').onclick = function() {
+    console.log(f1(12)) // -> 1200
+    let variable_3 = f1(100)
+    document.querySelector('.functionDiv_1').innerHTML = f1(23)/2 // -> 1150
+}
+
+/* Таким образом если вам нужно просто объединить несколько строк кода визуально логически просто какие-то действия
+мы можем использовать функцию в самом простом виде function() {} без параметров и строк - то есть использовать
+функцию как процедуру то есть объединенная логически действие
+
+Если я хочу сделать функцию более гибкой я должен вызывать ее с разными параметрами я передаю параметр внутрь функции
+и использую этот параметр внутри функции, возвращаю результат действия функции через return и в таком случае
+при вызове функции я должен указать этот параметр 
+
+но при таком подходе мне необходимо делать функции обертки потому что функция с круглыми скобочками вызовется сразу когда 
+до нее дойдет очередь поэтому вся эта херня обернута в = () => {} 
+
+Если я хочу многократно использовать функцию и встраивать ее в выражение и сделать ее более гибкой я использую return
+в таком случае задача вывода текста ложатся на меня и я должен оборачивать внутри функции все в консоль лог*/
+
