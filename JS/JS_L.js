@@ -2060,7 +2060,7 @@
 // document.querySelector('.buttRangeClass').onclick = () => {
 //     console.log(document.querySelector('#inpRangeId').value)
 // }
- 
+
 // // Type input checkbox
 
 // let checkboxValue = document.querySelector('#checkbox_1');
@@ -2138,7 +2138,7 @@
 //     if (countBraces < 0) {
 //         break;
 //     }
-   
+
 // }
 
 // console.log('--------');
@@ -2225,7 +2225,7 @@
 //     let radioAttempt = document.querySelectorAll('input[type="radio"]')
 
 //     console.log(radioAttempt);
-    
+
 //     for (let i = 0; i<radioAttempt.length; i++) {
 //         if (radioAttempt[i].checked) {
 //             console.log(radioAttempt[i].value);
@@ -2564,16 +2564,16 @@
 //     Когда говорят функция возвращает своё значение 
 //     Понимается что её можно присвоить переменной 
 //     И внутрь переменной после выполнения функций попадёт результат ее выполнения
-    
+
 //     Возвращение значения функции означает что ее можно поставить в какое-то
 //     математическое выражение либо в конкатенацию и получить осмысленный результат
-    
+
 //     Функции бывают двух видов - именованые - их можно использовать многократно
 //     И анонимные - без имени - используются один раз для удобного написания кода
-    
+
 //     В функцию можно передавать параметры, они передаются через запятую и указываются при создании функции
 //     Параметром в ES6 можно присвоить значения по умолчанию через запятую, затем их можно подставить и использовать
-    
+
 //     Стрелочные функции по разному работают с this
 //     Работа в обычных анонимных функциях и в стрелочных функциях - разная*/
 
@@ -2669,7 +2669,7 @@
 // // while (p<=10) {
 // //     p++
 // //     sum = sum + p
-   
+
 // //     console.log(sum); // 0 = 0 + 1; 1 наверх в условие, возвращается через 1++; 1 = 1 + 2; 3 = 3 + 3; 6 = 6 + 4; 10 = 10 + 5; 15 = 15 + 6; 21 = 21 + 7; 28 = 28 + 8; 36 = 36 + 9; 45 = 45 + 10; 55 
 // // }
 // // console.log('sum = '+ sum);
@@ -2699,7 +2699,7 @@
 //         else {
 //             squareStar = squareStar + '*' // '' = '' + '*'; '*' = '*' + '*'; '**' = '**' + '*'; '***' = '***' + '*'; '****' 
 //         }
-     
+
 //     p1++
 //     }
 //     flag--
@@ -2716,7 +2716,7 @@
 //         }
 //         else {
 //             squareStar'' = squareStar'' + '*'       squareStar''''*<br> squareStar'''**<br> squareStar''***<br> squareStar****<br>
-                                                    
+
 //     p1++(4)
 //     }
 //     flag--(-1)
@@ -4029,8 +4029,8 @@ undefined.
 В отличие от map и filter не возвращает нового массива
 */
 
-array_14.forEach(function(elem, index){
-    console.log(elem*2) //-> 1 2 3
+array_14.forEach(function (elem, index) {
+    console.log(elem * 2) //-> 1 2 3
     console.log(index)
     console.log('---')
 })
@@ -4055,12 +4055,12 @@ array_14.forEach(function(elem, index){
 внутри event есть информация о других нажатых клавишых в момент события
 */
 
-document.querySelector('.divclassforMouse_1').onclick = function(event) {
+document.querySelector('.divclassforMouse_1').onclick = function (event) {
     console.log(event) // -> PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
     console.log('click_1')
 }
 
-document.querySelector('.divclassforMouse_2').onclick = function() {
+document.querySelector('.divclassforMouse_2').onclick = function () {
     console.log('click_2')
 }
 
@@ -4131,7 +4131,7 @@ document.querySelector('.divclassforMouse_6').onmouseup = () => {
 // Работаем с тегом progress
 
 let p = 10; // по значению value progress
-document.querySelector('.buttonProgressClass').onclick = function() {
+document.querySelector('.buttonProgressClass').onclick = function () {
     p++
     document.querySelector('.progress').value = p;
 }
@@ -4284,7 +4284,7 @@ document.querySelector('.classInput_4').onkeydown = (event) => {
         document.querySelector('.classInput_5').checked = true;
     }
     else {
-        document.querySelector('.classInput_5').checked = false;    
+        document.querySelector('.classInput_5').checked = false;
     }
 }
 
@@ -4302,7 +4302,7 @@ document.querySelector('.classInput_6').onkeypress = (event) => {
         w: 'e'
     }
     document.querySelector('.classInput_6').value += a[event.key]
-    return false 
+    return false
 }
 
 // ________________________События JavaScript на iPhone и Android телефонах ______________________________
@@ -4311,7 +4311,7 @@ document.querySelector('.classInput_6').onkeypress = (event) => {
 
 let forBlocks_1 = 0
 
-document.querySelector('.block_1').onclick = function() {
+document.querySelector('.block_1').onclick = function () {
     forBlocks_1++
     document.querySelector('.out_1').innerHTML = 'click ' + forBlocks_1
 }
@@ -4320,7 +4320,7 @@ document.querySelector('.block_1').onclick = function() {
 
 let forBlocks_2 = 0
 
-document.querySelector('.block_2').ondblclick = function() {
+document.querySelector('.block_2').ondblclick = function () {
     forBlocks_2++
     document.querySelector('.out_2').innerHTML = 'double_click ' + forBlocks_2
 }
@@ -4329,7 +4329,7 @@ document.querySelector('.block_2').ondblclick = function() {
 
 let forBlocks_3 = 0
 
-document.querySelector('.block_3').onmousemove = function() {
+document.querySelector('.block_3').onmousemove = function () {
     forBlocks_3++
     document.querySelector('.out_3').innerHTML = 'mousemove' + forBlocks_3
 }
@@ -4338,7 +4338,7 @@ document.querySelector('.block_3').onmousemove = function() {
 
 let forBlocks_4 = 0
 
-document.querySelector('.block_4').onmouseenter = function() {
+document.querySelector('.block_4').onmouseenter = function () {
     forBlocks_4++
     document.querySelector('.out_4').innerHTML = 'mouseenter' + forBlocks_4
 }
@@ -4347,7 +4347,7 @@ document.querySelector('.block_4').onmouseenter = function() {
 
 let forBlocks_5 = 0
 
-document.querySelector('.block_5').onmouseleave = function() {
+document.querySelector('.block_5').onmouseleave = function () {
     forBlocks_5++
     document.querySelector('.out_5').innerHTML = 'mouseleave' + forBlocks_5
 }
@@ -4363,7 +4363,7 @@ console.log(localStorage.getItem('data')) // -> возврат данных -> 5
 
 // создадим массив и запишем его в local storage
 
-const array_15 = [1,2,3]
+const array_15 = [1, 2, 3]
 
 // задаем имя ключа key и его значение value
 
@@ -4373,7 +4373,7 @@ localStorage.setItem('array_15', JSON.stringify(array_15)) // -> array_15	[1,2,3
 
 let array_16 = localStorage.getItem('array_15')
 
-array_16 = localStorage.getItem('array_15') 
+array_16 = localStorage.getItem('array_15')
 
 array_16 = JSON.parse(array_16) // после извлечения из localStorage я его преобразовываю из строки обратно
 
@@ -4403,12 +4403,12 @@ const array_17 = {
 localStorage.setItem('array_17', JSON.stringify(array_17))
 let array_18 = localStorage.getItem('array_17')
 
-array_18 = localStorage.getItem('array_17') 
+array_18 = localStorage.getItem('array_17')
 
 array_18 = JSON.parse(array_18)
 
 console.log(array_18) // -> (3) [1, 2, 3]
-console.log(typeof array_18) 
+console.log(typeof array_18)
 
 /*
 {4: 'danila', ilia: 11, k: 2}4: "danila"ilia: 11k: 2[[Prototype]]: Object
@@ -4429,3 +4429,388 @@ window.addEventListener('storage', (e) => {
 удалил на одной странице корзину, очистил на второй она тоже очистилась
 
 мы можем очищать locwq*/
+
+//________________________Работаем с POST и GET. Postman_________________
+// Знакомство с видами запросов
+
+/* Как работает браузер:
+
+Когда я набираю какой-то адрес нажимаю enter браузер формирует запрос куда вкладывает
+введенный мной адрес дополняет его служебной информацией и отсылает на сервер
+спустя цепочку промежуточных серверов данный запрос будет переправлен на сервер
+где хостится сайт с нашим введенным адресом, системы бэк энда сервера, посмотрят наш адрес
+и если этот адрес есть, он доступен и бэкенд позволяет отдать по нему информацию
+будет выделен какой-то блок информации который и будет отослан на браузер.
+
+Браузер его примет, это будет обычный html файл в котором указаны ссылки на другие файлы
+и когда браузер будет разбирать данный файл и найдет ссылки на другие браузеры
+как обычный html он их загрузит.
+
+метод Get - если запрашиваешь через адресную строку
+
+Методы для отправки и приема информации
+
+Есть соглашение о том, что когда мы запрашиваем информацию методом Get
+мы просто читаем информацию, нам присылают ее готовую, мы ничего не изменяем
+на сервере.
+
+Если мы несколько раз сделаем один и тот же Get мы получим всегда один и тот же ответ
+то есть по методу get информацию не посылаем
+
+В запросе всегда есть набор частной информации в частности заголовок содержит Content-Type то есть что я запрашиваю.
+
+то есть get или пост это всего лишь Запрос который имеет свое содержимое, тело Запроса и т.д.,
+и во вкладке Network видно все документы запроса
+при клике на файл в разделе Network/Name появятся вкладки Headers Preview Response Initiatir Timing
+Чтобы узнать что нам ответил сервер у нас есть - Response
+
+При клике на вкладку Response мы видим чем нам ответил сервер
+если речь идет о html документе в Запросе get или post то мы увидим в Response html код документа
+
+И, так как, в этом файле будут подключения сторонних файлов
+то браузер когда принял этот код на стороне сервера у него есть сам html файл
+
+браузер по Запросу в URL адресе сделал запрос на сервер, сервер - отдал этот html файл
+этот html файл был принят браузером, разобран и показан на странице браузера
+
+так как в ходе разбора файла браузер натолкнулся на дополнительные ссылки на другие документы
+то данные документы были Запрошены через URL страницу (указано в Headers) методом get
+
+
+таким образом в ходе загрузки одного url адреса браузер совершает несколько подключений
+и в результате этих подключений у нас были получены определенные файлы
+которые браузер сформировал и вывел
+все файлы мы запрашивали через URL страницу простым методом get
+
+Метод GET это способ обращения к серверу которому мы передаем информацию через
+адресную строку
+
+В браузере при переходе внутри сайта по ссылкам меняется url адрес то есть мы даем команду браузеру
+послать запрос и получить ответ на данный url адрес
+
+Сначала через метод get запрашиваем главную страницу запрос идет через url адрес
+методом get мы просто просим показать получить информацию в ходе разборки этой главной страницы документа
+загружаются другие вспомогательные файлы
+
+Сам по себе Get запрос может содержать параметры
+
+https://ru.wikipedia.org/wiki/The_Slim_Shady_LP?veaction=edit
+
+https://ru.wikipedia.org/wiki/The_Slim_Shady_LP - адрес
+
+? - разделитель отделяет адрес от параметров
+
+veaction=edit - список параметров, query строка, строка - запроса, иногда называется get строкой
+
+veaction - параметр
+
+= - равен
+
+edit - значению
+--------------------------------------------
+
+Метод Get предполагает что мы всегда получаем одну и ту же информацию
+
+Метод Get легко передать так как все параметры запроса дублируются в адресной строке
+поэтому ссылку можно скопировать и он перейдет на ту же самую страницу что и вы
+
+обращаясь к одному и тому же файлу изменяя параметры в адресной строке можно получать разный вывод на странице браузера
+
+но работать в адресной строке не удобно get запросы еще можно
+post запросы слать сложнее
+*/
+
+// как удобно посылать get запросы и post запросы на сервер
+// как их тестировать и работать с ними
+// на начальном этапе до написания кода
+
+/* Метод get не подходит для передачи данных таких как логин и пароль
+потому что отображается в адресной строке
+
+длина адресной строки ограничена и ограничен объём передаваемой информации
+
+Когда мы запрашиваем метод get мы просто запрашиваем информацию
+нам не нужно большой объем информации отправлять на сервер
+нам нужно передать только управляющие параметры
+
+но в некоторых случаях нам нужно изменять содержимое сервера
+Если у нас есть большое количество информации которое явное превышает объем адресной строки
+и вбивая эту информацию нажимая сохранить я планирую изменить состояние сервера и его базы данных
+
+Для объемных запросов для тех запросов которые изменяют состояние сервера состояние данных
+придумали разные другие запросы
+
+GET POST PUT DELETE
+
+PATCH COPY HEAD OPTIONS LINK UNLINK PURGE LOCK UNLOCK PROPFIND VIEW
+
+Метод POST отличается от метода get тем что он не дублирует информацию в адресной строке
+мы можем в HTML документе в теге Form добавить метод POST
+
+
+
+
+Метод GET который дублируется в адресной строке, подходит для фильтров, для закладок и для обмена ссылками,
+но он дублирует все параметры в адресной строке он простой его можно послать с помощью обычного браузера
+но если посылать логин и пароль он не подходит, так же он не подходит когда много информации
+
+Метод POST который посылает на сервер достаточно много информации но для того чтобы
+его послать нужно либо сформировать форму либо воспользоваться специальной программой */
+
+// ________________________ AJAX учимся посылать GET, POST запросы ____________________
+//_________________________ Как работать с GET запросами ______________________________
+/* AJAX - асинхронный JS и XML это методы которые позволяют в фоновом режиме послать запрос на сервер
+с помощью JS получить результат ответ от сервера и работать с ним
+
+XMLHTTPrequest это объект позволяет  нам посылать запросы с помощью JS на сервер
+
+XMLHttpRequest – это встроенный в браузер объект, 
+который даёт возможность делать HTTP-запросы к серверу без перезагрузки страницы.
+
+XMLHttpRequest имеет два режима работы: синхронный и асинхронный.
+
+создание нового экземпляра класса XMLHttpRequest()
+
+XMLHttpRequest() - класс
+
+когда мы создаем на основе класса XMLHttpRequest() new синтаксис то let xhr будет называться объектом
+
+let xhr = new XMLHttpRequest(); // у конструктора нет аргументов
+*/
+// объект который будет экземпляром
+let xhttp = new XMLHttpRequest() // - создал запрос
+// xhttp - это объект, этот объект может посылать запросы на различные ресурсы
+/* 
+
+
+onreadystatechange - событие. функция которая вызывается всякий раз когда после readystate меняет свое значение
+
+Когда я буду посылать запрос состояние запроса будет меняться и за изменения состояния будет отвечать
+onreadystatechange
+
+
+есть 2 атрибута onredaystatechange и readystate по ним я могу отслеживать что происходит с моими запросами
+и получать какую-то обратную связь
+
+по событию onreadystatechange мы будем запускать следущую функцию function () {}
+
+Когда у меня будет изменяться состояние объекта мне надо понимать состояние моего xhttp объекта
+мне нужно понимать что с ним происходит был ли удачен запрос на сервер был ли неудачен
+отследить состояние запроса я могу по кодам 
+
+Два кода this.readyState он может принимать числовые значения
+
+0 - unsent только создан
+1 - opened вызван
+2 - headers_received вызван метод получены заголовки и код ответа
+3 - loagind загрузка; если значение responseType равно 'text' или пустой строке то responseText содержит частичные данные
+4 - done - операция завершена все данные получены
+
+если прошли все стадии запроса и отработал запрос корректно то мы получим 4
+то есть операция завершена все данные получены
+
+if (this.readyState == 4) - этой проверки недостаточно нужно посмотреть понятие статуса
+
+статус - статус ответа на запрос. сам запрос может пройти мы можем получить данные но
+но сервер нам может ответить разными вариациями, 1 такого ресурса нет, хотя запрос пришел
+доступ запрещен и так далее
+
+поэтому практически всегда помимо readystate проверяют еще и статус this.status
+
+что это за херня?
+1. я создал новый объект let xhttp
+2. я прописал что когда будеть меняться состояние этого объекта xhttp.onreadystatechange
+нужно вызывать вот эту функцию function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+    }
+}
+состояние объекта будет меняться 
+когда полностью весь запрос будет завершен
+readyState станет равен 4 this.readyState == 4
+и после этого я проверю действительно ли ответ сервера составляет код 200
+
+в этом случая буду вызывать функцию myFunction() и буду передавать ей ответ
+ответ формируется this.responseText
+response - это все тело сущности запроса.
+responseText - Ответ на запрос в виде строки или null в случае если запрос не успешен
+или ответ еще не получен
+
+data - какой-то параметр
+*/
+let a = 0
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this.responseText)
+    }
+} // -> на изменение состояния поставил функцию myFunction
+
+// отправляю запрос
+// для отпраки запроса 
+/* 
+
+xhttp.open() этот метод позволяет мне начать отправку запроса первый параметр который
+я должен указать это способ отправки метод xhttp.open("GET") второй параметр
+я должен указать куда я буду отправлять этот запрос xhttp.open("GET", "http://getpost.itgid.info/index2.php")
+третий параметр не является обязательным
+третий параметр это либо true либо false этот параметр определяет как выполняется запрос синхронно или асинхронно
+open() позволяет запустить сам запрос
+этот запрос требует 2 параметра способ запуска и куда посылать запрос
+
+синхронно запускать запрос не рекомендуется
+
+мы открыли запрос и теперь необходимо его послать
+*/
+xhttp.open("GET", "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1", true)
+xhttp.send() // - Не ввели ключ авторизации. Ключ доступен в чате курса.
+
+function myFunction(data) {
+    a = data
+    console.log(data)
+}
+
+console.log(a) // -> 0
+/*
+
+CORS -Cross-Origin Resource Sharing (CORS) — механизм, использующий дополнительные HTTP -заголовки,
+чтобы дать возможность агенту пользователя получать разрешения на доступ к выбранным ресурсам с сервера на источнике (домене),
+отличном от того, что сайт использует в данный момент.
+
+когда вы пытаетесь послать запрос со своего сайта на чужой сайт и получить информацию
+
+auth=zhrgB3DxC8LoG7Gcilzg&action=1 - прописываем параметры get строкой
+
+JS разбирая файл создаем объект:
+
+let xhttp = new XMLHttpRequest()
+
+конфигурирует состояние объекта:
+
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this.responseText)
+    }
+}
+
+конфигурирует сам объект:
+
+xhttp.open("GET", "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1", true)
+
+посылает его:
+
+xhttp.send()
+
+не дожидаясь окончания продолжает выполнять код
+
+выполняет console.log("step1") - который выполнится значительно раньше чем пришел ответ
+
+а это значит что если я создам переменную куда хочу записать данные пришедшие с сервера
+let a = 0;
+и начну ей манипулировать
+
+в callback функции я записываю эти данные ввожу в консоль
+function myFunction(data) {
+     a = (data)
+    console.log(data)
+
+}
+
+console.log(a) -> 0
+
+Все коды которые написаны ниже будут считать что a = 0 поскольку к этому моменту когда выполняется
+console.log(a)
+
+функция
+xhttp.open("GET", "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1", true)
+xhttp.send()
+function myFunction(data) {
+     a = (data)
+    console.log(data)
+
+} - еще не была запущена
+то есть запрос еще работал и попытки манипулировать этой переменной в коде ниже
+за пределами функции
+function myFunction(data) {
+     a = (data)
+    console.log(data) // - hello
+}
+обречены на провал поскольку JS еще не получил ответа на запрос
+поэтому все манипуляции с переменной с data нужно производить в пределах этой функии
+
+function myFunction(data) {
+     a = (data)
+    console.log(data) // - hello
+} - выполняется спуся какое-то время задержка зависит от сервера от сложности
+вычислений от скорости сети
+и если вы планируете манипулировать данными за ее пределами у вас не получится
+вы должны вначале дождать ответа a = (data) и только потом выполнить манипуляцию    console.log(data)
+function myFunction(data) {
+     a = (data)
+    console.log(data) // <- поэтому все манипуляции нужно прописывать здесь
+}
+*/
+// ___________Делаем то же самое с POST запросом__________________
+
+/* 
+
+Создаю xhttp реквест:
+let xhttp2 = new XMLHttpRequest
+
+Конфигурирую http запрос
+
+xhttp2.onreadystatechange // то есть когда будет менять свое состяние, то выполнять = function() {
+    поменял состяние
+    if (this.readyState == 4 // пришел ответ после изм состояния && this.status == 200 ответ 200 значит можно написать функцию) {
+        myFunction2(this.responseText)
+    }
+    если нет в зависимости от состояни и от статуса можно запустить проверку на ошибки
+    можно запусить обработчик ошибок и так далее
+}
+
+итак мне необходимо послать запрос посылание запроса осуществляется абсолютно аналогично
+
+xhttp2.open("POST", "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1", true)
+xhttp2.send()
+
+мы должны выполнить конфигурацию заголовков запроса
+конфигурация заголовков запроса показывает как отправлять данные
+какие данные как их обрабатывать и так далее
+поэтому я пишу то что не писал для GET запроса
+
+я говорю чтобы данный запрос отсылал данные как это делает обычная форма
+
+xhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+
+и соответственно
+
+xhttp2
+
+xhttp2.send('') 
+
+теперь нужно указать какие параметры я буду передавать
+
+auth=zhrgB3DxC8LoG7Gcilzg&action=1
+
+отличие между GET и POST в том что мы устанавливаем заголовки и говорим чтобы
+конфигурировался метод так как буд-то мы посылаем данные формы
+*/
+
+let xhttp2 = new XMLHttpRequest()
+
+xhttp2.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction2(this.responseText)
+    }
+}
+
+xhttp2.open("POST", "https://getpost.itgid.info/index2.php?auth=zhrgB3DxC8LoG7Gcilzg&action=1", true)
+xhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+xhttp2.send('auth=zhrgB3DxC8LoG7Gcilzg&action=1')
+
+function myFunction2(data) {
+    console.log('POST')
+    a = data
+    console.log(data)
+}
+
+// _________________________________  Fetch на практике __________________________
