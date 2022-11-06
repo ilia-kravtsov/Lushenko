@@ -5406,3 +5406,449 @@ document.querySelector('.functionButton_1').onclick = function() {
 Если я хочу многократно использовать функцию и встраивать ее в выражение и сделать ее более гибкой я использую return
 в таком случае задача вывода текста ложатся на меня и я должен оборачивать внутри функции все в консоль лог*/
 
+//_____________________________________ ООП Классы JS ________________________________________
+
+
+/* 
+function myAlert() {
+    let variable_4 = 'Error' - это сообщение я могу принимать извне в качестве параметра поэтому указываем значение это параметра уже при вызове функции
+    let variable_5 = `<p class='orange'>${variable_4}</p>`
+
+    document.querySelector('.test').innerHTML = variable_5
+} // -> //  это не функция это процедура
+
+myAlert()
+
+function myAlert(variable_4) {
+    let variable_5 = `<p class='orange'>${variable_4}</p>`
+
+    document.querySelector('.test').innerHTML = variable_5
+} // -> //  это не функция это процедура
+
+myAlert('Error')
+
+так же я могу передавать класс который будет работать в качестве оформления если укажу его в качестве второго параметра для функции
+и впоследствии я укажу сам параметр при вызове функции, но предварительно нужно его создать в css
+
+
+function myAlert(variable_4, variable_6) {
+    let variable_5 = `<p class=${variable_6}>${variable_4}</p>`
+
+    document.querySelector('.test').innerHTML = variable_5
+} 
+
+myAlert( 'Error', 'red')
+
+так же мы можем передавать .test в качестве параметра variable_7
+
+function myAlert(variable_4, variable_6, variable_7) {
+    let variable_5 = `<p class=${variable_6}>${variable_4}</p>`
+
+    document.querySelector(variable_7).innerHTML = variable_5
+} 
+
+myAlert( 'Error', 'red', '.test')
+
+если я хочу повторить ту же функцию в другой элемент
+
+myAlert( 'Error', 'red', '.test')
+myAlert( 'Error', 'red', '.test2')
+
+теперь функция стала универсальной но
+она универсальна только в рамках моего заданного кода
+то есть работая с этим кодом если я захочу добавить иконку
+мне придется менять эту функцию либо делать ее полную копию и работать с ней
+
+Если я поменяю данную функцию я не могу обеспечить и 100 % говорить о том что
+те части кода которые я забыл которые написаны давно и которые используют эту функцию будут работать адекватно
+
+данную функцию могут переназначить перезаписать либо использовать не так как положено
+я могу только ее написать и надеяться что ее используют правильно
+
+любое изменение функции приведет к тому что я не могу гарантировать работоспособность предыдущего кода
+который использует эту функцию я не могу безболезнено добавлять новые фишки
+
+все эти проблемы обходит ООП
+
+Модификация вашего кода не должна приводить к падению остального куска который был написан ранее
+
+Перепишем этот код на ООП
+
+function myAlert(variable_4, variable_6, variable_7) {
+    let variable_5 = `<p class=${variable_6}>${variable_4}</p>`
+
+    document.querySelector(variable_7).innerHTML = variable_5
+} 
+
+myAlert( 'Error', 'red', '.test')
+myAlert( 'Error', 'red', '.test2')
+
+Для начала создаем класс
+
+Класс в JS - это шаблон с которым я могу работать
+
+Классы
+Классы в JavaScript были введены в ECMAScript 2015 и представляют собой синтаксический сахар над существующим в JavaScript механизмом прототипного наследования. Синтаксис классов не вводит новую объектно-ориентированную модель, а предоставляет более простой и понятный способ создания объектов и организации наследования.
+
+Определение классов
+На самом деле классы — это "специальные функции", поэтому точно также, как вы определяете функции (function expressions и function declarations), вы можете определять и классы с помощью: class declarations и class expressions.
+
+Объявление класса
+Первый способ определения класса — class declaration (объявление класса). Для этого необходимо воспользоваться ключевым словом class и указать имя класса (в примере — «Rectangle»).
+
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+Copy to Clipboard
+Подъём (hoisting)
+Разница между объявлением функции (function declaration) и объявлением класса (class declaration) в том, что объявление функции совершает подъём (hoisting), в то время как объявление класса — нет. Поэтому вначале необходимо объявить ваш класс и только затем работать с ним, а код же вроде следующего сгенерирует исключение типа ReferenceError:
+
+var p = new Rectangle(); // ReferenceError
+
+class Rectangle {}
+Copy to Clipboard
+Выражение класса
+Второй способ определения класса — class expression (выражение класса). Можно создавать именованные и безымянные выражения. В первом случае имя выражения класса находится в локальной области видимости класса и может быть получено через свойства самого класса, а не его экземпляра.
+
+// безымянный
+var Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// отобразится: "Rectangle"
+
+// именованный
+var Rectangle = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// отобразится: "Rectangle2"
+Copy to Clipboard
+Примечание: Обратите внимание: выражения класса подвержены тем же проблемам с подъёмом (hoisting), что и объявления класса.
+
+Тело класса и задание методов
+Тело класса — это часть кода, заключённая в фигурные скобки {}. Здесь вы можете объявлять члены класса, такие как методы и конструктор.
+
+Строгий режим
+Тела объявлений классов и выражений классов выполняются в строгом режиме (strict mode).
+
+Constructor
+Метод constructor — специальный метод, необходимый для создания и инициализации объектов, созданных, с помощью класса. В классе может быть только один метод с именем constructor. Исключение типа SyntaxError будет выброшено, если класс содержит более одного вхождения метода constructor.
+
+Ключевое слово super можно использовать в методе constructor для вызова конструктора родительского класса.
+
+Как создается класс
+
+Классы пишутся с большой буквы и после них идут {}
+
+class Alert {
+
+}
+
+еще есть функция constructor() {} эта функция будет запущена когда на основе этого класса я создам объект
+она запустится сама и она заполнит поля внутри класса
+
+class Alert {
+    constructor() {
+
+    }
+}
+
+
+Внутри класса у меня будет не сколько полей
+
+у нас есть несколько полей 
+
+variable_4 - текст сообщения
+variable_5 - класс оформления
+variable_6 - элемент в который выводят
+
+для того чтобы обратиться внутри конструктора к самому классу используем this
+this. а дальше пишем имя свойства которое мы будем заполнять
+
+class Alert {
+    constructor(variable_4, variable_6, variable_7) {
+        this.message = variable_4
+        this.cssClass = variable_6
+        this.out = variable_7
+    }
+}
+
+я создал класс в котором должно быть три свойства
+
+1-е свойство: this.message
+2-е свойство: this.cssClass
+3-е свойство: this.out
+
+пока наш класс только что-то описывает
+
+на основе этого класса создадим объект
+
+Для создания нового объекта
+
+let m = new Alert()
+
+выведем объект на основе класса в консоль
+
+console.log(m) -> Alert {message: undefined}
+
+потому что при вызове мы не указали параметров для класса,
+
+вызываем с параметрами
+
+let m = new Alert()
+
+let m = new Alert('My message', 'orange', '.test') -> Alert {message: 'My message', cssClass: 'orange', out: '.test'}
+
+я получил объект построенный на классе Alert
+
+пока ничего этот объект делать не может он содержит только описательную информацию
+
+___proto___ значит что данный объект наследуется на основе класса Alert
+
+что должен делать метод
+методы внутри конструктора это по сути функции которые туда запихнули
+функции могут создавать действовать создавать какие-то вещи  манипулировать данными внутри класса
+
+опишем метод showAlert(){} данный метод
+
+после constructor() {} точку с запятой я не ставлю
+
+showAlert() {
+        document.querySelector(variable_7).innerHTML = variable_5
+    }
+
+вместо variable_7 я поставлю this.out
+вместо variable_5 я поставлю `<p class=${variable_6}>${variable_4}</p>`
+где вместо variable_6 this.cssClass вместо variable_4 this.message
+
+class Alert {
+    constructor(variable_4, variable_6, variable_7) {
+        this.message = variable_4
+        this.cssClass = variable_6
+        this.out = variable_7
+    }
+    showAlert() {
+        document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
+    }
+}
+
+// -> Alert {message: 'My message', cssClass: 'orange', out: '.test'}
+
+теперь вызовем наш метод, для вызова метода понадобится имя объекта m, имя метода showAlert и поскольку это метод - ()
+
+m.showAlert()
+
+после этого произошла замена на странице
+я могу изменять параметры функции при вызове и они сразу будут изменяться на странице
+
+недостаток в увеличении синтаксиса
+преимущество такого подхода в том
+что видно где и как изменются данные
+
+Попытаемся унаследоваться от этого класса и подыскать еще одну возможность
+Для того чтобы наследоваться мне нужно создать еще один класс
+
+Классы принято выносить в отдельный файл и сохранять с большой буквы
+
+создадим класс Alert2 который будет расширять возможности класса Alert
+
+class Alert2 extends Alert {
+
+}
+
+хочу добавить возможность вывода иконки внутрь моего кода 
+но я хочу сделать это так чтобы остался и класс Alert и класс Alert2
+и их можно было бы в коде использовать
+код который использует Alert - не сломается
+
+новый код который использует класс Alert2 получит возможности старого кода
+и получит возможность работать с новыми фишками
+
+во первых мне необходимо запустить класс конструктор    
+конструктор это функция которая запускается при создании объекта на основе класса
+у меня уже есть конструктор и я буду расширять возможности этого класса чтобы это работало мне необходимо
+взять параметры variable_4, variable_6, variable_7 и закинуть их внутрь старого конструктора
+
+class Alert2 extends Alert {
+    constructor(variable_4, variable_6, variable_7) {
+
+    }
+}
+
+если сейчас оставить все как есть то 
+создаем с теми же параметрами
+
+let m2 = new Alert2('My message', 'red', '.test')
+сохраняю обновляю и получаю ошибку -
+
+Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+    at new Alert2 (JS_L.js:5720:16)
+    at JS_L.js:5725:10
+
+мне говорят что я взял класс наследовался от него вот тут
+
+class Alert2 extends Alert {
+    constructor(variable_4, variable_6, variable_7) {
+
+    }
+}
+
+расширил возможности на основе кода существующего класса
+но существующий класс Alert требует передачи ему в конструктор трех параметров 
+        this.message = variable_4
+        this.cssClass = variable_6
+        this.out = variable_7
+я их не передал
+я передал конструктор данного параметра
+
+то есть мне внутри конструктора нужно вызвать конструктор моего родителя и передать в него эти три параметра
+для того чтобы это сделать мне нужно написать 
+
+class Alert2 extends Alert {
+    constructor(variable_4, variable_6, variable_7) {
+        super(variable_4, variable_6, variable_7)
+    }
+} -> Alert {message: 'My message', cssClass: 'red', out: '.test'}
+
+вот этим супер - super(variable_4, variable_6, variable_7) 
+я вызываю конструктор моего родителя
+ constructor(variable_4, variable_6, variable_7) {
+        this.message = variable_4
+        this.cssClass = variable_6
+        this.out = variable_7
+    }
+и передаю параметры из него в новый конструктор
+
+class Alert2 extends Alert {
+    constructor(variable_4, variable_6, variable_7) {
+        super(variable_4, variable_6, variable_7)
+    }
+}
+
+то есть теперь у меня есть класс Alert2 и объект m2
+которые ничем не отличаются от класса Alert
+
+то есть новый constructor унаследовался от старого и все одинаково, но
+
+но я добавляю icon иконку
+
+class Alert2 extends Alert {
+    constructor(variable_4, variable_6, variable_7, icon) {
+        super(variable_4, variable_6, variable_7)
+        и у меня будет this.icon = icon
+    }
+}
+
+и так у меня появилась иконка давайте теперь попробуем ее вывести
+
+У нас есть 2 класса Alert и Alert2 причем Alert2 унаследовался от Alert поскольку произошло наследование то
+в Alert2 уже реализованы фичи по поводу сохранения message css и свойство которое показывает в какой переменной данный объект будет выводиться
+
+Alert {message: 'My message', cssClass: 'red', out: '.test'}
+cssClass: "red" - свойство класса или свойство объекта
+message: "My message" - свойство класса или свойство объекта
+out: ".test" - свойство класса или свойство объекта
+[[Prototype]]: Object
+
+showAlert() {
+        document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
+    }
+
+так же у нас есть специальный метод showAlert который позволяет вывести на страницу в указанный элемент с помощью innerHtML
+
+данные свойства
+
+я создал Alert2 и унаследовался от Alert этим я обеспечил :
+если в коде где-то используется класс Alert или точнее объекта построенные на основе этого класса то они остаются без
+изменений то есть я не ломаю код программы но я получаю все фишки реализованные в Alert
+сейчас у нас одна фишка - это вывод сообщений но в больших программах это могут быть достаточно серьезные комплексы действий
+которые я получаю и могу использовать
+
+при наследовании необходимо указать метод super который перекинет параметры в конструктор родительского класса
+
+конструктор - это функция которая запускается при создании объекта когда я пишу new Alert
+запускается всегда функция конструктор которая распихивает нужные параметры либо делает какие-то действия
+по свойствам данного класса и объекта
+
+Дополним new Alert 
+допустим я хочу перезаписать метод вывода сообщения у меня уже есть данный метод
+
+showAlert() {
+        document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
+    }
+
+могу вызвать showAlert потом с помощью super еще раз с ним поработать а могу
+могу просто реализовать еще один метод
+
+ showIconAlert() {
+        
+}
+у меня появилось новое свойство иконки this.icon = icon 
+
+я буду выводить сообщение в формате сообщения иконка потом текст
+
+дальше нихера не получается блять.
+
+Наследование позволяет получить фишки предыдущего класса
+сохранился метод showiconalert то есть я могу применить и то и то но я расширил
+класс за счет своего метода и теперь у класса alert2 есть два метода вывода иконок
+я могу тоже самое расширить еще
+myAlert() {
+    alert(this.message)
+} 
+
+то есть вдруг вам понадобится просто заалертить тогда вы можете вызвать и так
+myAlert(this.message)
+*/
+
+function myAlert(variable_4, variable_6, variable_7) {
+    let variable_5 = `<p class=${variable_6}>${variable_4}</p>`
+
+    document.querySelector(variable_7).innerHTML = variable_5
+} 
+
+myAlert( 'Error', 'red', '.test')
+myAlert( 'Error', 'red', '.test2')
+
+class Alert {
+    constructor(variable_4, variable_6, variable_7) {
+        this.message = variable_4
+        this.cssClass = variable_6
+        this.out = variable_7
+    }
+    showAlert() {
+        document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
+    }
+}
+
+let m = new Alert('My message', 'red', '.test')
+console.log(m) 
+
+m.showAlert()
+
+class Alert2 extends Alert {
+    constructor(variable_4, variable_6, variable_7, icon) {
+        super(variable_4, variable_6, variable_7)
+        this.icon = icon 
+    }
+    showIconAlert() {
+        document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
+    }
+    myAlert() {
+        alert(this.message)
+    } 
+}
+
+let m2 = new Alert2()
+m2.showIconAlert()
+myAlert(this.message)
