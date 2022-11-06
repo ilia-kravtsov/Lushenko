@@ -54,3 +54,13 @@ button, input, div, label, p {
 div.divclassforMouse_6 {
     width: 50px;
 }
+
+.orange {
+    background-color: orange;
+    padding: 10px
+}
+
+.red {
+    background-color: red;
+    padding: 10px
+}
