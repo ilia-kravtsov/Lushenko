@@ -6396,6 +6396,280 @@ console.log(vf()) // -> 6
 
 //______________________________________ Массивы часть 2 ____________________________________
 
+/* 
+
+Если вы хотите сохранять информацию в JS вы можете делать это с помощью переменных
+
+let a = 'ilia'
+let b = 101
+let c = 897
+
+я описал пользователя с помощью трех переменных, только после этих слов становится понятна связь между переменными
+если через месяц мне покажут переменную b и спросят что ей присвоено не будет понятно с чем эта переменная связана
+
+Задача массивов логически связывать такие структуры данных
+не просто набор перемнных а конкретно описывающую что-то структуру
+
+Например опишем знак зодиака
+
+let zodiak = ['scales', 9, 1, 30]
+
+теперь становится понятно по какому принципу даные объединены
+
+выведем знак в консоль
+
+console.log(zodiak) - (4) ['scales', 9, 1, 30] Array(4)0: "scales"1: 92: 13: 30length: 4[[Prototype]]: Array(0)
+
+[] - говорят о том что это массив и что он объявлен
+
+данный массив имеет размерность, то есть длину 
+length = 4 начинается с 1 элемента, так же это индекс последнего элемента + 1
+
+в массиве есть значения, значения это 'scales' 9 1 30
+для удобства работы эти значения нумеруются нумерация идёт с 0
+
+0: "scales"
+1: 9
+2: 1
+3: 30
+
+0, 1, 2, 3 - называются индексом массива и начинаются с 0 а длина length с 1
+
+создадим еще один массив и выведем в консоль
+
+let man = ['ilia', 'male', 179, 67]
+
+(4) ['ilia', 'male', 179, 67]
+0: "ilia"
+1: "male"
+2: 179
+3: 67
+length: 4
+
+мы можем вывести длину массива 
+
+console.log(zodiak.length) // -> длина массива - 4
+console.log(man.length) // -> длина массива - 5
+
+как вывести любой элемент массива:
+
+указываем имя массива и в [] указываем индекс нужного нам элемента
+console.log(man[0]) 
+
+как поменять элемент в массиве: 
+
+нужно обратиться к элементу в массиве по индексу и присвоить новое значение например поменяем имя
+
+man[0]= 'william'
+
+console.log(man); // -> (5) ['william', 'male', 179, 67, 'ilyin']
+
+как поменять местами элементы в массиве
+меняем первый и последний элемент в массиве
+для этого один из элементов выносим в отдельную переменную затем ставим последний элемент на место первого
+и из отдельной переменной ставим значение на место последнего
+
+let array_19 = [1,2,3,4,5]
+console.log(array_19) // (5) [1, 2, 3, 4, 5]
+let forArray_19 = array_19[0]
+array_19[0] = array_19[4]
+array_19[4] = forArray_19
+console.log(array_19)// (5) [5, 2, 3, 4, 1]
+
+
+если мы всегда сможем сказать что началом массива всегда будет array_19[0] то последний индекс массива мы будем знать далеко не всегда
+поэтому мы используем :
+
+последний индекс массива независимо от данных в массиве -> array_19[array_19.length - 1]
+
+let array_19 = [1,2,3,4,5]
+console.log(array_19) // (5) [1, 2, 3, 4, 5]
+let forArray_19 = array_19[0]
+array_19[0] = array_19[array_19.length - 1]
+array_19[array_19.length - 1] = forArray_19
+console.log(array_19) // (5) [5, 2, 3, 4, 1]
+
+обращение к элементу массива которого не существует
+
+console.log(array_19[7]) - undefined
+
+выведем элемент на страницу
+
+первый способ вывода массивов на страницу через циклы
+
+for(let i = 0; i < array_19.length; i++) {
+    document.querySelector('.arrayTrain_1').innerHTML += array_19[i] 52341
+}
+
+второй способ вывода массивов на страницу через объявление переменной которой присваиваем значение пустой строки
+
+let varForArray_19 = ''
+
+потом запускаем цикл и вместо document.querySelector('.arrayTrain_1').innerHTML
+пишем varForArray_19 итого
+
+let varForArray_19 = ''
+
+for(let i = 0; i < array_19.length; i++) {
+    varForArray_19 += array_19[i] // 52341
+}
+
+document.querySelector('.arrayTrain_1').innerHTML = varForArray_19
+
+и уже после цикла вывести эту переменную на страницу 
+те же яйца только в профиль но при большом количестве кода работать будет быстрее
+
+а если укажем let varForArray_19 = 0 то получим сумму всех чисел между собой
+
+чаще всего выводить все элементы массива не нужно 
+поэтому вот этот вывод  varForArray_19 += array_19[i] + '_' нужно обернуть в какое-то условие
+допустим мы хотим вывести только четные
+
+let varForArray_19 = ''
+
+for(let i = 0; i < array_19.length; i++) {
+
+    if (array_19[i]%2 === 0) {
+    varForArray_19 += array_19[i] + '_' // 52341
+    }
+}
+
+document.querySelector('.arrayTrain_1').innerHTML = varForArray_19 // только четные 2_4_
+
+второй навык после того как мы поменяли значения местами это вывод на страницу
+
+Найти минимальный и максимальный элемент в массиве
+
+let array_20 = [10,11,12,13]
+
+let max = array_20[0]
+
+for(let i = 0; i < array_20.length; i++) {
+    if (array_20[i] > max) {
+        max = array_20[i] 
+    }
+}
+console.log(max) // 13
+
+Найдем минимальный элемент в массиве
+
+let array_21 = [23, 43, 65, 278]
+
+let min = array_21[0]
+
+for(let i = 0; i < array_21.length; i++) {
+    if (array_21[i] < min) {
+        min = array_21[i] 
+    }
+}
+console.log(min) // 23
+
+Найдем среднее значение в массиве
+
+let array_22 = [23, 43, 65, 278]
+
+let CA = 0
+
+for(let i = 0; i < array_22.length; i++) {
+    CA += array_22[i]
+}
+console.log(CA/2) // 204.5
+
+Найти сумму всех чисел в массиве
+
+let array_22 = [23, 43, 65, 278]
+
+let summOfAllNumbersArray_22 = 0
+
+for(let i = 0; i < array_22.length; i++) {
+    summOfAllNumbersArray_22 += array_22[i]
+}
+
+console.log(summOfAllNumbersArray_22) // 409
+
+*/
+
+
+let zodiak = ['scales', 9, 1, 30]
+let man = ['ilia', 'male', 179, 67, 'ilyin']
+
+console.log(zodiak) // -> (4) ['scales', 9, 1, 30]
+console.log(man) // -> (4) ['ilia', 'male', 179, 67]
+console.log('длина массива man - ' + man.length) // -> длина массива - 5
+console.log('длина массива zodiak - ' + zodiak.length) // -> длина массива - 4
+console.log(man[0]) // -> ilia - строка выводится уже без кавычек
+
+man[0]= 'william'
+
+console.log(man); // -> (5) ['william', 'male', 179, 67, 'ilyin']
+
+let array_19 = [1,2,3,4,5]
+console.log(array_19) // (5) [1, 2, 3, 4, 5]
+let forArray_19 = array_19[0]
+array_19[0] = array_19[array_19.length - 1]
+array_19[array_19.length - 1] = forArray_19
+
+console.log(array_19) // (5) [5, 2, 3, 4, 1]
+console.log(array_19[7]) // undefined
+
+for(let i = 0; i < array_19.length; i++) {
+    document.querySelector('.arrayTrain_1').innerHTML += array_19[i] + ' ' // 52341
+}
+
+let varForArray_19 = ''
+
+for(let i = 0; i < array_19.length; i++) {
+
+    if (array_19[i]%2 === 0) {
+    varForArray_19 += array_19[i] + '_' // 52341
+    }
+}
+
+document.querySelector('.arrayTrain_1').innerHTML = 'Только чётные из array_19 - ' + varForArray_19 // только четные 2_4_
+
+let array_20 = [10,11,12,13]
+
+let max = array_20[0]
+
+for(let i = 0; i < array_20.length; i++) {
+    if (array_20[i] > max) {
+        max = array_20[i] 
+    }
+}
+console.log('Максимальное из array_20 - ' + max) // 13
+
+let array_21 = [23, 43, 65, 278]
+
+let min = array_21[0]
+
+for(let i = 0; i < array_21.length; i++) {
+    if (array_21[i] < min) {
+        min = array_21[i] 
+    }
+}
+console.log('Минимальное из array_21 - ' + min) // 23
+
+let array_22 = [23, 43, 65, 278]
+
+let CAPrepair = 0
+
+for(let i = 0; i < array_22.length; i++) {
+    CAPrepair += array_22[i]
+}
+
+let CAReady = CAPrepair/2
+console.log('Среднее значение массива array_22 - ' + CAReady) // 204.5
+
+let summOfAllNumbersArray_22 = 0
+
+for(let i = 0; i < array_22.length; i++) {
+    summOfAllNumbersArray_22 += array_22[i]
+}
+
+console.log('Сумма всех чисел массива array_22 - ' + summOfAllNumbersArray_22) // 409
+
+
+
 
 
 
