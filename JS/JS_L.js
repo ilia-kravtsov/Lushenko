@@ -5415,24 +5415,27 @@ function myAlert() {
     let variable_5 = `<p class='orange'>${variable_4}</p>`
 
     document.querySelector('.test').innerHTML = variable_5
-} // -> //  это не функция это процедура
+} ->   это не функция это процедура
 
 myAlert()
+
+передача переменной и ее значения в функцию как параметра этой функции let variable_4 = 'Error' - function myAlert(variable_4) - myAlert('Error')
 
 function myAlert(variable_4) {
     let variable_5 = `<p class='orange'>${variable_4}</p>`
 
     document.querySelector('.test').innerHTML = variable_5
-} // -> //  это не функция это процедура
+} ->   это не функция это процедура
 
 myAlert('Error')
 
-так же я могу передавать класс который будет работать в качестве оформления если укажу его в качестве второго параметра для функции
+так же я могу передавать класс который будет работать в качестве оформления 
+если укажу его в качестве второго параметра для функции
 и впоследствии я укажу сам параметр при вызове функции, но предварительно нужно его создать в css
 
 
 function myAlert(variable_4, variable_6) {
-    let variable_5 = `<p class=${variable_6}>${variable_4}</p>`
+    let variable_5 = `<p class='${variable_6}'>${variable_4}</p>`
 
     document.querySelector('.test').innerHTML = variable_5
 } 
@@ -5488,13 +5491,19 @@ myAlert( 'Error', 'red', '.test2')
 Класс в JS - это шаблон с которым я могу работать
 
 Классы
-Классы в JavaScript были введены в ECMAScript 2015 и представляют собой синтаксический сахар над существующим в JavaScript механизмом прототипного наследования. Синтаксис классов не вводит новую объектно-ориентированную модель, а предоставляет более простой и понятный способ создания объектов и организации наследования.
+Классы в JavaScript были введены в ECMAScript 2015 и представляют собой синтаксический сахар 
+над существующим в JavaScript механизмом прототипного наследования. 
+Синтаксис классов не вводит новую объектно-ориентированную модель, 
+а предоставляет более простой и понятный способ создания объектов и организации наследования.
 
 Определение классов
-На самом деле классы — это "специальные функции", поэтому точно также, как вы определяете функции (function expressions и function declarations), вы можете определять и классы с помощью: class declarations и class expressions.
+На самом деле классы — это "специальные функции", поэтому точно также, 
+как вы определяете функции (function expressions и function declarations), 
+вы можете определять и классы с помощью: class declarations и class expressions.
 
 Объявление класса
-Первый способ определения класса — class declaration (объявление класса). Для этого необходимо воспользоваться ключевым словом class и указать имя класса (в примере — «Rectangle»).
+Первый способ определения класса — class declaration (объявление класса). 
+Для этого необходимо воспользоваться ключевым словом class и указать имя класса (в примере — «Rectangle»).
 
 class Rectangle {
   constructor(height, width) {
@@ -5675,7 +5684,9 @@ class Alert2 extends Alert {
 и получит возможность работать с новыми фишками
 
 во первых мне необходимо запустить класс конструктор    
-конструктор это функция которая запускается при создании объекта на основе класса
+
+!!! Конструктор - это функция которая запускается при создании объекта на основе класса
+
 у меня уже есть конструктор и я буду расширять возможности этого класса чтобы это работало мне необходимо
 взять параметры variable_4, variable_6, variable_7 и закинуть их внутрь старого конструктора
 
@@ -5712,7 +5723,7 @@ class Alert2 extends Alert {
 я передал конструктор данного параметра
 
 то есть мне внутри конструктора нужно вызвать конструктор моего родителя и передать в него эти три параметра
-для того чтобы это сделать мне нужно написать 
+для того чтобы это сделать мне нужно написать  - super(variable_4, variable_6, variable_7)
 
 class Alert2 extends Alert {
     constructor(variable_4, variable_6, variable_7) {
@@ -5797,7 +5808,7 @@ showAlert() {
 
 я буду выводить сообщение в формате сообщения иконка потом текст
 
-дальше нихера не получается блять.
+
 
 Наследование позволяет получить фишки предыдущего класса
 сохранился метод showiconalert то есть я могу применить и то и то но я расширил
@@ -5811,14 +5822,14 @@ myAlert() {
 myAlert(this.message)
 */
 
-// function myAlert(variable_4, variable_6, variable_7) {
-//     let variable_5 = `<p class=${variable_6}>${variable_4}</p>`
+function myAlert(variable_4, variable_6, variable_7) {
+    let variable_5 = `<p class='${variable_6}'>${variable_4}</p>` // то есть интерполяция позволяет работать с html в js
 
-//     document.querySelector(variable_7).innerHTML = variable_5
-// } 
-
-// myAlert( 'Error', 'red', '.test')
-// myAlert( 'Error', 'red', '.test2')
+    document.querySelector(variable_7).innerHTML = variable_5
+} 
+console.log('--------смотрим классы----------')
+myAlert( 'Error', 'red', '.test')
+myAlert( 'Hello', 'orange', '.test2')
 
 // class Alert {
 //     constructor(variable_4, variable_6, variable_7) {
@@ -5826,16 +5837,37 @@ myAlert(this.message)
 //         this.cssClass = variable_6
 //         this.out = variable_7
 //     }
-//     showAlert() {
-//         document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
-//     }
 // }
 
-// let m = new Alert('My message', 'red', '.test')
-// console.log(m) 
+// let m = new Alert('My message', 'orange', '.test')
+// console.log(m) // Alert {message: 'My message', cssClass: 'orange', out: '.test'}
 
-// m.showAlert()
+class Alert {
+    constructor(variable_4, variable_6, variable_7) {
+        this.message = variable_4
+        this.cssClass = variable_6
+        this.out = variable_7
+    }
+    showAlert() {
+        document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
+    }
+}
 
+class Alert2 extends Alert {
+    constructor(variable_4, variable_6, variable_7, icon) {
+        super(variable_4, variable_6, variable_7)
+        this.icon = icon
+    }
+    showIconAlert() {
+        document.querySelector(this.out).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`
+    }
+}
+
+let m = new Alert('My message', 'red', '.test')
+console.log(m) 
+m.showAlert()
+
+let m2 = new Alert2('My message', 'red', '.test')
 // class Alert2 extends Alert {
 //     constructor(variable_4, variable_6, variable_7, icon) {
 //         super(variable_4, variable_6, variable_7)
