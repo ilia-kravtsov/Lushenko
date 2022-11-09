@@ -6705,26 +6705,410 @@ console.log('Сумма всех чисел массива array_22 - ' + summOf
 
 // ______________________________ ООП часть 2. Прототипы ______________________________
 
+/*
+
+let user = {
+    username: 'ilia',
+    password: 'qwerty'
+}
+
+let user2 = {
+    username: 'ilia',
+    password: 'qwerty'
+}
+
+
+console.log(user) // {username: 'ilia', password: 'qwerty'} [[Prototype]]: Object
+console.log(user2) // {username: 'ilia', password: 'qwerty'} [[Prototype]]: Object
+
+Два объекта которые имеют одинаковые поля и одинаковые значения
+но с точки зрения JS это два разных объекта
+
+у каждого объекта в консоли отображается свойство __proto__: Object
+основная изначальная модель ООП была посвящена работе с прототипами
+
+поэтому мы можем записать этот объект в свойство __proto__ зачем??
+user 2 наследуется от user
+
+let user2 = {
+    username: 'ilia',
+    password: 'qwerty'
+}
+
+
+
+let user2 = {}
+user2.__proto__ = user
+
+console.log(user2) 
+{}[[Prototype]]: Objectpassword: "qwerty"username: "ilia"[[Prototype]]: Object
 
 
 
 
 
+// user 2 наследуется от user
+
+// console.log(user) // {username: 'ilia', password: 'qwerty'} [[Prototype]]: Object
+
+// console.log(user2) // {}[[Prototype]]: Objectpassword: "qwerty"username: "ilia"[[Prototype]]: Object
+
+// console.log(user2.username) // ilia
+
+// user2.photo = 'ilia.jpeg'
 
 
 
 
+user 2 наследуется от user
+но наследование предполагает что я могу получать из объекта свойства
+проверим
+console.log(user2.username) - ilia
+
+таким образом я могу создавать цепочку объектов которые наследуются
+друг от друга
+
+Допустим у меня есть форма в которую клиент может вводить логин пароль
+я могу унаследовать объект user2 от объекта user и присвоить нужное ему свойство
+
+user2.photo = 'ilia.jpeg'
+
+теперь у меня два объекта
+
+let user = {
+    username: 'ilia',
+    password: 'qwerty'
+}
+
+и
+
+{}photo: "ilia.jpeg"[[Prototype]]: Object
+
+первый объект описывает просто форму логина
+где можно ввести username и password
+
+а вот объект user2 я уже могу использовать в личном кабинете
+
+user2 имеет другие свойства, но содержит в себе и свойства которые были в объекте user
+
+user2 -{}
+photo: "ilia.jpeg"
+[[Prototype]]: Object
+password: "qwerty"
+username: "ilia"
+[[Prototype]]: Object
+
+То есть мне не нужно писать заново свойства из объекта user
+Если у меня в объекте user будут какие-то свои методы
+то эти методы будут мне доступны и внутри user2
+
+Зачем нужен seter JS
+
+у меня есть свойство password
+когда пользователь заполнит данное свойство оно будет отправляться на сервер
+но пароль может быть скопирован и внесен не в совсем правильном формате
+не 'qwerty' а ' qwerty' с пробелом, тоже самое может быть с username
+мы должны обрабатывать данные которые вводит пользователь
+в этом случае мы должны сказать что свойство password у нас будет 
+как бы приватное
+
+let user = {
+    username: 'ilia',
+    _password: 'qwerty'
+}
+
+и для работы с ним мы будем использовать setter
+
+let user = {
+    username: 'ilia',
+    _password: 'qwerty'
+
+    set password(name) {
+        this._password = pass.trim()
+    } этот сеттер будет отвечать за заполнение пароля
+}
+
+сейчас установлен пароль qwerty но в будущем он может меняться
+
+пользователь в форме вводит логин и пароль нажимает кнопку
+и я делаю следующее
+
+user.password = ' noe '
+
+console.log(user)
+
+{username: 'ilia', password: ' noe '}
+password: " noe "
+username: "ilia"
+set _password: ƒ _password(name)
+[[Prototype]]: Object
+
+{username: 'ilia', _password: 'noe'} теперь нет пробелов сработал метод trim()
+username: "ilia"
+_password: "noe"
+set password: 
+ƒ password(pass)
+[[Prototype]]: Object
+
+т.о. свойству password присвоилось слово hello без пробелов
+
+когда я пишу set и обращаюсь к user.password идет проверка есть ли в объекте user метод set с именем password
+' noe ' попадает в параметр set password(' noe ') обрабатывается методом trim() и выполняется  this._password 
+то есть я т.о. присваиваю свойству password уже обрезанное от пробелов значение
+
+Как теперь получить password
+
+для этого существует get
+
+Синтаксис get связывает свойство объекта с функцией, которая будет вызываться при обращении к этому свойству.
+
+const obj = {
+  log: ['a', 'b', 'c'],
+  get latest() {
+    return this.log[this.log.length - 1];
+  }
+};
+
+console.log(obj.latest);
+// expected output: "c"
+
+let user = {
+    username: 'ilia',
+    _password: '', // qwerty
+    set password(pass) {
+        this._password = pass.trim()
+    }
+    get password () {
+        return this._password
+    }
+}
+
+Если пользователь теперь захочет получить пароль то напишет сл образом
+
+console.log(user.password)
+
+console.log(user.password.length) // длина - 3
+
+как это работает, если я введу c пробелами
+
+console.log('                    noe '.length) // 24
+
+let user = {
+    username: 'ilia',
+    _password: '', // qwerty
+    set password(pass) {
+        this._password = pass.trim()
+    },
+    get password () {
+        return this._password
+    }
+}
+
+изначальная длина 24 она залетает в password но поскольку есть set
+попадает в переменную pass обрезается методом trim() и заносится в свойство _password
+
+Если я пишу обращение без присваивания
+
+console.log(user.password)
 
 
+то js проверяет есть ли get password () то обращается к этому методу 
+который возвращает значение this._password - {return this._password}
+
+теперь мы можем повторно использовать
+у меня в лк пользователь может получать пароль и менять его
+значит мне не нужно писать еще раз новый объект user
+
+я наследуюсь от user и пишу
+
+создать объект user2
+
+let user2 = {}
+
+user2.__proto__ = user - наследование - прототипизация
+
+и прототипом этого объекта будет являться объект user
+
+теперь я знаю что user2 по умолчанию имеет все необходимые свойства которые прописаны в user
+
+проверим, введем пароль для user2 с пробелами
+
+user2.password = '123 456' я специально ввел пароль который явно ошибочен он содержит пробел посередине
+trim() такой пробел не удаляет
+
+console.log(user2) {_password: '123 456'}
+
+{_password: '123 456'}
+_password: 
+"123 456"
+password: (...)
+[[Prototype]]: Object
+password: (...)
+username: "ilia"
+_password: "noe"
+get passwor: 
+ƒ password()
+set password: 
+ƒ password(pass)
+[[Prototype]]: Object
+
+JS знает что объект user2 наследуется от user
+в user есть свойство password идет проверка - у прототипа есть такое свойство?
+да есть и оно содержит get set теперь я попадаю в обратно set password(pass)
+обрезаю пароли password: (...) и присваиваю 123 456 без пробелов
+теперь не нужно заново писать такие же методы
+
+у меня уже есть хорошо написанный объект user и я просто использую его мощности
+то есть user2.password = ' 123 456  ' вызвал 
+    set password(pass) {
+        this._password = pass.trim()
+    }
+
+    записался в this._password
+    и получить я его могу точно так же 
+    хотя в user 2 я никаких get set не писал
+
+console.log(user2.password) - 123 456
+
+когда я обращаюсь к console.log(user2.password) 
+проверяется есть ли свойство или метод внутри объекта password: (...)
+внутри объекта user2 - нет
+но user2 наследуется от свойства где есть get set
+мы идем в user смотрим есть ли get он срабатывает get возвращат this._password
+this в данном случае ссылка на текущий объект
+текущим объектом является user2 поэтому вывелся пароль 123 456 а не noe
+то есть тот пароль который мы установили тот и вывелся
+
+т.о. я могу создать цепочку объектов
+могу создать третий объект user3 в котором прототипом (прародителем) будет выступать user2
+и тогда если я в user2 добавлю ссылку на картинку 
+то в user3 тоже будет свойство картинка
+
+c другой стороны допустим я в user хочу прописать дополнительный метод либо 
+дополнительное свойство email: '@sdfkjg'
+то внесение изменения в сам прототип повлечет за собой появление этого свойства
+во всех остальных объектах которые наследуются от него
+
+let user = {
+    username: 'ilia',
+    _password: '', // qwerty
+    email: '@sdfkjg',
+    set password(pass) {
+        this._password = pass.trim()
+    },
+    get password () {
+        return this._password
+    }
+}
+
+и теперь если я выведу user2.email хотя я его напрямую не присваивал то получу 
+console.log(user2.email); // @sdfkjg
+
+конечно нужно вводить проверки
+но введя проверки наследуясь дальше
+я буду легко получать работоспособность в объектах которые наследуются
+
+на основе __proto__ мы выстраиваем цепочку наследования
+
+user2.__proto__ = user - я сейчас напрямую присвоил прототип
+можно сделать по другому
+
+Object.setPrototypeOf(obj, prototype)
+Object.setPrototypeOf(user2, объект от которого вы наследуетесь)
+но есть предупреждение что скорость данного метода не оптимизирована
+поэтому есть рекомендация осторожно его использовать там где не нужна быстрая работоспособность
 
 
+то есть добавляя новые значения свойств в потомков мы изменяем их и в родителе
 
 
+перезатираем свойство username в user через user2
+user2.username = 'Privet'
 
+console.log(user2) {username: 'Privet', _password: '123 456'}
 
+свойство username появилось явно хотя оно было у родителя
+то есть я через потомка перезаписал значение свойства родителя
 
+можно ли обращаться к свойству родителя
+берем наше свойство username оно есть 
+и у прототипа (прародителя) username: 'ilia' и у потомка (user2.username = 'Privet')
+при этом user2 и user имеют разные значения данного свойства
+но мы через потомка обратимся к значению свойства прототипа(прародителя)
 
+console.log(user2.__proto__.username) // ilia  - обращение к прародителю
+console.log(user2.username)          // Privet - обращение к потомку
+*/
 
+let user = {
+    username: 'ilia',
+    _password: '', // qwerty
+    email: '@sdfkjg',
+    set password(pass) {
+        this._password = pass.trim()
+    },
+    get password () {
+        return this._password
+    }
+}
+
+user.password = ' noe '
+console.log(user)
+console.log(user.password) // noe (благодаря get password ) пароль получен без пробелов
+console.log(user.password.length) // длина - 3
+console.log('                    noe '.length) // 24
+
+let user2 = {}
+
+user2.__proto__ = user 
+user2.username = 'Privet' // {username: 'Privet', _password: '123 456'}
+user2.password = ' 123 456  '
+console.log(user2) // {_password: '123 456'}
+console.log(user2.password) // 123 456
+console.log(user2.email); // @sdfkjg
+console.log(user2.username)         // Privet
+console.log(user2.__proto__.username) // ilia
+
+// _____________________________________ Массивы _______________________________________
+
+// Задача. есть массив умножьте его на 2 и выведите в out вывод через пробел по нажатию кнопки b1
+
+let mmm = [7, 3, 21]
+
+function t11 () {
+
+let mm = []
+
+    // операции с массивами которые подразумевают под собой изменение значений изменение структуры
+    // количества элементов
+    for(let i = 0; i < mmm.length; i++) {
+        mm[i] = mmm[i]*2
+    }
+
+    // вывод массива
+
+console.log(mm) // (3) [14, 6, 42]
+
+    let output = ''
+    for (let i = 0; i < mmm.length; i++) {
+        output += `${mm[i] + ' '}` // здесь можно добавить любой знак разделитель
+    }
+
+console.log(output) // 14 6 42  - ушли запятые добавился пробел вывод в формате строки а не массива
+
+return output
+
+}
+
+document.querySelector('.outMulti').onclick = () => {
+    document.querySelector('.outMulti2').innerHTML = t11()
+} // PROFIT
+
+// вначале операция - потом вывод
+
+// ______________________________ TRY CATCH _____________________________
+
+// отлов ошибок и исключений в JS
 
 
 
