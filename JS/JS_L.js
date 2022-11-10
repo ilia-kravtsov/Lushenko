@@ -7974,21 +7974,120 @@ console.log(array_50);
 так что с () мы можем экранировать содержимое return стрелочной функции
 */
 
+// const array_49 = [2,3,5]
+
+// let array_50 = array_49.map(item => ({'num' : item}))
+
+// console.log(array_50); // (3) [{…}, {…}, {…}] массив вложенных объектов
+
+// // document.querySelector('.zaebutton').addEventListener('click', () => {
+// //     fetch('file.json').then(resultatFromServer => resultatFromServer.json()) // ответ от сервера преобразую в JSON объект
+// //     // после чего делаю еще один then который принимает параметр file
+// //     .then(file => {
+// //         file.forEach(item => {
+// //             console.log(item.name)
+// //         })
+// //     })
+// // })
+
+// document.querySelector('.zaebutton').addEventListener
+//     ('click', () => {
+//     fetch('file.json')
+//     .then(resultatFromServer => resultatFromServer.json())
+//     .then(file => {
+//         file.forEach(item => {
+//             console.log(item.name)
+//         })
+//     })
+// })
+
+// - > alex aivengo
+
+/* 
+
+конструкция содержит уровни вложений
+
+1 уровень
+
+() => {
+    fetch('file.json')
+    .then(resultatFromServer => resultatFromServer.json())
+    .then(file => {
+        file.forEach(item => {
+            console.log(item.name)
+        })
+    })
+
+2 уровень
+
+.then(resultatFromServer => resultatFromServer.json())
+    .then(file => {
+        file.forEach(item => {
+            console.log(item.name)
+        })
+    })
+
+3 уровень
+
+resultatFromServer => resultatFromServer.json()
+
+file.forEach(item => {
+            console.log(item.name)
+        }
+
+это провал во вложенность callback нихера не понятно
+
+для улучшения читаемости создаем несколько вспомогательных анонимных стрелочных функций
+
+*/
+
 const array_49 = [2,3,5]
 
 let array_50 = array_49.map(item => ({'num' : item}))
 
 console.log(array_50); // (3) [{…}, {…}, {…}] массив вложенных объектов
 
-document.querySelector('.zaebutton').addEventListener
-    ('click', () => {
-    fetch('files.json')
-    .then(resultatFromServer => resultatFromServer.json()) // ответ от сервера преобразую в JSON объект
-    // после чего делаю еще один then который принимает параметр file
-    .then(file => {
-        file.forEach(item => {
-            console.log(item.name)
-        })
+const readJson = file => {
+    file.forEach(item => {
+        console.log(item.name)
     })
-})
+}
+
+const clickHandle = () => {
+    fetch('file.json')
+    .then(resultatFromServer => resultatFromServer.json())
+    .then(readJson)
+}
+
+document.querySelector('.zaebutton').addEventListener
+    ('click', clickHandle)
+
+// ___________________________ 53. Хитрые скобки в стрелочных функциях JavaScript ____________________________
+
+/* 
+1. прием использования () 
+функция z принимает параметр n и на основании этого проверяет число
+если >= 0 возвращает n если нет возвращает 0
+const z = n => n >=0 ? n:0
+
+для лучшей читаемости применяйте 
+const z = n => (n >=0 ? n : 0);
+
+2. прием использования ()
+
+const f_5 = n => {'temp' : n} - ругается но если используем ()  перестанет
+ругается потому что как только я поставил фигурные скобки {} для объекта
+то синтаксис js начинает воспринимать данную штуку как тело функции а тело функции получается разорвано на части
+поэтому просто оборачиваем {} в ()
+
+const f_5 = n => ({'temp' : n})
+*/
+
+const f_3 = n => n >=0 ? n : 0;
+console.log(-5)
+console.log(35)
+
+const f_5 = n => ({'temp' : n})
+
+
 
