@@ -5826,10 +5826,10 @@ function myAlert(variable_4, variable_6, variable_7) {
     let variable_5 = `<p class='${variable_6}'>${variable_4}</p>` // то есть интерполяция позволяет работать с html в js
 
     document.querySelector(variable_7).innerHTML = variable_5
-} 
+}
 console.log('--------смотрим классы----------')
-myAlert( 'Error', 'red', '.test')
-myAlert( 'Hello', 'orange', '.test2')
+myAlert('Error', 'red', '.test')
+myAlert('Hello', 'orange', '.test2')
 
 // class Alert {
 //     constructor(variable_4, variable_6, variable_7) {
@@ -5864,7 +5864,7 @@ class Alert2 extends Alert {
 }
 
 let m = new Alert('My message', 'red', '.test')
-console.log(m) 
+console.log(m)
 m.showAlert()
 
 let m2 = new Alert2('My message', 'red', '.test')
@@ -6049,7 +6049,7 @@ function rec() {
     if (recursia > 10) {
         return recursia
     }
-    rec ()
+    rec()
 }
 rec() // -> 234567891011
 let offset = 0
@@ -6059,7 +6059,7 @@ function move() {
     if (offset > 300) {
         return true
     }
-    setTimeout(move,500)
+    setTimeout(move, 500)
 
 }
 document.querySelector('.forTest3Button').onclick = move // -> функция без скобок
@@ -6395,7 +6395,7 @@ protected и т.д.
 затем общую функцию присваиваем переменной и вызываем переменную со ()
 */
 
-function t1 () {
+function t1() {
     let close = 0
     return () => {
         close++
@@ -6631,11 +6631,11 @@ console.log('длина массива man - ' + man.length) // -> длина м
 console.log('длина массива zodiak - ' + zodiak.length) // -> длина массива - 4
 console.log(man[0]) // -> ilia - строка выводится уже без кавычек
 
-man[0]= 'william'
+man[0] = 'william'
 
 console.log(man); // -> (5) ['william', 'male', 179, 67, 'ilyin']
 
-let array_19 = [1,2,3,4,5]
+let array_19 = [1, 2, 3, 4, 5]
 console.log(array_19) // (5) [1, 2, 3, 4, 5]
 let forArray_19 = array_19[0]
 array_19[0] = array_19[array_19.length - 1]
@@ -6644,28 +6644,28 @@ array_19[array_19.length - 1] = forArray_19
 console.log(array_19) // (5) [5, 2, 3, 4, 1]
 console.log(array_19[7]) // undefined
 
-for(let i = 0; i < array_19.length; i++) {
+for (let i = 0; i < array_19.length; i++) {
     document.querySelector('.arrayTrain_1').innerHTML += array_19[i] + ' ' // 52341
 }
 
 let varForArray_19 = ''
 
-for(let i = 0; i < array_19.length; i++) {
+for (let i = 0; i < array_19.length; i++) {
 
-    if (array_19[i]%2 === 0) {
-    varForArray_19 += array_19[i] + '_' // 52341
+    if (array_19[i] % 2 === 0) {
+        varForArray_19 += array_19[i] + '_' // 52341
     }
 }
 
 document.querySelector('.arrayTrain_1').innerHTML = 'Только чётные из array_19 - ' + varForArray_19 // только четные 2_4_
 
-let array_20 = [10,11,12,13]
+let array_20 = [10, 11, 12, 13]
 
 let max = array_20[0]
 
-for(let i = 0; i < array_20.length; i++) {
+for (let i = 0; i < array_20.length; i++) {
     if (array_20[i] > max) {
-        max = array_20[i] 
+        max = array_20[i]
     }
 }
 console.log('Максимальное из array_20 - ' + max) // 13
@@ -6674,9 +6674,9 @@ let array_21 = [23, 43, 65, 278]
 
 let min = array_21[0]
 
-for(let i = 0; i < array_21.length; i++) {
+for (let i = 0; i < array_21.length; i++) {
     if (array_21[i] < min) {
-        min = array_21[i] 
+        min = array_21[i]
     }
 }
 console.log('Минимальное из array_21 - ' + min) // 23
@@ -6685,16 +6685,16 @@ let array_22 = [23, 43, 65, 278]
 
 let CAPrepair = 0
 
-for(let i = 0; i < array_22.length; i++) {
+for (let i = 0; i < array_22.length; i++) {
     CAPrepair += array_22[i]
 }
 
-let CAReady = CAPrepair/2
+let CAReady = CAPrepair / 2
 console.log('Среднее значение массива array_22 - ' + CAReady) // 204.5
 
 let summOfAllNumbersArray_22 = 0
 
-for(let i = 0; i < array_22.length; i++) {
+for (let i = 0; i < array_22.length; i++) {
     summOfAllNumbersArray_22 += array_22[i]
 }
 
@@ -7047,7 +7047,7 @@ let user = {
     set password(pass) {
         this._password = pass.trim()
     },
-    get password () {
+    get password() {
         return this._password
     }
 }
@@ -7060,7 +7060,7 @@ console.log('                    noe '.length) // 24
 
 let user2 = {}
 
-user2.__proto__ = user 
+user2.__proto__ = user
 user2.username = 'Privet' // {username: 'Privet', _password: '123 456'}
 user2.password = ' 123 456  '
 console.log(user2) // {_password: '123 456'}
@@ -7075,28 +7075,28 @@ console.log(user2.__proto__.username) // ilia
 
 let mmm = [7, 3, 21]
 
-function t11 () {
+function t11() {
 
-let mm = []
+    let mm = []
 
     // операции с массивами которые подразумевают под собой изменение значений изменение структуры
     // количества элементов
-    for(let i = 0; i < mmm.length; i++) {
-        mm[i] = mmm[i]*2
+    for (let i = 0; i < mmm.length; i++) {
+        mm[i] = mmm[i] * 2
     }
 
     // вывод массива
 
-console.log(mm) // (3) [14, 6, 42]
+    console.log(mm) // (3) [14, 6, 42]
 
     let output = ''
     for (let i = 0; i < mmm.length; i++) {
         output += `${mm[i] + ' '}` // здесь можно добавить любой знак разделитель
     }
 
-console.log(output) // 14 6 42  - ушли запятые добавился пробел вывод в формате строки а не массива
+    console.log(output) // 14 6 42  - ушли запятые добавился пробел вывод в формате строки а не массива
 
-return output
+    return output
 
 }
 
@@ -7190,12 +7190,12 @@ finally {
 
 
 let aa = 5;
-aa = aa*2;
+aa = aa * 2;
 let finall = 'f'
 try { // это просто попытка выполнить блок кода он может либо выполниться либо нет
     document.querySelector('.suadfh').innerHTML = aa
 }// после try у нас идёт catch
-catch(err) {
+catch (err) {
     console.log(err) // TypeError: Cannot set properties of null (setting 'innerHTML') at JS_L.js:7164:48 Но ошибки - нет! программа работает дальше
     console.log('1')
     alert("Mistake")
@@ -7207,7 +7207,7 @@ console.log(aa)
 
 t12()
 
-function t12 () {
+function t12() {
     console.log('ilia')
 }
 
@@ -7340,7 +7340,7 @@ let array_31 = array_30.map(x => x)
 пробуем filter
 */
 
-let array_23 = [1,2,3]
+let array_23 = [1, 2, 3]
 let array_24 = array_23;
 
 console.log(array_23) // (3) [1, 2, 3]
@@ -7354,7 +7354,7 @@ console.log(array_23) // (4) [1, 2, 3, 4]
 console.log(array_24) // (4) [1, 2, 3, 4]
 console.log(array_25) // (3) [1, 2, 3]
 
-let array_26 = [1,2,3,[5,6],]
+let array_26 = [1, 2, 3, [5, 6],]
 
 let array_27 = [...array_26]
 
@@ -7365,7 +7365,7 @@ console.log(array_27) // (4) [1, 2, 3, Array(2)]
 
 array_26[3].push(34)
 
-console.log(array_26) 
+console.log(array_26)
 /* 
 
 (5) [1, 2, 3, Array(3), 4]
@@ -7376,7 +7376,7 @@ console.log(array_26)
 4: 4
 length: 5[[Prototype]]: Array(0)
 
-*/     
+*/
 console.log(array_27)
 /* 
 
@@ -7418,14 +7418,14 @@ JSON stringify и JSON parse - ломают объекты вложенные в
 let array_41 = [1,2,3,[5,6],]
 
 let array_42 = array_41.concat([])
-*/   
+*/
 
 // копируем массив с помощью цикла
 
-let array_28 = [1,2,3,[5,6],]
+let array_28 = [1, 2, 3, [5, 6],]
 
 let array_29 = []
-for(let i = 0; i < array_28.length; i++) {
+for (let i = 0; i < array_28.length; i++) {
     array_29[i] = array_28[i] // можно применить пуш
 }
 
@@ -7436,7 +7436,7 @@ console.log(array_29) // (4) [1, 2, 3, Array(3)]
 
 // копируем массив с помощью map
 
-let array_30 = [1,2,3,[5,6],]
+let array_30 = [1, 2, 3, [5, 6],]
 
 let array_31 = array_30.map(x => x)
 
@@ -7449,7 +7449,7 @@ console.log(array_31) // (4) [1, 2, 3, Array(3)]
 
 // копируем массив с помощью filter
 
-let array_32 = [1,2,3,[5,6],]
+let array_32 = [1, 2, 3, [5, 6],]
 
 let array_33 = array_30.filter(() => true)
 
@@ -7462,7 +7462,7 @@ console.log(array_33) // (4) [1, 2, 3, Array(3)]
 
 // копируем массив с помощью reduce
 
-let array_34 = [1,2,3,[5,6],]
+let array_34 = [1, 2, 3, [5, 6],]
 
 let array_35 = array_34.reduce((array_36, elem) => {
     array_36.push(elem)
@@ -7478,7 +7478,7 @@ console.log(array_35) // (4) [1, 2, 3, Array(3)]
 
 // копируем массив с помощью slice
 
-let array_37 = [1,2,3,[5,6],]
+let array_37 = [1, 2, 3, [5, 6],]
 
 let array_38 = array_37.slice()
 
@@ -7489,7 +7489,7 @@ console.log(array_38) // (4) [1, 2, 3, Array(3)]
 
 // the same
 
-let array_41 = [1,2,3,[5,6],]
+let array_41 = [1, 2, 3, [5, 6],]
 
 let array_42 = array_41.concat([])
 
@@ -7500,7 +7500,7 @@ console.log(array_42) // (4) [1, 2, 3, Array(3)]
 
 // еще можно 
 
-let array_43 = [1,2,3,[5,6],]
+let array_43 = [1, 2, 3, [5, 6],]
 
 let array_44 = Array.from(array_43)
 
@@ -7511,7 +7511,7 @@ console.log(array_44) // (4) [1, 2, 3, Array(3)]
 
 // копируем массив с помощью того что сработает 
 // < -------------------------------------------------------- Копирование массива если массив имеет вложенный массив
-let array_39 = [1,2,3,[5,6],]
+let array_39 = [1, 2, 3, [5, 6],]
 
 let array_40 = JSON.parse(JSON.stringify(array_39))
 
@@ -7623,8 +7623,8 @@ console.log(d(5)) 440
 Можно написать через чистую - пишите, нельзя - не пишите
 */
 
-function PureFunction (parametr) {
-    return parametr*5
+function PureFunction(parametr) {
+    return parametr * 5
 }
 
 console.log(PureFunction(5)) // 25
@@ -7633,9 +7633,9 @@ console.log(PureFunction(5)) // 25
 console.log(PureFunction(5)) // 25
 console.log(PureFunction(5)) // 25
 
-function DirtyFunction (paramet) {
-    document.querySelector('.zaebaut').innerHTML = paramet*2
-    return paramet*5
+function DirtyFunction(paramet) {
+    document.querySelector('.zaebaut').innerHTML = paramet * 2
+    return paramet * 5
 }
 
 DirtyFunction(5)
@@ -7738,7 +7738,7 @@ let y = 't'
 console.log(object_1[y][1])
 */
 
-const array_45 = [1,2,3]
+const array_45 = [1, 2, 3]
 
 console.log(array_45[2])
 console.log(array_45) /* 
@@ -7751,7 +7751,7 @@ length: 3
 */
 
 const object_1 = {
-    g:8, 1:12, p:223, 'ilia k': 18, t : [88,66,44]
+    g: 8, 1: 12, p: 223, 'ilia k': 18, t: [88, 66, 44]
 } // ключи можно писать без кавычек если они не содержат пробелов
 
 console.log(object_1) // {1: 12, g: 8, p: 223}
@@ -7797,7 +7797,7 @@ console.log(object_1[y][1]) // 66
 
 // раньше
 
-function f_1 () {
+function f_1() {
     return 1
 }
 
@@ -7807,7 +7807,7 @@ let f_2 = () => 1
 
 // стрелочные отличаются от обычных по использованию this
 
-function f_3 () {
+function f_3() {
     console.log(1)
     console.log(2)
     console.log(3)
@@ -7901,7 +7901,7 @@ const increment = () => {
 let count = 0
 
 const timeFunction = () => {
-    setTimeout(increment, 1000 )
+    setTimeout(increment, 1000)
 }
 
 document.querySelector('.zaebutton').addEventListener('click', timeFunction) // - счетчик
@@ -7925,9 +7925,9 @@ return {}
 если число >= 0  и 0 если число <=0
 */
 
-const array_46 = [1,2,3]
+const array_46 = [1, 2, 3]
 
-let array_47 = array_46.map(item => item*3)
+let array_47 = array_46.map(item => item * 3)
 
 console.log(array_47) // (3) [3, 6, 9]
 
@@ -8041,9 +8041,9 @@ file.forEach(item => {
 
 */
 
-const array_49 = [2,3,5]
+const array_49 = [2, 3, 5]
 
-let array_50 = array_49.map(item => ({'num' : item}))
+let array_50 = array_49.map(item => ({ 'num': item }))
 
 console.log(array_50); // (3) [{…}, {…}, {…}] массив вложенных объектов
 
@@ -8055,8 +8055,8 @@ const readJson = file => {
 
 const clickHandle = () => {
     fetch('file.json')
-    .then(resultatFromServer => resultatFromServer.json())
-    .then(readJson)
+        .then(resultatFromServer => resultatFromServer.json())
+        .then(readJson)
 }
 
 document.querySelector('.zaebutton').addEventListener
@@ -8083,16 +8083,16 @@ const f_5 = n => {'temp' : n} - ругается но если использу�
 const f_5 = n => ({'temp' : n})
 */
 
-const f_6 = n => n >=0 ? n : 0;
+const f_6 = n => n >= 0 ? n : 0;
 console.log(-5)
 console.log(35)
 
-const f_5 = n => ({'temp' : n})
+const f_5 = n => ({ 'temp': n })
 
 //_________________________________ Удаляем дубликаты из массива по красоте. JavaScript __________________________
 
 
-const array_52 = [1,2,3,1,9,3,4,5,5,6,7,7,8,8,9]
+const array_52 = [1, 2, 3, 1, 9, 3, 4, 5, 5, 6, 7, 7, 8, 8, 9]
 
 console.log(array_52) // (18) [1, 1, 2, 2, 3, 9, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9]
 
@@ -8133,7 +8133,7 @@ size: 9
 
 // 1 way
 
-let variable_3 = [...variable_2] 
+let variable_3 = [...variable_2]
 console.log(variable_3) // (9) [1, 2, 3, 9, 4, 5, 6, 7, 8]
 
 // 2 way
@@ -8199,7 +8199,7 @@ let variable_5 = array_52.filter((item, index) => {
 
 let variable_5 = array_52.filter((item, index) => {
     return array_52.indexOf(item) !== index //
-}) 
+})
 
 console.log(variable_5); // (9) [1, 2, 3, 9, 4, 5, 6, 7, 8]
 
@@ -8232,7 +8232,7 @@ let variable_6 = array_52.reduce((result,item) => {
 аккамулятора переменной result
 */
 
-let variable_6 = array_52.reduce((result,item) => {
+let variable_6 = array_52.reduce((result, item) => {
     return result.includes(item) ? result : [...result, item]
 }, [])
 
@@ -8265,7 +8265,7 @@ const array_53 = [
 ]
 
 let res = array_53.some(item => {
-     return item.level === "doomer" - читать нужно как есть ли в массиве объектов свойство item.level = doomer
+     return item.level === "doomer" - читать нужно как есть ли в массиве объектов свойство item.level = doomer если есть возвращается true если нет возвратится false
 })
 
 item - поочереди получает объекты из массива
@@ -8275,26 +8275,58 @@ item - поочереди получает объекты из массива
         "level" : "hacker"
     }
 
+удобный способ проверить наличие элемента в массиве, но наличие элемента в массиве означает что там есть 1 или более элементов
+если мне необходимо проверить все элементы в массиве чтобы они совпадали по критерию
+
+some - я находил одно и более совпадений
+
+допустим мне пришел блок каких-то данных я должен проверить все ли данные совпадают по диапазону и после этого
+либо начать обрабатывать массив либо откинуть как не корректный для этого используем every
+
+every - здесь мне нужны все совпадения я напишу every
+
+let res_2 = array_53.every(item => {
+    return item.level === "hacker"
+})
+
+console.log(res_2) // false то есть в массиве объектов array_53 - не все являются hacker потому что есть 1 doomer 1 lamer
+
+то есть я всего лишь проверяю на соответствие some - одно совпадение в массиве объектов every совпадение в каждом объекте из массива объектов
 
 
+Есть способ сделать то же самое через flag
+
+flag - это переменная которая принимает какое - либо значение
+чаще всего это либо true либо false
+
+let flag = false
+
+далее я перебираю свой объект, но я могу его перебрать любым циклом
+например циклом forEach абсолютно аналогично я перебираю с помощью callback функции
+
+array_53.forEach(item => {
+    if (item.level === "hacker") {
+        return flag = true
+    }
+})
 */
 
 const array_53 = [
     {
-        "name" : "Sergey",
-        "level" : "hacker"
+        "name": "Sergey",
+        "level": "hacker"
     },
     {
-        "name" : "ivan",
-        "level" : "lamer"
+        "name": "ivan",
+        "level": "lamer"
     },
     {
-        "name" : "Peth",
-        "level" : "doomer"
+        "name": "Peth",
+        "level": "doomer"
     },
     {
-        "name" : "Vasiliy",
-        "level" : "hacker"
+        "name": "Vasiliy",
+        "level": "doomer"
     },
 ]
 
@@ -8303,3 +8335,278 @@ let res = array_53.some(item => {
 })
 
 console.log(res) // true
+
+let res_2 = array_53.every(item => {
+    return item.level === "hacker"
+})
+
+console.log(res_2) // false то есть в массиве объектов array_53 - не все являются hacker потому что есть 1 doomer 1 lamer
+
+let flag = false
+
+array_53.forEach(item => {
+    if (item.level === "hacker") {
+        return flag = true
+    }
+})
+
+console.log(flag) // true
+
+// find
+
+/* 
+часто чтобы узнать есть ли в массиве данный объект желательно его получить для манипуляций поэтому 
+some который говорит просто да есть да нет совпадения не всегда удобен
+чаще всего удобнее применять для такой операции find
+*/
+
+let res_3 = array_53.find(item => {
+    return item.level === "doomer"
+})
+
+console.log(res_3) // {name: 'Peth', level: 'doomer'}
+
+/*
+если у меня item.level === doomer то я возвращаю такое значение, не говорю что оно просто есть, а именно возвращаю
+console.log(res_3) // {name: 'Peth', level: 'doomer'}
+то есть find возвращает сам item
+*/
+
+// из 2-х элементов с doomer возвращается тот который выше в коде
+
+/*
+таким образом find в отличие от some проверяет массив
+если совпадения есть он возвращает текущий элемент
+первый встреченный текущий элемент
+
+some можно эмулировать с помощью includes да но есть ограничение по вложенности массивов и работе с объектами
+можно это сделать с помощью перебора но как только вы встречаете конструкцию find вы сразу понимаете что-то ищут
+и если это будет найдено то оно будет помещено в переменную res_3
+
+если совпадений нет find возвратит undefined то есть мы можем проверить на найденно или нет
+*/
+
+// _______________________________ 5 вопросов на собеседовании JavaScript _______________________________________
+
+
+// 1 question
+
+
+let dwayne = {};
+let daniel = {
+    firstName: 'Daniel'
+}
+
+let jason = {
+    key: 'jason'
+}
+
+dwayne[daniel] = 123
+dwayne[jason] = 456
+
+dwayne[daniel]
+
+console.log(dwayne[daniel]) // что будет в консоли
+
+/* 
+проблема в том что мы здесь dwayne[здесь] можем разместить переменную
+если в такой переменной лежит строка то получится что в объекте dwayne будет ключ в виде этой строки daniel и присвоено ее значение
+здесь проблема в том что внутри переменной лежит объект
+
+let daniel = {
+    firstName: 'Daniel'
+}
+
+и что будет в консоли
+выведем объект на страницу
+*/
+document.querySelector('.zaebout_2').innerHTML = daniel // [object Object]
+/* 
+потому что нельзя вывести объект просто так поэтому js преобразует его в строку
+
+когда мы работаем с объектами есть ограничение на то что может быть ключом объекта
+и в данном случае объект не может быть ключом
+но в качестве ключа попадет [object Object]: 456
+то есть мой объект был преобразован в строку [object Object]
+
+объект был преобразован в строку и записано значение то есть получили обычный строка ключ : значение [object Object]: 456
+
+тоже самое произвойдет и в нашей задаче и выведется 456
+
+свойством у объекта может быть только строка
+*/
+
+/* 
+Если в переменной лежит строка то получится в object_2 будет ключ в виде этой строки и присвоено значение
+
+let variable_7 = 'asdfas'
+
+let object_2 = {}
+
+object_2[variable_7] = 3456
+
+console.log(object_2) // {{asdfas: 3456}
+
+*/
+
+// если в переменной лежит строка
+
+let variable_7 = 'asdfas'
+
+let object_2 = {}
+
+object_2[variable_7] = 3456
+
+console.log(object_2) // {{asdfas: 3456}
+
+// если внутри переменной лежит объект
+
+let variable_8 = {
+    skdjhf: 'sadkjuh'
+}
+
+let object_3 = {}
+
+object_3[variable_8] = 890
+
+console.log(object_3) // {[object Object]: 890}
+
+/*
+когда мы работаем с объектами есть ограничение на то что может быть ключом объекта
+и в данном случае объект не может быть ключом
+но в качестве ключа попадет [object Object]: 456
+то есть мой объект был преобразован в строку [object Object]
+
+[object Object] - строка
+
+объект был преобразован в строку и записано значение то есть получили обычную строку, ключ : значение, [object Object]: 456
+
+свойством у объекта может быть только строка! {}.toString()
+
+Когда обращаемся к объекту по ключу который является сам обьектом, то у обьекта вызывается метод приведения к строке {}.toString() что выводит 'object Object'.
+Потому что ключом обьекта может быть только строка или симбол. Получается неважно какой обьект мы передаем в качестве ключа мы все равно обращаемся по ключу ['object object'].
+Тоесть один раз задали значение 123 а второй раз переписали на 456.
+*/
+
+
+// 2 question
+
+
+const variable_9 = (function (a) {
+    delete a;
+    // console.log(a) -> 5
+    return a
+})(5)
+
+console.log(variable_9) // 5
+
+/* 
+у меня есть функция 
+(function (a) {
+    delete a;
+    return a
+})
+которая вызывается с параметром 5
+})(5)
+то есть 5 попадает в a
+
+delete a - delete используется для удаления значений из объектов
+a - примитив поэтому удалить его нельзя это обычная переменная параметр переданный в функцию
+соответственно команда delete a что есть что нет
+delete a;
+console.log(a) // 5
+
+соответственно внутри переменной variable_9 будет просто значение 5 потому что функция возвращает 5
+
+то есть функцию
+
+const variable_9 = (function (a) {
+    delete a;
+    // console.log(a) -> 5
+    return a
+})(5)
+
+можно заменить на
+
+const variable_10 = a => a
+
+let variable_11 = variable_10(5)
+
+console.log(variable_11) // 5
+
+*/
+
+const variable_10 = a => a
+
+let variable_11 = variable_10(5)
+
+console.log(variable_11) // 5
+
+
+// 3 question что выведет консоль
+
+
+console.log({ a: 1 } == { a: 1 }); // false
+console.log({ a: 1 } === { a: 1 }); // false
+
+/*
+Если в массиве или объекте содержатся одинаковые значения это не значит что массивы равны
+
+Работая с объектами мы работаем со ссылками на объекты и создавая объект под новым именем мы создаем новую ссылку на новую камеру хранения
+{ a: 1 } == { a: 1 } это 2 разных объекта
+внутри которых лежит одинаковый ключ и одинаковое значение
+
+let object_4 = { a: 1 }
+let object_5 = { a: 1 }
+
+console.log(object_4 == object_5)  // false
+console.log(object_4 === object_5) // false
+
+с переменными такая же тема потому что переменные это такие же ссылки
+
+let variable_12 = 4
+let variable_13 = 5
+
+console.log(variable_12 == variable_13) // false
+
+то есть мы не можем сказать объекты или массивы или переменные равны
+мы можем сказать равны их значения
+
+console.log([2] == [2])  // false
+console.log([2] === [2]) // false
+
+*/
+
+
+// 4 question какой из этих методов лучше
+
+
+const jamesBond = {
+    firstName: 'Daniel',
+    lastName: 'Craig',
+    getFullName: function () { // метод getFullName который возвращает строку
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+
+console.log(jamesBond.getFullName()); // Daniel Craig
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+}
+
+Person.prototype.getFullName = function () {
+    return `${this.firstName} ${this.lastName}`.trim()
+}
+
+const jamesBond2 = new Person('Daniel', 'Craig')
+console.log(jamesBond2.getFullName()); // Daniel Craig
+
+
+
+// 5 question отличие объекта от map
+
+
