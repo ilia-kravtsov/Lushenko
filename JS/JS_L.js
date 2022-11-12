@@ -8609,4 +8609,6 @@ console.log(jamesBond2.getFullName()); // Daniel Craig
 
 // 5 question отличие объекта от map
 
+console.log('5 question')
+
 
