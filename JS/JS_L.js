@@ -8610,37 +8610,3 @@ console.log(jamesBond2.getFullName()); // Daniel Craig
 // 5 question отличие объекта от map
 
 console.log('5 question')
-
-
-function stringToArray(string){
-    return string.split(' ');
-  }
-  
-  function contamination(text, char){
-    return char.repeat(text.length)
-    }
-  
-    function booleanToString(b){
-      return b ? "true" : "false";
-    }
-  
-    function repeatStr (n, s) {
-      return s.repeat(n);
-    }
-  
-    function well(x) {
-      switch (x.filter(i => i === 'good').length) {
-        case 0:
-          return 'Fail!'
-        case 1:
-        case 2:
-          return 'Publish!'
-        default:
-          return 'I smell a series!'
-      }
-    }
-  
-    const stringToNumber = function(str){
-      return Number(str);
-    }
-  
