@@ -1,77 +1,78 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lushenko</title>
-    <link rel="stylesheet" href="./CSS/CSS_L.css"> <!-- Можно link гугл шрифты через второй link по ссылке-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/CSS_L.css" />
+    <!-- Можно link гугл шрифты через второй link по ссылке-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <h1 class="header">Practice JavaScript</h1>
-    <span class="material-icons-outlined">
-        menu
-    </span>
+    <span class="material-icons-outlined"> menu </span>
     <p id="lorem"></p>
-
 
     <div id="one">One</div>
     <div id="two">Two</div>
     <div id="three">Three</div>
 
     <!-- ________________ Основы ввода данных __________________________ -->
-    <input type="text" class="input_in">
+    <input type="text" class="input_in" />
     <button class="butGo">Go</button>
     <div class="onPage"></div>
 
     <!-- ________________ Ветвление if else switch ____________________ -->
     <label for="ageTest">Enter your age:</label>
-    <input type="text" class="age" value="" id="ageTest">
+    <input type="text" class="age" value="" id="ageTest" />
     <button class="ageTry">Try</button>
     <div class="ageOnPage"></div>
 
     <!-- Task 1 -->
 
     <button class="firstBut">1 Task</button>
-    <input type="text" class="firstInp" value="">
+    <input type="text" class="firstInp" value="" />
     <div class="firstDiv"></div>
 
     <!-- Task 2 -->
 
     <button class="secondBut">2 Task</button>
-    <input type="text" class="secondInp" value="">
-    <input type="text" class="secondInp2" value="">
+    <input type="text" class="secondInp" value="" />
+    <input type="text" class="secondInp2" value="" />
     <div class="secondDiv"></div>
 
     <!-- Task 3 -->
 
     <button class="thirdBut">3 Task</button>
-    <input type="number" class="thirdInp" value="">
-    <input type="number" class="thirdInp2" value="">
+    <input type="number" class="thirdInp" value="" />
+    <input type="number" class="thirdInp2" value="" />
     <div class="thirdDiv"></div>
 
     <!-- ________________ Работаем с формами __________________ -->
 
     <!-- Type input 'password' -->
     <div>
-        <input type="password" id="inpPasswordId">
-        <button class="buttPasswordClass">Push</button>
+      <input type="password" id="inpPasswordId" />
+      <button class="buttPasswordClass">Push</button>
     </div>
 
     <!-- Type input 'color' -->
     <div id="colorDiv">
-        <input type="color" id="inpColorId">
-        <button class="buttColorClass">Push</button>
+      <input type="color" id="inpColorId" />
+      <button class="buttColorClass">Push</button>
     </div>
 
     <!-- Type input 'date'-->
     <div>
-        <input type="date" id="inpDateId">
-        <button class="buttDateClass">Push</button>
+      <input type="date" id="inpDateId" />
+      <button class="buttDateClass">Push</button>
     </div>
 
     <!-- Type input 'range'
@@ -80,20 +81,19 @@
     для регулировки min max добавляются атрибуты min max -->
 
     <div>
-        <input type="range" id="inpRangeId" min="00" max="100" value="50">
-        <button class="buttRangeClass">Push</button>
-        <div id="divOutValueInput">50</div>
+      <input type="range" id="inpRangeId" min="00" max="100" value="50" />
+      <button class="buttRangeClass">Push</button>
+      <div id="divOutValueInput">50</div>
     </div>
 
     <!-- Type input Checkbox -->
 
     <div>
-        <label for="checkbox_1">Click </label>
-        <input type="checkbox" id="checkbox_1">
-        <label for="checkbox_1">me </label>
-        <button class="buttCheckClass">Push</button>
-        <div id="divOutCheck"></div>
-
+      <label for="checkbox_1">Click </label>
+      <input type="checkbox" id="checkbox_1" />
+      <label for="checkbox_1">me </label>
+      <button class="buttCheckClass">Push</button>
+      <div id="divOutCheck"></div>
     </div>
 
     <!-- Textarea -->
@@ -115,10 +115,15 @@
 
     -->
     <form action="" id="form_1">
-        <textarea id="textareaId_2" cols="30" rows="5" name="textForm_1"></textarea>
-        <input type="text" id="inpForm_2">
-        <button id="buttTextAreaId_2">Push</button>
-        <div id="divOutTextarea_2"></div>
+      <textarea
+        id="textareaId_2"
+        cols="30"
+        rows="5"
+        name="textForm_1"
+      ></textarea>
+      <input type="text" id="inpForm_2" />
+      <button id="buttTextAreaId_2">Push</button>
+      <div id="divOutTextarea_2"></div>
     </form>
 
     <!-- Task 1 -->
@@ -128,7 +133,7 @@
 
     <!-- Task 2 -->
 
-    <input id="inpTask_2">
+    <input id="inpTask_2" />
     <div id="divOutTask_2"></div>
 
     <!-- Task 3 -->
@@ -145,9 +150,9 @@
     <!-- Radio buttons 
     для группы радио кнопок обязателен атрибут name который повзоляет выбрать только одну-->
 
-    <div>Radio_1 <input type="radio" name="samename" value="1" checked></div>
-    <div>Radio_2 <input type="radio" name="samename" value="2"></div>
-    <div>Radio_3 <input type="radio" name="samename" value="3"></div>
+    <div>Radio_1 <input type="radio" name="samename" value="1" checked /></div>
+    <div>Radio_2 <input type="radio" name="samename" value="2" /></div>
+    <div>Radio_3 <input type="radio" name="samename" value="3" /></div>
     <button id="buttRadioId_1">Push</button>
 
     <!-- Continue -->
@@ -216,16 +221,17 @@
     <!-- Textcontent || innerHTML -->
 
     <div class="loremDivContainer">
-        <h2 class="text-center">Lorem Text Content</h2>
-        <div class="primer">
-            Lorem<br> ipsum dolor sit, amet <b>consectetur</b> adipisicing elit.
-            <i>Voluptatibus</i> voluptatum modi expedita quos accusantium <span
-                class="loremSpanBlock">dignissimos</span> ipsum voluptatem,
-            quas eligendi nisi eaque rem explicabo at distinctio,
-            maxime pariatur, odit iusto alias.
-        </div>
+      <h2 class="text-center">Lorem Text Content</h2>
+      <div class="primer">
+        Lorem<br />
+        ipsum dolor sit, amet <b>consectetur</b> adipisicing elit.
+        <i>Voluptatibus</i> voluptatum modi expedita quos accusantium
+        <span class="loremSpanBlock">dignissimos</span> ipsum voluptatem, quas
+        eligendi nisi eaque rem explicabo at distinctio, maxime pariatur, odit
+        iusto alias.
+      </div>
 
-        <div id="divOutLorem_1"></div>
+      <div id="divOutLorem_1"></div>
     </div>
 
     <!-- Циклы Do and Do While -->
@@ -238,11 +244,11 @@
     <button class="toggle">Toggle</button>
 
     <p>Выберите тип бензина:</p>
-    <input type="text" class="gallons">
+    <input type="text" class="gallons" />
     <div>
-        <button class="gas" data="1.2">A 92</button>
-        <button class="gas" data="1.6">A 95</button>
-        <button class="gas" data="1.9">A 98</button>
+      <button class="gas" data="1.2">A 92</button>
+      <button class="gas" data="1.6">A 95</button>
+      <button class="gas" data="1.9">A 98</button>
     </div>
 
     <div id="addCreateElementJS"></div>
@@ -255,8 +261,8 @@
 
     <!-- Специализированная переменная, задача нажимая кнопку передвигать еденицу -->
     <div>
-        <button id="oneMoveButton">Push</button>
-        <div class="divOutArray_2"></div>
+      <button id="oneMoveButton">Push</button>
+      <div class="divOutArray_2"></div>
     </div>
 
     <!-- Строим трапецию из * -->
@@ -274,17 +280,17 @@
     <!-- Получаем прогноз погоды по API -->
 
     <div class="pricing-table-row">
-        <div class="package featured">
-            <p class="city-name">London</p>
-            <hr>
-            <p class="temperature">10&deg;</p>
-            <p class="weather">Clouds</p>
-            <hr>
-            <ul class="features">
-                <li>Feature 1</li>
-            </ul>
-            <button class="button-primary">Go</button>
-        </div>
+      <div class="package featured">
+        <p class="city-name">London</p>
+        <hr />
+        <p class="temperature">10&deg;</p>
+        <p class="weather">Clouds</p>
+        <hr />
+        <ul class="features">
+          <li>Feature 1</li>
+        </ul>
+        <button class="button-primary">Go</button>
+      </div>
     </div>
 
     <!-- Set в Javascript -->
@@ -307,50 +313,50 @@
     <div class="divclassforMouse_4">4</div>
     <div class="divclassforMouse_5">5</div>
     <div class="divclassforMouse_6">6</div>
-    <progress class='progress' value="10" max="100"></progress>
+    <progress class="progress" value="10" max="100"></progress>
     <button class="buttonProgressClass">Progress</button>
 
     <!-- События клавиатуры -->
 
     <div>
-        <input type="text" class="classInput_1">
+      <input type="text" class="classInput_1" />
     </div>
     <div>
-        <input type="text" class="classInput_2">
+      <input type="text" class="classInput_2" />
     </div>
     <div>
-        <input type="text" class="classInput_3">
+      <input type="text" class="classInput_3" />
     </div>
     <div>
-        <input type="text" class="classInput_4">
-    </div>
-
-    <div>
-        <label><input type="checkbox" class="classInput_5">Caps Lock</label>
+      <input type="text" class="classInput_4" />
     </div>
 
     <div>
-        <label><input type="text" class="classInput_6">last example</label>
+      <label><input type="checkbox" class="classInput_5" />Caps Lock</label>
+    </div>
+
+    <div>
+      <label><input type="text" class="classInput_6" />last example</label>
     </div>
 
     <!-- События JavaScript на iPhone и Android телефонах. JavaScript v.2.0 -->
 
     <div class="forAlldiv">
-        <div class="block_1">BlockIn_1</div>
-        <div class="out_1"></div>
-        <hr>
-        <div class="block_2">BlockIn_2</div>
-        <div class="out_2"></div>
-        <hr>
-        <div class="block_3">BlockIn_3</div>
-        <div class="out_3"></div>
-        <hr>
-        <div class="block_4">BlockIn_4</div>
-        <div class="out_4"></div>
-        <hr>
-        <div class="block_5">BlockIn_5</div>
-        <div class="out_5"></div>
-        <hr>
+      <div class="block_1">BlockIn_1</div>
+      <div class="out_1"></div>
+      <hr />
+      <div class="block_2">BlockIn_2</div>
+      <div class="out_2"></div>
+      <hr />
+      <div class="block_3">BlockIn_3</div>
+      <div class="out_3"></div>
+      <hr />
+      <div class="block_4">BlockIn_4</div>
+      <div class="out_4"></div>
+      <hr />
+      <div class="block_5">BlockIn_5</div>
+      <div class="out_5"></div>
+      <hr />
     </div>
 
     <!-- Local Storage -->
@@ -419,11 +425,61 @@
     <div class="zaebout_2"></div>
 
     <!-- Ожидаем загрузку изображения JavaScript, плюс - ограничиваем скорость загрузки -->
-    <img src="./10.jpg" alt="lake" id="Img">
-    <img src="./11.jpg" alt="sunset" id="Img">
-    <img src="./12.jpg" alt="fog mountains" id="Img">
+    <img src="./10.jpg" alt="lake" id="Img" />
+    <img src="./11.jpg" alt="sunset" id="Img" />
+    <img src="./12.jpg" alt="fog mountains" id="Img" />
 
-    <script src="./JS/JS_L.js">JS</script>
-</body>
+    <!-- Переключаем части статьи на мобильном. JavaScript -->
 
+    <div class="container">
+      <article>
+        <header>
+          <h1>Скорпион</h1>
+        </header>
+        <img src="" alt="" />
+        <section class="sections">
+          <h2>1_section</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eum
+            magnam quasi veritatis! Mollitia voluptatem ab repellat autem
+            beatae! Nesciunt accusantium nulla officia aspernatur pariatur ipsum
+            itaque cumque, non quisquam, tempore ut, reprehenderit deserunt?
+            Eligendi minima corrupti vel quia provident ullam! Necessitatibus
+            sequi illo quidem reiciendis. Id doloribus accusamus quaerat!
+          </p>
+        </section>
+        <section class="sections">
+            <h2>2_section</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eum
+              magnam quasi veritatis! Mollitia voluptatem ab repellat autem
+              beatae! Nesciunt accusantium nulla officia aspernatur pariatur ipsum
+              itaque cumque, non quisquam, tempore ut, reprehenderit deserunt?
+              Eligendi minima corrupti vel quia provident ullam! Necessitatibus
+              sequi illo quidem reiciendis. Id doloribus accusamus quaerat!
+            </p>
+          </section>
+          <section class="sections">
+            <h2>3_section</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eum
+              magnam quasi veritatis! Mollitia voluptatem ab repellat autem
+              beatae! Nesciunt accusantium nulla officia aspernatur pariatur ipsum
+              itaque cumque, non quisquam, tempore ut, reprehenderit deserunt?
+              Eligendi minima corrupti vel quia provident ullam! Necessitatibus
+              sequi illo quidem reiciendis. Id doloribus accusamus quaerat!
+            </p>
+          </section>
+          <footer class="button-footer">
+            <button class="left">Left</button>
+            <button class="right">Right</button>
+
+          </footer>
+      </article>
+    </div>
+
+    <script src="./JS/JS_L.js">
+      JS
+    </script>
+  </body>
 </html>
