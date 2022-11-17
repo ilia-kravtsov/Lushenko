@@ -70,3 +70,16 @@ div.divclassforMouse_6 {
     height: 50px;
     position: relative;
 }
+
+.button-footer {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .button-footer {
+        display: block;
+    }
+    .hide-section {
+        display: none
+    }
+}
