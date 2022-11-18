@@ -83,3 +83,18 @@ div.divclassforMouse_6 {
         display: none
     }
 }
+
+.outputt {
+    margin: 50px auto;
+}
+
+.block {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+
+.blue {
+    background: blue;
+    display: inline-block;
+}
