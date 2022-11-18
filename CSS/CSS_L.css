@@ -89,12 +89,61 @@ div.divclassforMouse_6 {
 }
 
 .block {
-    width: 75px;
-    height: 75px;
+    width: 15px;
+    height: 15px;
     margin: 10px;
 }
 
 .blue {
     background: blue;
     display: inline-block;
+}
+
+.green {
+    background: green;
+    margin: 10px auto;
+}
+
+.orange {
+    background: orange;
+    position: absolute;
+    left: 50%; /* смещает от левого края*/
+    margin-left: -34.5px; /* половина ширины оранжевого блока для того чтобы сдвиг произошел на эту половину*/
+}
+
+.relative {
+    position: relative;
+}
+
+.orange2 {
+    background: orange;
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50px,0);
+}
+
+.gray {
+    background: gray;
+}
+
+.flex-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-div {
+    display: grid;
+    grid-template-areas: "a";
+}
+
+.grid-div-child {
+    background: gray;
+    grid-area: a;
+    align-self: center;
+    justify-self: center;
+}
+
+.spacess {
+    background: gray;
 }
