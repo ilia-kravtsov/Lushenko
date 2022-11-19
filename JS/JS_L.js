@@ -9023,3 +9023,114 @@ document.querySelector('.box-2').append(block)
 */
 
 // _____________ Перетягивание элементов ( drag & drop) на JavaScript _________________
+
+/* 
+1-е обозначить элемент который я хочу перетаскивать для этого добавляем атрибут draggable="true"
+теперь я получаю возможность перемещать элемент но по умолчанию в html мы не можем переместить один элемент на другой
+для этого нам нужно отменить стандартное поведение элемента 
+*/
+
+// получаем все элементы html страницы
+
+const zone_1 = document.querySelector('.zone-1')
+const zone_2 = document.querySelector('.zone-2')
+const ufo = document.querySelector('#ufo')
+
+// так как перемещать мы будем из zone-2 в zone-1 то для zone-2 
+
+zone_1.ondragover = allowDrop;
+
+function allowDrop(event) {
+  event.preventDefault()
+} // - после перетаскивания картинки в zone_2 изменяется курсор мышки как положено но при отпускании пока ничего не происходит
+
+// в момент начала перетаскивания внутри event есть данные которые я могу сохранить и потом извлечь пишем события для imgdrag
+
+ufo.ondragstart = drag
+
+function drag(event) {
+  event.dataTransfer.setData('id', event.target.id)
+}
+
+/* 
+В event dataTransfer я помещаю новую запись с ключом 'id' и со значением event.target.id то есть с id перемещаемого элемента
+
+target – это «целевой» элемент, на котором произошло событие, в процессе всплытия он неизменен. 
+this – это «текущий» элемент, до которого дошло всплытие, на нём сейчас выполняется обработчик
+
+все перетаскивание заключается в том что браузер рисует перетаскиваемый объект а я просто в event кладу необходимые мне данные которые потом использую
+после того как я перетащил и бросил наступает событие я бросаю над zone-1 поэтому для zone-1 пишу
+*/
+
+zone_1.ondrop = drop
+zone_2.ondrop = drop
+
+function drop(event) {
+  // получаю те данные которые сохранил внутри datatranfer
+  let itemId = event.dataTransfer.getData('id')
+  console.log(itemId)
+  event.target.append(document.getElementById(itemId))
+}
+
+/* 
+Имея id имея класс имея в принципе какую-либо ссылку на элемент и идентификатор элемента я могу переместить этот объект в новый элеменнт
+event.target.append(document.getElementById(itemId))
+
+нихера не перемещается
+*/
+
+// ______________________ Конвертер в римские числа. Что лучше 2 массива или 1 объект? JavaScript ______________________
+
+/* 
+Римские цифры кодируются буквами
+
+1 подход создание двух разных массивов
+
+const decimalValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+const romanValue = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+
+2 подход это использование одного объекта
+
+const romes = {'M': 1000, 'CM': 900, 'D':500, 'CD':400, 'C': 100, 'XC': 90, 'L': 50, 'XL': 40, 'X': 10, 'IX':9, 'V':5, 'IV': 4, 'I':1}
+
+*/
+
+const decimalValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+const romanValue = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+
+const romes = {'M': 1000, 'CM': 900, 'D':500, 'CD':400, 'C': 100, 'XC': 90, 'L': 50, 'XL': 40, 'X': 10, 'IX':9, 'V':5, 'IV': 4, 'I':1}
+
+function romanConventerOne(a) {
+// так как римские числа это строки то я заготовлю строку
+let result = ''
+// перебираю массив decimalValue и проверяю число которое ввел пользователь (a) больше 1000 или нет item - текущее число, я проверяю остаток от деления потому что римские цифры так отображаются проверяю относительно максимального числа поэтому от 1000
+// то есть можно ли делить введенное число на 1000 вмещается ли это число в то что ввел пользователь
+// если можно делить то result
+decimalValue.map((item, index)=>{
+  while(item <= a ) {
+    result += romanValue[index]
+    // и мне нужно отнять от числа которое ввел пользователь число из decimalValue
+    a = a - item
+    console.tableA({
+      "a": a + item,
+      "item": item,
+      "a = a - item"
+    })
+  }
+})
+
+
+}
+
+// function romanConverterOne(a) {
+
+// }
+
+document.querySelector('#buttRome').onclick = () => {
+  let num = +document.querySelector('#inputRome').value
+  document.querySelector('#divRome').innerHTML = romanConventerOne(num)
+}
+
+/*
+
+*/
