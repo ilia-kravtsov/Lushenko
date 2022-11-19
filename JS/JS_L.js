@@ -9010,3 +9010,16 @@ auto - значит подсчитывается одинаковый отсту
 Суть способа в том что мы должны поставить столько неразрывных пробелов сколько нам нужно &nbsp; прямо в html между родительским и потомком
 и на потомка повесить style = 'display: inline-block;'
 */
+
+
+// __________ 2 вопроса к jun-middle, и только 50 процентов отвечают правильно. JavaScript _____________
+
+/* 
+const block = document.createElement('div')
+block.classList.add('block')
+document.querySelector('.box-1').append(block) что будет если я добавлю
+document.querySelector('.box-2').append(block)
+квадрат исчезнет в первом и добавится во втором, нафига это все не понятно.
+*/
+
+// _____________ Перетягивание элементов ( drag & drop) на JavaScript _________________
