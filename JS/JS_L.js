@@ -8309,7 +8309,7 @@ let res = array_53.some((item) => {
   return item.level === "doomer";
 });
 
-console.log(res); // true
+console.log(res); // __ true
 
 let res_2 = array_53.every((item) => {
   return item.level === "hacker";
