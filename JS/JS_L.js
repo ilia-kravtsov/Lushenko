@@ -8310,6 +8310,7 @@ let res = array_53.some((item) => {
 });
 
 console.log(res); // _____ true
+console.log(res); // _____ true
 
 let res_2 = array_53.every((item) => {
   return item.level === "hacker";
